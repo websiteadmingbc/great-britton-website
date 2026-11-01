@@ -15,3 +15,41 @@ document.addEventListener('DOMContentLoaded',()=>{const button=document.querySel
   });
   if(dialog){dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});}
 })();
+
+
+// Homepage inquiry form (Formspree)
+(() => {
+  const form = document.getElementById('inquiry-form');
+  if (!form) return;
+  const status = form.querySelector('.form-status');
+  const btn = form.querySelector('button[type="submit"]');
+  form.querySelector('[name="landing_page"]').value = location.href;
+  const setStatus = (msg, cls) => { status.textContent = msg; status.className = 'form-status ' + (cls || ''); };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let firstBad = null;
+    form.querySelectorAll('[required]').forEach(el => {
+      const bad = !el.value.trim();
+      el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad && !firstBad) firstBad = el;
+    });
+    const phone = form.phone.value.trim(), email = form.email.value.trim();
+    const emailBad = email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    form.email.setAttribute('aria-invalid', emailBad ? 'true' : 'false');
+    if (firstBad) { setStatus('Please fill in the highlighted fields.', 'err'); firstBad.focus(); return; }
+    if (!phone && !email) { form.phone.setAttribute('aria-invalid', 'true'); setStatus('Please add a phone number or email so we can reach you.', 'err'); form.phone.focus(); return; }
+    if (emailBad) { setStatus('Please check the email address.', 'err'); form.email.focus(); return; }
+    if (form.company_website.value) return; // honeypot
+    btn.disabled = true; setStatus('Sending…');
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      form.reset();
+      setStatus("Thanks — we've received your project details and will be in touch soon.", 'ok');
+      if (window.clarity) window.clarity('event', 'inquiry_submitted');
+      if (window.gtag) window.gtag('event', 'generate_lead', { form: 'main_site_inquiry' });
+    } catch (err) {
+      setStatus('Something went wrong sending your request. Please call (510) 432-8461.', 'err');
+    } finally { btn.disabled = false; }
+  });
+})();
