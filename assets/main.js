@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded',()=>{const button=document.querySel
       form.reset();
       setStatus("Thanks — we've received your project details and will be in touch soon.", 'ok');
       if (window.clarity) window.clarity('event', 'inquiry_submitted');
-      if (window.gtag) window.gtag('event', 'generate_lead', { form: 'main_site_inquiry' });
+      if (window.gtag) window.gtag('event', 'generate_lead', { form: 'main_site_inquiry', came_from: (window.GB_CONTACT && window.GB_CONTACT.source) || 'direct' });
     } catch (err) {
-      setStatus('Something went wrong sending your request. Please call (510) 432-8461.', 'err');
+      setStatus('Something went wrong sending your request. Please call ' + ((window.GB_CONTACT && window.GB_CONTACT.phoneText) || '(510) 432-8461') + '.', 'err');
     } finally { btn.disabled = false; }
   });
 })();
@@ -64,3 +64,70 @@ document.addEventListener('click', (e) => {
     transport_type: 'beacon'
   });
 });
+
+// Visitors who came through start.greatbrittongc.com (within 30 days):
+// show Collective Design Studio contact details and route the form to the start-page Formspree form.
+(() => {
+  const START = {
+    source: 'start',
+    phoneText: '(408) 455-3800',
+    phoneTel: 'tel:4084553800',
+    email: 'dylansimpson@greatbrittongc.com',
+    formAction: 'https://formspree.io/f/mkjjzlkv'
+  };
+  const MAIN_PHONE_TEXT = '(510) 432-8461';
+  let fromStart = false;
+  try {
+    fromStart = /(?:^|;\s*)gb_src=start(?:;|$)/.test(document.cookie);
+    const ref = new URLSearchParams(location.search).get('ref');
+    let refHost = '';
+    try { refHost = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+    if (ref === 'start' || refHost === 'start.greatbrittongc.com') {
+      fromStart = true;
+      document.cookie = 'gb_src=start; domain=greatbrittongc.com; path=/; max-age=2592000; SameSite=Lax; Secure';
+    }
+  } catch (e) {}
+  if (!fromStart) return;
+  window.GB_CONTACT = START;
+
+  // Phone links: swap number and visible text (keeps icons intact)
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+    a.setAttribute('href', START.phoneTel);
+    const walker = document.createTreeWalker(a, NodeFilter.SHOW_TEXT);
+    let n;
+    while ((n = walker.nextNode())) {
+      if (n.nodeValue.includes(MAIN_PHONE_TEXT)) n.nodeValue = n.nodeValue.split(MAIN_PHONE_TEXT).join(START.phoneText);
+    }
+  });
+
+  // Email: add to the contact block
+  const phones = document.querySelector('.phones');
+  if (phones && !phones.querySelector('a[href^="mailto:"]')) {
+    const tel = phones.querySelector('a[href^="tel:"]');
+    const label = document.createElement('div');
+    label.className = 'label';
+    label.textContent = 'Email';
+    const mail = document.createElement('a');
+    mail.className = 'contact-email';
+    mail.href = 'mailto:' + START.email;
+    mail.textContent = START.email;
+    if (tel) { tel.after(label, mail); } else { phones.prepend(label, mail); }
+  }
+
+  // Form: send to the start-page Formspree form, tagged
+  const form = document.getElementById('inquiry-form');
+  if (form) {
+    form.setAttribute('action', START.formAction);
+    const subj = form.querySelector('[name="_subject"]');
+    if (subj) subj.value = 'New inquiry — greatbrittongc.com (via start page)';
+    const hidden = document.createElement('input');
+    hidden.type = 'hidden'; hidden.name = 'came_from'; hidden.value = 'start';
+    form.appendChild(hidden);
+  }
+
+  // GA: label these visitors
+  if (typeof window.gtag === 'function') {
+    window.gtag('set', 'user_properties', { traffic_source: 'start' });
+    window.gtag('event', 'start_visitor_view', { page_path: location.pathname });
+  }
+})();
