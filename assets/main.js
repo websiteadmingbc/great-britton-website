@@ -53,3 +53,14 @@ document.addEventListener('DOMContentLoaded',()=>{const button=document.querySel
     } finally { btn.disabled = false; }
   });
 })();
+
+// GA4: track phone and email link clicks
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+  if (!link || typeof window.gtag !== 'function') return;
+  const area = link.closest('header, nav, section, footer');
+  window.gtag('event', link.href.startsWith('tel:') ? 'phone_click' : 'email_click', {
+    link_location: (area && (area.id || area.tagName.toLowerCase())) || 'page',
+    transport_type: 'beacon'
+  });
+});
