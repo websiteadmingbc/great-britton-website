@@ -91,10 +91,18 @@ section{padding:72px 0}
 .cta{margin-top:56px;background:#243140;border-radius:20px;padding:34px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .cta h3{margin:0 0 6px;font-size:26px}.cta p{margin:0;color:#c3ccd4}
 .cta .mail{font:600 15px Inter;color:#fff;opacity:.85;margin-top:8px}
-footer{background:#121a21;color:#8d99a4;font-size:13px;padding:28px 0}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer{background:#121a21;color:#8d99a4;font-size:13px;padding:32px 0}
+footer .wrap{display:flex;flex-direction:column;gap:22px}
+footer .contacts{display:grid;grid-template-columns:1fr 1fr;gap:18px 32px}
+footer .person{display:flex;flex-direction:column;gap:4px}
+footer .person strong{font:700 14px Archivo,Inter,sans-serif;color:#eef2f5;letter-spacing:.02em}
+footer .person span{color:#a7b2bb}
+footer .person a{color:#d6b56a;text-decoration:none}
+footer .person a:hover{text-decoration:underline}
+footer .fine{max-width:720px;line-height:1.45;color:#7a8792}
+@media (max-width:560px){footer .contacts{grid-template-columns:1fr}}
 @media (max-width:900px){.grid3,.plan-wrap{grid-template-columns:1fr}.swatches{grid-template-columns:repeat(3,1fr)}.steps{grid-template-columns:1fr 1fr}.lic{display:none}.tool{margin-left:0}}
-@media (max-width:560px){.wrap{padding:0 14px}header.top .btn{display:none}.swatches{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.seg button{padding:7px 11px;font-size:12.5px}.tool{width:100%}.icon-btn{flex:1;justify-content:center;padding:7px 6px;font-size:12px}#stage{height:62vh}.hero{padding-top:36px}section{padding:52px 0}}
+@media (max-width:560px){.wrap{padding:0 14px}.swatches{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.seg button{padding:7px 11px;font-size:12.5px}.tool{width:100%}.icon-btn{flex:1;justify-content:center;padding:7px 6px;font-size:12px}#stage{height:62vh}.hero{padding-top:36px}section{padding:52px 0}}
 
 .plan-photo{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
 .plan-photo img{display:block;width:100%;height:auto}
@@ -112,7 +120,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <span>Great Britton<small>Construction</small></span>
   </a>
   <span class="lic">CA License #1025488 · Bay Area</span>
-  <a class="btn btn-brass" href="#next">Schedule walkthrough</a>
 </div></header>
 
 <main id="top">
@@ -228,7 +235,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
 </div></section>
 </main>
-<footer><div class="wrap"><span>© 2026 Great Britton Construction LLC · CA License #1025488</span><span>Concept visualization only. Furniture, décor, and finish colors are not included in project scope unless contracted. Final design, dimensions, and fixtures are subject to field verification and City of Union City permit approval.</span></div></footer>
+<footer><div class="wrap">
+  <div class="contacts">
+    <div class="person">
+      <strong>Paul Alcantar</strong>
+      <span>General Manager</span>
+      <a href="tel:+14088769483">(408) 876-9483</a>
+      <a href="mailto:paulalcantar@greatbrittongc.com">paulalcantar@greatbrittongc.com</a>
+    </div>
+    <div class="person">
+      <strong>Eli Mohammadi</strong>
+      <span>Operations Manager</span>
+      <a href="tel:+15104328461">(510) 432-8461</a>
+      <a href="mailto:eli@greatbrittongc.com">eli@greatbrittongc.com</a>
+    </div>
+  </div>
+  <div class="fine">© 2026 Great Britton Construction LLC · CA License #1025488 · Concept visualization only. Furniture, décor, and finish colors are not included in project scope unless contracted.</div>
+</div></footer>
 
 <script>/* Minimal WebGL2 interior renderer — Great Britton JADU concept */
 (function(){
