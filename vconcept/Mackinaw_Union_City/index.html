@@ -189,63 +189,59 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section style="padding-top:0"><div class="wrap">
   <div class="sec-head"><div><span class="eyebrow">Floor plans</span><h2>Client sketch + modeled layout</h2></div>
-    <p>The 3D dollhouse and walkthrough follow this 13′ × 20′ plan: kitchen on the left (fridge at the driveway end), bathroom and closet on the right, entry opposite Mackinaw, solid street wall (no window).</p></div>
+    <p>The 3D dollhouse and walkthrough follow this reference plan: 13′-0″ × 20′-0″, kitchen on the left (fridge at the street end), bathroom with swing door, closet on the right, entry at the opposite corner, solid street wall (no window).</p></div>
   <div class="plan-cols">
     <figure class="plan-photo">
-      <img src="assets/mackinaw-floor-plan.jpg" width="1200" height="1600" alt="Hand-drawn floor plan of the 13 by 20 foot garage conversion showing new kitchen, bathroom, and closet">
-      <figcaption>Client plan — (E) existing garage · (N) new kitchen, bathroom, and closet · 13′ × 20′</figcaption>
+      <img src="assets/mackinaw-floor-plan.png" width="1400" height="1800" alt="Garage conversion floor plan: 13 by 20 foot unit with new kitchen, bathroom, closet, and entry door">
+      <figcaption>Reference plan — (E) existing garage · (N) kitchen, bathroom, closet · 13′-0″ × 20′-0″</figcaption>
     </figure>
     <div>
       <div class="plan">
-<svg viewBox="0 0 360 560" role="img" aria-label="Annotated floor plan matching the client sketch">
-  <defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#c9b9a0" stroke-width="2"/></pattern></defs>
-  <!-- Street / driveway at TOP -->
-  <text x="180" y="28" text-anchor="middle" font-family="Archivo,Inter" font-weight="700" font-size="12" fill="#8a6a2f" letter-spacing=".06em">MACKINAW ST DRIVEWAY</text>
-  <!-- Outer shell: 13' wide x 20' deep. Scale: 20 px/ft → 260 x 400 -->
-  <rect x="50" y="48" width="260" height="400" fill="#f3ede3" stroke="#1c2630" stroke-width="5"/>
-  <!-- Entry door BOTTOM-LEFT -->
-  <path d="M50 408 L50 368" stroke="#f3ede3" stroke-width="8"/>
-  <path d="M50 408 a40 40 0 0 1 40 -40" fill="none" stroke="#8d99a4" stroke-dasharray="3 3"/>
+<svg viewBox="0 0 360 560" role="img" aria-label="Annotated garage conversion floor plan matching the reference drawing">
+  <defs>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#9eb0c0" stroke-width="2"/></pattern>
+    <pattern id="uppers" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 8 L8 0" stroke="#5f6b75" stroke-width="1" stroke-dasharray="2 2"/></pattern>
+  </defs>
+  <text x="180" y="26" text-anchor="middle" font-family="Archivo,Inter" font-weight="700" font-size="13" fill="#1c2630">GARAGE CONVERSION</text>
+  <!-- shell 13' x 20' @ 20px/ft = 260 x 400 -->
+  <rect x="50" y="50" width="260" height="400" fill="#f7f5f1" stroke="#1c2630" stroke-width="4"/>
+  <!-- ENTRY door bottom-left -->
+  <path d="M50 410 L50 372" stroke="#f7f5f1" stroke-width="7"/>
+  <path d="M50 410 a38 38 0 0 1 38 -38" fill="none" stroke="#1c2630" stroke-width="1.5"/>
   <text x="78" y="438" font-family="Inter" font-size="11" fill="#5f6b75">DOOR</text>
-  <!-- Kitchen along LEFT: ~2' deep (40px). From door toward street.
-       Order bottom→top: upper, stove, longer upper, REF at street end -->
-  <!-- base/counter run (not under fridge) -->
-  <rect x="50" y="148" width="40" height="260" fill="#7f927c" opacity=".9"/>
-  <!-- fridge at STREET end (top), full depth ~2.5' -->
-  <rect x="50" y="48" width="50" height="100" fill="#b9bdc0" stroke="#1c2630" stroke-width="1.5"/>
-  <text x="75" y="100" text-anchor="middle" font-size="12" font-family="Archivo,Inter" font-weight="700" fill="#1c2630">REF.</text>
-  <!-- stove -->
-  <rect x="54" y="300" width="32" height="36" fill="#55634f"/>
-  <text x="70" y="322" text-anchor="middle" font-size="9" fill="#fff" font-family="Archivo,Inter" font-weight="700">STOVE</text>
-  <!-- upper cabinet labels -->
-  <text x="70" y="270" text-anchor="middle" font-size="9" fill="#efebe5" font-family="Inter">UPPER CABINET</text>
-  <text x="70" y="200" text-anchor="middle" font-size="9" fill="#efebe5" font-family="Inter">UPPER CABINET</text>
-  <text x="22" y="260" transform="rotate(-90 22 260)" font-family="Archivo,Inter" font-weight="700" font-size="13" fill="#1c2630">(N) KITCHEN</text>
-  <!-- Bathroom TOP-RIGHT -->
-  <rect x="200" y="48" width="110" height="130" fill="url(#hatch)" stroke="#1c2630" stroke-width="3.5"/>
-  <rect x="200" y="48" width="110" height="130" fill="#e9e3d8" opacity=".5"/>
-  <rect x="210" y="60" width="44" height="24" fill="#6e4a33"/>
-  <ellipse cx="232" cy="70" rx="8" ry="5" fill="#fff"/>
-  <text x="232" y="100" text-anchor="middle" font-size="9" fill="#1c2630" font-family="Inter">VANITY</text>
-  <ellipse cx="280" cy="85" rx="10" ry="12" fill="#fff" stroke="#1c2630"/>
-  <rect x="255" y="115" width="45" height="50" fill="#a9bba5" opacity=".9"/>
-  <text x="277" y="140" text-anchor="middle" font-size="8" fill="#1c2630" font-family="Inter">TUB</text>
-  <text x="277" y="152" text-anchor="middle" font-size="8" fill="#1c2630" font-family="Inter">SHOWER</text>
-  <path d="M200 130 L200 165" stroke="#f3ede3" stroke-width="8"/>
-  <path d="M200 130 a34 34 0 0 0 34 34" fill="none" stroke="#8d99a4" stroke-dasharray="3 3"/>
-  <text x="255" y="42" text-anchor="middle" font-family="Archivo,Inter" font-weight="700" font-size="12" fill="#1c2630">(N) BATHROOM</text>
-  <!-- Closet on right below bath -->
-  <rect x="240" y="188" width="70" height="72" fill="#d9d0c1" stroke="#1c2630" stroke-width="2.5"/>
-  <line x1="257" y1="193" x2="257" y2="255" stroke="#8d7f6a" stroke-width="2"/>
-  <line x1="275" y1="193" x2="275" y2="255" stroke="#8d7f6a" stroke-width="2"/>
-  <line x1="293" y1="193" x2="293" y2="255" stroke="#8d7f6a" stroke-width="2"/>
-  <text x="275" y="280" text-anchor="middle" font-family="Archivo,Inter" font-weight="700" font-size="12" fill="#1c2630">(N) CLOSET</text>
-  <!-- Center -->
-  <text x="175" y="330" text-anchor="middle" font-family="Archivo,Inter" font-weight="800" font-size="18" fill="#1c2630">(E) GARAGE</text>
-  <!-- Dimensions -->
-  <text x="180" y="478" text-anchor="middle" font-family="Inter" font-size="14" fill="#5f6b75">13′</text>
-  <text x="336" y="248" text-anchor="middle" transform="rotate(90 336 248)" font-family="Inter" font-size="14" fill="#5f6b75">20′</text>
-  <text x="180" y="520" text-anchor="middle" font-family="Inter" font-size="11" fill="#8a6a2f">Street wall has no window · fridge at driveway end of kitchen</text>
+  <!-- KITCHEN left: REF at top (street), stove mid, uppers dashed -->
+  <rect x="50" y="50" width="52" height="92" fill="#c5d0da" stroke="#1c2630" stroke-width="1.5"/>
+  <text x="76" y="100" text-anchor="middle" font-family="Archivo,Inter" font-weight="700" font-size="12" fill="#1c2630">REF.</text>
+  <rect x="50" y="142" width="40" height="248" fill="#c5d0da" opacity=".85" stroke="#1c2630" stroke-width="1"/>
+  <rect x="50" y="142" width="40" height="248" fill="url(#uppers)" opacity=".35"/>
+  <rect x="54" y="268" width="32" height="40" fill="#fff" stroke="#1c2630"/>
+  <circle cx="64" cy="282" r="4" fill="none" stroke="#1c2630"/><circle cx="76" cy="282" r="4" fill="none" stroke="#1c2630"/>
+  <circle cx="64" cy="294" r="4" fill="none" stroke="#1c2630"/><circle cx="76" cy="294" r="4" fill="none" stroke="#1c2630"/>
+  <text x="70" y="322" text-anchor="middle" font-size="10" font-family="Inter" fill="#1c2630">STOVE</text>
+  <text x="22" y="270" transform="rotate(-90 22 270)" font-family="Archivo,Inter" font-weight="700" font-size="13" fill="#1c2630">(N) KITCHEN</text>
+  <!-- BATHROOM top-right -->
+  <rect x="198" y="50" width="112" height="128" fill="url(#hatch)" stroke="#1c2630" stroke-width="3"/>
+  <rect x="198" y="50" width="112" height="128" fill="#d9e2ea" opacity=".45"/>
+  <!-- bath door on BOTTOM wall of bathroom, swing inward to left -->
+  <path d="M210 178 L248 178" stroke="#f7f5f1" stroke-width="7"/>
+  <path d="M210 178 a36 36 0 0 1 36 -36" fill="none" stroke="#1c2630" stroke-width="1.5"/>
+  <text x="255" y="42" text-anchor="middle" font-family="Archivo,Inter" font-weight="700" font-size="12">(N) BATHROOM</text>
+  <rect x="208" y="62" width="40" height="22" fill="#fff" stroke="#1c2630"/>
+  <text x="228" y="98" text-anchor="middle" font-size="9" font-family="Inter">VANITY</text>
+  <ellipse cx="268" cy="78" rx="9" ry="11" fill="#fff" stroke="#1c2630"/>
+  <rect x="250" y="108" width="50" height="55" fill="#aebcc8" stroke="#1c2630"/>
+  <text x="275" y="140" text-anchor="middle" font-size="9" font-family="Inter">TUB</text>
+  <text x="275" y="152" text-anchor="middle" font-size="9" font-family="Inter">SHOWER</text>
+  <!-- CLOSET -->
+  <rect x="236" y="178" width="74" height="78" fill="#c5d0da" stroke="#1c2630" stroke-width="2"/>
+  <line x1="248" y1="190" x2="298" y2="190" stroke="#5f6b75" stroke-dasharray="4 3"/>
+  <text x="273" y="278" text-anchor="middle" font-family="Archivo,Inter" font-weight="700" font-size="12">(N) CLOSET</text>
+  <text x="180" y="330" text-anchor="middle" font-family="Archivo,Inter" font-weight="800" font-size="18">(E) GARAGE</text>
+  <text x="180" y="478" text-anchor="middle" font-family="Inter" font-size="14" fill="#5f6b75">13′-0″</text>
+  <text x="338" y="250" text-anchor="middle" transform="rotate(90 338 250)" font-family="Inter" font-size="14" fill="#5f6b75">20′-0″</text>
+  <g font-family="Inter" font-size="11" fill="#5f6b75">
+    <text x="50" y="510">(E) Existing · (N) New · dashed = upper cabinet / rod</text>
+  </g>
 </svg>
       </div>
       <div class="legend" style="margin-top:16px">
@@ -658,35 +654,51 @@ function build(E){
   B(-WX+.2,3.3,-7.5,-WX+FD-.15,3.4,-7.45,MAT.black);
   B(-WX+.15,6.4,-WZ+.1,-WX+FD-.1,6.55,-7.5,MAT.black);
 
-  /* ===== bathroom top-right: street (-z) + right (+x) corner ===== */
-  const bx0=2.7, bz1=-4.15;
-  B(bx0,0,-WZ,bx0+.28,8.5,bz1,MAT.wall);
-  B(bx0,0,-WZ,WX,8.5,-WZ+.28,MAT.wall);
-  B(bx0,6.7,-WZ+.28,bx0+.28,8.5,-5.7,MAT.wall);
-  B(bx0+.04,0,-5.65,bx0+.16,6.7,-4.3,MAT.oak);
-  B(bx0,7.0,-7.3,bx0+.08,7.12,-4.3,MAT.black);
-  E.rect([(bx0+WX)/2,.012,(-WZ+bz1)/2],[1,0,0],[0,0,-1],(WX-bx0)/2,(bz1+WZ)/2,MAT.bathTile);
-  E.rect([WX-.02,4.2,(-WZ+bz1)/2],[0,0,1],[0,1,0],(bz1+WZ)/2,4.2,MAT.bathTile);
-  // vanity on street wall inside bath
-  B(3.1,1.5,-9.7,5.1,2.7,-8.4,MAT.walnut);
-  B(3.05,2.7,-9.75,5.15,2.82,-8.35,MAT.quartz);
-  E.cyl([4.1,2.82,-9.05],.4,.36,MAT.ceramic,{r2:.5,seg:20});
-  E.cyl([WX-.1,5.05,-9.05],.9,.03,MAT.mirror,{axis:'x',seg:32});
+  /* ===== bathroom top-right (+x, -z). Door on LIVING-facing wall (plan bottom of bath), swings inward toward vanity ===== */
+  const bx0=2.55, bzDoor=-4.05; // front wall of bath (faces living / +z)
+  const doorW=2.7; // clear opening width
+  const hingeX=bx0+0.35;
+  // left bath wall (solid)
+  B(bx0,0,-WZ,bx0+.28,8.5,bzDoor,MAT.wall);
+  // street-side bath wall (uses exterior street wall + short return)
+  B(bx0+.28,0,-WZ,WX,8.5,-WZ+.28,MAT.wall);
+  // living-facing bath wall WITH door opening (jambs + header)
+  B(bx0,0,bzDoor-.28,hingeX,8.5,bzDoor,MAT.wall);                         // left jamb wall
+  B(hingeX+doorW,0,bzDoor-.28,WX,8.5,bzDoor,MAT.wall);                     // right of door → closet side
+  B(hingeX,6.75,bzDoor-.28,hingeX+doorW,8.5,bzDoor,MAT.wall);              // header above door
+  // door frame trim
+  B(hingeX-.06,0,bzDoor-.32,hingeX+.02,6.85,bzDoor+.04,MAT.trim);
+  B(hingeX+doorW-.02,0,bzDoor-.32,hingeX+doorW+.06,6.85,bzDoor+.04,MAT.trim);
+  B(hingeX-.06,6.7,bzDoor-.32,hingeX+doorW+.06,6.9,bzDoor+.04,MAT.trim);
+  // bathroom DOOR — hinged at left, swung ~75° into bath toward vanity/street
+  B(hingeX+.02,0.02,bzDoor-2.55,hingeX+.14,6.7,bzDoor-.05,MAT.door);
+  B(hingeX+.08,0.02,bzDoor-2.55,hingeX+.16,6.7,bzDoor-2.42,MAT.trim);      // leading edge
+  B(hingeX+.14,3.05,bzDoor-2.35,hingeX+.22,3.2,bzDoor-2.15,MAT.black);     // handle
+  E.cyl([hingeX+.08,3.12,bzDoor-2.25],.05,.08,MAT.brass,{seg:10});
+  // floor + wall finishes
+  E.rect([(bx0+WX)/2,.012,(-WZ+bzDoor)/2],[1,0,0],[0,0,-1],(WX-bx0)/2,(bzDoor+WZ)/2,MAT.bathTile);
+  E.rect([WX-.02,4.2,(-WZ+bzDoor)/2],[0,0,1],[0,1,0],(bzDoor+WZ)/2,4.2,MAT.bathTile);
+  E.rect([bx0+.29,4.2,(-WZ+bzDoor)/2],[0,0,-1],[0,1,0],(bzDoor+WZ)/2,4.2,MAT.bathTile);
+  // vanity on street wall
+  B(3.0,1.45,-9.75,4.95,2.65,-8.45,MAT.walnut);
+  B(2.95,2.65,-9.8,5.0,2.78,-8.4,MAT.quartz);
+  E.cyl([3.95,2.78,-9.1],.38,.34,MAT.ceramic,{r2:.48,seg:20});
+  E.cyl([WX-.12,5.0,-9.1],.85,.03,MAT.mirror,{axis:'x',seg:32});
   // toilet
-  E.cyl([5.55,1.0,-7.35],.32,.38,MAT.ceramic,{r2:.38,seg:16});
-  B(5.55,1.0,-7.7,WX-.08,1.38,-6.95,MAT.ceramic);
-  // tub/shower
-  B(3.15,0,-6.5,WX-.08,1.5,-4.4,MAT.bathTile);
-  B(3.15,1.5,-6.5,WX-.08,1.6,-4.4,MAT.ceramic);
-  E.rect([(3.15+WX)/2,4.0,-4.45],[1,0,0],[0,1,0],1.55,3.7,MAT.glass);
-  E.cyl([4.85,7.25,-5.4],.32,.04,MAT.black,{seg:16});
+  E.cyl([5.45,.95,-7.45],.3,.36,MAT.ceramic,{r2:.36,seg:16});
+  B(5.45,.95,-7.8,WX-.1,1.32,-7.05,MAT.ceramic);
+  // tub/shower far street-right corner
+  B(4.35,0,-6.55,WX-.08,1.48,-4.35,MAT.bathTile);
+  B(4.35,1.48,-6.55,WX-.08,1.58,-4.35,MAT.ceramic);
+  E.rect([(4.35+WX)/2,3.9,-4.4],[1,0,0],[0,1,0],1.05,3.6,MAT.glass);
+  E.cyl([5.4,7.2,-5.4],.3,.04,MAT.black,{seg:16});
 
-  /* ===== closet on right wall, just below bath (toward entry) ===== */
-  B(4.0,0,-4.05,WX,8.1,-.5,MAT.wall);
-  B(4.0,0,-4.05,4.2,8.1,-.5,MAT.wall);
-  B(4.22,0,-3.95,WX-.08,7.5,-.65,MAT.oak);
-  B(4.18,3.1,-2.4,4.24,3.9,-2.2,MAT.black);
-  B(4.3,5.7,-3.85,WX-.15,5.85,-.75,MAT.oakH);
+  /* ===== closet on right wall, immediately below bathroom (plan) ===== */
+  B(4.05,0,bzDoor,WX,8.1,-.35,MAT.wall);
+  B(4.05,0,bzDoor,4.25,8.1,-.35,MAT.wall);
+  B(4.28,0,bzDoor+.1,WX-.08,7.45,-.5,MAT.oak);
+  B(4.24,3.05,-2.1,4.3,3.85,-1.9,MAT.black);
+  B(4.35,5.65,bzDoor+.15,WX-.15,5.8,-.55,MAT.oakH); // rod / shelf
 
   /* ===== living (illustrative only) ===== */
   B(-1.4,0,-1.2,3.0,.03,5.2,MAT.rug);
@@ -710,7 +722,7 @@ function build(E){
 
 const LABELS=[
   {id:'kitchen',t:'Kitchen · fridge at driveway end',p:[-4.5,7.1,-8.2]},
-  {id:'bath',t:'Bathroom · tub/shower',p:[3.1,7.3,-6.6]},
+  {id:'bath',t:'Bathroom · door + tub/shower',p:[3.2,7.2,-5.2]},
   {id:'closet',t:'Closet',p:[4.3,7.1,-2.2]},
   {id:'living',t:'Living · existing garage',p:[0.4,3.8,2.0]},
   {id:'entry',t:'Entry door',p:[-4.8,7.0,8.7]}
