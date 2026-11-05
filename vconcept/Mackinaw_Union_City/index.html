@@ -177,6 +177,7 @@ footer .fine{max-width:720px;line-height:1.45;color:#7a8792}
       <li>New kitchen run along the side wall per plan</li>
       <li>Base + upper cabinets, counter, and backsplash zone</li>
       <li>Cooktop / stove location as shown on plan</li>
+      <li>Kitchen sink to the right of the stove</li>
       <li>Refrigerator space at the end of the run</li>
       <li>Plumbing and electrical rough-in for kitchen appliances</li></ul></div>
     <div class="card"><span class="num">02</span><h3>Bathroom</h3><ul>
@@ -204,7 +205,7 @@ footer .fine{max-width:720px;line-height:1.45;color:#7a8792}
     </figure>
     <div class="legend">
       <div><i style="background:#1c2630;border:1px solid #1c2630"></i><span><b>Street side</b>Former garage-door wall — face it: bathroom left, kitchen + REF right.</span></div>
-      <div><i style="background:#c5d0da;border:1px solid #1c2630"></i><span><b>(N) Kitchen</b>~2′ deep run on your right when facing street; refrigerator at the street end.</span></div>
+      <div><i style="background:#c5d0da;border:1px solid #1c2630"></i><span><b>(N) Kitchen</b>~2′ deep run on your right when facing street; sink to the right of the stove; refrigerator at the street end.</span></div>
       <div><i style="background:#d9e2ea;border:1px solid #1c2630"></i><span><b>(N) Bathroom</b>Street-end left when facing street; vanity, toilet, tub/shower; swing door on the living side.</span></div>
       <div><i style="background:#c5d0da;border:1px solid #1c2630"></i><span><b>(N) Closet</b>Storage along the wall below the bath.</span></div>
       <div><i style="background:#f7f5f1;border:1px solid #1c2630"></i><span><b>(E) Garage</b>Existing 13′-0″ × 20′-0″ footprint kept as open living.</span></div>
@@ -591,7 +592,8 @@ function build(E){
 
   /* ===== KITCHEN on RIGHT (+x) when facing street
      Along +x from entry (-z) toward street (+z):
-     counters → stove → counters → REF at STREET end (+z) */
+     counters → sink → stove → counters → REF at STREET end (+z)
+     Sink sits to the right of the stove when facing the kitchen. */
   const kDepth=2.0;
   const kx=WX-kDepth;
   const fDepth=2.5, fLen=2.75;
@@ -617,6 +619,15 @@ function build(E){
   [[.35,.35],[1.05,.35],[.35,1.05],[1.05,1.05]].forEach(([dx,dz])=>{
     E.cyl([WX-.55-dx, 3.106, stoveZ+.2+dz], .16, .003, MAT.sinkDark, {seg:14});
   });
+  // Kitchen sink to the right of the stove when facing the run (toward entry / -z)
+  const sinkZ0=stoveZ-2.15, sinkZ1=stoveZ-0.35;
+  B(kx+.15, 3.02, sinkZ0, WX-.25, 3.085, sinkZ1, MAT.sinkDark); // basin recess
+  B(kx+.25, 2.72, sinkZ0+.12, WX-.35, 3.02, sinkZ1-.12, MAT.steel); // bowl
+  // Faucet at wall
+  E.cyl([WX-.55, 3.08, (sinkZ0+sinkZ1)/2], .04, .02, MAT.steel, {seg:10});
+  B(WX-.58, 3.08, (sinkZ0+sinkZ1)/2-.04, WX-.52, 3.55, (sinkZ0+sinkZ1)/2+.04, MAT.steel);
+  E.cyl([WX-.55, 3.55, (sinkZ0+sinkZ1)/2], .035, .18, MAT.steel, {axis:'x', seg:10});
+  E.cyl([WX-.72, 3.52, (sinkZ0+sinkZ1)/2], .03, .06, MAT.steel, {seg:8});
   // Upper cabinets along counter (not over fridge)
   B(WX-1.2,5.1,kZ0, WX, 8.1, kZ1, MAT.sageDark);
   for(let z=kZ0+.2; z<kZ1-.3; z+=2.0){
@@ -690,7 +701,7 @@ function build(E){
 
 const LABELS=[
   {id:'street', t:'Street / former garage door · bathroom + REF end', p:[-1.2, 8.2, 10.2], callout:true},
-  {id:'kitchen', t:'(N) Kitchen · right when facing street', p:[4.3, 7.0, 2.0]},
+  {id:'kitchen', t:'(N) Kitchen · sink right of stove', p:[4.3, 7.0, -1.2]},
   {id:'bath', t:'(N) Bathroom · left when facing street', p:[-3.8, 7.1, 6.8]},
   {id:'closet', t:'(N) Closet', p:[-4.5, 7.0, 1.8]},
   {id:'living', t:'(E) Garage · open living', p:[0, 3.5, -1.5]},
