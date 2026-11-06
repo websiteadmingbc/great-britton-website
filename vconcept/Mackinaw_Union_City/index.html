@@ -205,9 +205,9 @@ footer .fine{max-width:720px;line-height:1.45;color:#7a8792}
     </figure>
     <div class="legend">
       <div><i style="background:#1c2630;border:1px solid #1c2630"></i><span><b>Street side</b>Former garage-door wall — face it: bathroom left, kitchen + REF right.</span></div>
-      <div><i style="background:#c5d0da;border:1px solid #1c2630"></i><span><b>(N) Kitchen</b>~2′ deep run on your right when facing street; sink to the right of the stove; refrigerator at the street end.</span></div>
-      <div><i style="background:#d9e2ea;border:1px solid #1c2630"></i><span><b>(N) Bathroom</b>Street-end left when facing street; vanity, toilet, tub/shower; swing door on the living side.</span></div>
-      <div><i style="background:#c5d0da;border:1px solid #1c2630"></i><span><b>(N) Closet</b>Storage along the wall below the bath.</span></div>
+      <div><i style="background:#c5d0da;border:1px solid #1c2630"></i><span><b>(N) Kitchen</b>~1.6′ deep run on your right when facing street; sink to the right of the stove; refrigerator at the street end.</span></div>
+      <div><i style="background:#d9e2ea;border:1px solid #1c2630"></i><span><b>(N) Bathroom</b>~5.7′ × 3.4′ at street-end left; shower, toilet, vanity; swing door on the living side.</span></div>
+      <div><i style="background:#c5d0da;border:1px solid #1c2630"></i><span><b>(N) Closet</b>~1.75′ deep storage along the wall below the bath.</span></div>
       <div><i style="background:#f7f5f1;border:1px solid #1c2630"></i><span><b>(E) Garage</b>Existing 13′-0″ × 20′-0″ footprint kept as open living.</span></div>
       <div><i style="background:#fff;border:1px dashed #5f6b75"></i><span><b>Dashed line</b>Upper cabinet / closet rod.</span></div>
     </div>
@@ -591,119 +591,129 @@ function build(E){
   B(-4.1,3.05,-WZ+.04,-3.95,3.15,-WZ+.16,MAT.black,{group:'entry'});
 
   /* ===== KITCHEN on RIGHT (+x) when facing street
-     Along +x from entry (-z) toward street (+z):
-     counters → sink → stove → counters → REF at STREET end (+z)
-     Sink sits to the right of the stove when facing the kitchen. */
-  const kDepth=2.0;
+     Plan depth ~1.6′. Along +x from entry (-z) toward street (+z):
+     counters → sink → stove → counters → REF at STREET end (+z). */
+  const kDepth=1.6;
   const kx=WX-kDepth;
-  const fDepth=2.5, fLen=2.75;
+  const fDepth=1.7, fLen=2.5;
   // Refrigerator at STREET end (+z / right)
   B(WX-fDepth,0.02, WZ-fLen, WX, 7.05, WZ, MAT.steel);
-  B(WX-fDepth+.15,3.35, WZ-fLen, WX-.2, 3.45, WZ-fLen+.08, MAT.black);
-  B(WX-fDepth+.1,6.5, WZ-fLen+.1, WX-.15, 6.6, WZ-.15, MAT.black);
+  B(WX-fDepth+.12,3.35, WZ-fLen, WX-.18, 3.45, WZ-fLen+.08, MAT.black);
+  B(WX-fDepth+.1,6.5, WZ-fLen+.1, WX-.12, 6.6, WZ-.12, MAT.black);
   // Base cabinets between entry clearance and fridge
   const kZ0=-7.2;
   const kZ1=WZ-fLen;
   B(kx,.32,kZ0, WX, 2.92, kZ1, MAT.sageDark);
-  B(kx+.05,0,kZ0, WX, .32, kZ1, MAT.toeKick);
+  B(kx+.04,0,kZ0, WX, .32, kZ1, MAT.toeKick);
   for(let z=kZ0+.15; z<kZ1-.2; z+=1.45){
     const z1=Math.min(z+1.3, kZ1-.1);
-    B(kx-.05,.4,z, kx+.03, 2.85, z1, MAT.sage);
-    B(kx-.07,1.6,(z+z1)/2-.06, kx, 2.35, (z+z1)/2+.06, MAT.black);
+    B(kx-.04,.4,z, kx+.03, 2.85, z1, MAT.sage);
+    B(kx-.06,1.6,(z+z1)/2-.06, kx, 2.35, (z+z1)/2+.06, MAT.black);
   }
-  B(kx-.06,2.92,kZ0, WX, 3.08, kZ1, MAT.quartz);
-  B(WX-.05,3.08,kZ0, WX-.02, 5.0, kZ1, MAT.zellige,{group:'right'});
-  // 4-burner stove mid-run
+  B(kx-.05,2.92,kZ0, WX, 3.08, kZ1, MAT.quartz);
+  B(WX-.04,3.08,kZ0, WX-.015, 5.0, kZ1, MAT.zellige,{group:'right'});
+  // 4-burner stove mid-run (~30″)
   const stoveZ=-0.4;
-  B(kx-.02,3.08,stoveZ, WX-.2, 3.105, stoveZ+1.5, MAT.glassBlack);
-  [[.35,.35],[1.05,.35],[.35,1.05],[1.05,1.05]].forEach(([dx,dz])=>{
-    E.cyl([WX-.55-dx, 3.106, stoveZ+.2+dz], .16, .003, MAT.sinkDark, {seg:14});
+  B(kx-.02,3.08,stoveZ, WX-.15, 3.105, stoveZ+1.25, MAT.glassBlack);
+  [[.28,.28],[.85,.28],[.28,.85],[.85,.85]].forEach(([dx,dz])=>{
+    E.cyl([WX-.45-dx, 3.106, stoveZ+.18+dz], .14, .003, MAT.sinkDark, {seg:14});
   });
   // Kitchen sink to the right of the stove when facing the run (toward entry / -z)
-  const sinkZ0=stoveZ-2.15, sinkZ1=stoveZ-0.35;
-  B(kx+.15, 3.02, sinkZ0, WX-.25, 3.085, sinkZ1, MAT.sinkDark); // basin recess
-  B(kx+.25, 2.72, sinkZ0+.12, WX-.35, 3.02, sinkZ1-.12, MAT.steel); // bowl
-  // Faucet at wall
-  E.cyl([WX-.55, 3.08, (sinkZ0+sinkZ1)/2], .04, .02, MAT.steel, {seg:10});
-  B(WX-.58, 3.08, (sinkZ0+sinkZ1)/2-.04, WX-.52, 3.55, (sinkZ0+sinkZ1)/2+.04, MAT.steel);
-  E.cyl([WX-.55, 3.55, (sinkZ0+sinkZ1)/2], .035, .18, MAT.steel, {axis:'x', seg:10});
-  E.cyl([WX-.72, 3.52, (sinkZ0+sinkZ1)/2], .03, .06, MAT.steel, {seg:8});
-  // Upper cabinets along counter (not over fridge)
-  B(WX-1.2,5.1,kZ0, WX, 8.1, kZ1, MAT.sageDark);
+  const sinkZ0=stoveZ-1.9, sinkZ1=stoveZ-0.3;
+  B(kx+.12, 3.02, sinkZ0, WX-.2, 3.085, sinkZ1, MAT.sinkDark);
+  B(kx+.2, 2.72, sinkZ0+.1, WX-.28, 3.02, sinkZ1-.1, MAT.steel);
+  E.cyl([WX-.42, 3.08, (sinkZ0+sinkZ1)/2], .035, .02, MAT.steel, {seg:10});
+  B(WX-.45, 3.08, (sinkZ0+sinkZ1)/2-.035, WX-.39, 3.48, (sinkZ0+sinkZ1)/2+.035, MAT.steel);
+  E.cyl([WX-.42, 3.48, (sinkZ0+sinkZ1)/2], .03, .14, MAT.steel, {axis:'x', seg:10});
+  E.cyl([WX-.55, 3.45, (sinkZ0+sinkZ1)/2], .025, .05, MAT.steel, {seg:8});
+  // Upper cabinets (~12–14″ deep)
+  B(WX-1.05,5.1,kZ0, WX, 8.1, kZ1, MAT.sageDark);
   for(let z=kZ0+.2; z<kZ1-.3; z+=2.0){
-    B(WX-1.18,5.15,z, WX-.02, 8.05, z+.04, MAT.sage);
+    B(WX-1.02,5.15,z, WX-.02, 8.05, z+.04, MAT.sage);
   }
 
-  /* ===== BATHROOM — street (+z) + LEFT (-x) when facing street
-     Door on living-facing wall (toward entry / -z), swings into bath. */
-  const bathX1=-1.5;
-  const bathZ0=4.0;
-  const doorClear=2.6;
-  const hinge=bathX1-0.45;
-  // Right bath wall (toward living)
-  B(bathX1-.3,0,bathZ0, bathX1, 8.5, WZ, MAT.wall);
-  // Living-facing wall WITH door
-  B(-WX,0,bathZ0, hinge-doorClear, 8.5, bathZ0+.3, MAT.wall);
-  B(hinge,0,bathZ0, bathX1, 8.5, bathZ0+.3, MAT.wall);
-  B(hinge-doorClear,6.7,bathZ0, hinge, 8.5, bathZ0+.3, MAT.wall);
+  /* ===== BATHROOM — plan ~5.7′ wide × ~3.4′ deep at street / left when facing street
+     Outer street corner = tub/shower → toilet → vanity toward living.
+     Door on living-facing wall, swings in toward vanity. */
+  const bathW=5.7, bathD=3.4;
+  const bathX1=-WX+bathW;   // -0.8
+  const bathZ0=WZ-bathD;    // 6.6
+  const doorClear=2.4;
+  // Door on vanity side (toward living / bathX1)
+  const hinge=bathX1-0.35;
+  // Living-side bath wall
+  B(bathX1-.25,0,bathZ0, bathX1, 8.5, WZ, MAT.wall);
+  // Living-facing wall WITH door (opening toward vanity / hinge at bathX1 side)
+  B(-WX,0,bathZ0, hinge-doorClear, 8.5, bathZ0+.25, MAT.wall);
+  B(hinge,0,bathZ0, bathX1, 8.5, bathZ0+.25, MAT.wall);
+  B(hinge-doorClear,6.7,bathZ0, hinge, 8.5, bathZ0+.25, MAT.wall);
   // Frame
-  B(hinge-.04,0,bathZ0-.05, hinge+.05, 6.85, bathZ0+.34, MAT.trim);
-  B(hinge-doorClear-.05,0,bathZ0-.05, hinge-doorClear+.04, 6.85, bathZ0+.34, MAT.trim);
-  B(hinge-doorClear-.05,6.65,bathZ0-.05, hinge+.05, 6.9, bathZ0+.34, MAT.trim);
-  // Door leaf swung inward into bath (toward +z / street / vanity)
-  B(hinge-.18,0.02, bathZ0+.02, hinge-.05, 6.65, bathZ0+2.5, MAT.door);
-  B(hinge-.2,0.02, bathZ0+2.38, hinge-.1, 6.65, bathZ0+2.5, MAT.trim);
-  B(hinge-.28,3.0, bathZ0+2.1, hinge-.18, 3.2, bathZ0+2.3, MAT.black);
-  E.cyl([hinge-.14,3.1,bathZ0+2.2], .055, .09, MAT.brass, {seg:10});
-  B(hinge-doorClear,0,bathZ0-.08, hinge, .04, bathZ0+.08, MAT.trim);
+  B(hinge-.04,0,bathZ0-.05, hinge+.04, 6.85, bathZ0+.3, MAT.trim);
+  B(hinge-doorClear-.04,0,bathZ0-.05, hinge-doorClear+.04, 6.85, bathZ0+.3, MAT.trim);
+  B(hinge-doorClear-.04,6.65,bathZ0-.05, hinge+.04, 6.9, bathZ0+.3, MAT.trim);
+  // Door leaf swung inward toward street / vanity
+  B(hinge-.16,0.02, bathZ0+.02, hinge-.04, 6.65, bathZ0+2.2, MAT.door);
+  B(hinge-.18,0.02, bathZ0+2.08, hinge-.08, 6.65, bathZ0+2.2, MAT.trim);
+  B(hinge-.24,3.0, bathZ0+1.85, hinge-.14, 3.2, bathZ0+2.0, MAT.black);
+  E.cyl([hinge-.12,3.1,bathZ0+1.95], .05, .08, MAT.brass, {seg:10});
+  B(hinge-doorClear,0,bathZ0-.06, hinge, .04, bathZ0+.06, MAT.trim);
   // Finishes
   E.rect([(-WX+bathX1)/2, .012, (bathZ0+WZ)/2], [1,0,0],[0,0,-1], (bathX1+WX)/2, (WZ-bathZ0)/2, MAT.bathTile);
   E.rect([-WX+.015, 4.2, (bathZ0+WZ)/2], [0,0,-1],[0,1,0], (WZ-bathZ0)/2, 4.2, MAT.bathTile);
-  E.rect([bathX1-.31, 4.2, (bathZ0+WZ)/2], [0,0,1],[0,1,0], (WZ-bathZ0)/2, 4.2, MAT.bathTile);
-  // Vanity on street wall (+z)
-  B(-4.4, 1.4, 8.55, bathX1-.45, 2.6, 9.85, MAT.walnut);
-  B(-4.45, 2.6, 8.5, bathX1-.4, 2.72, 9.9, MAT.quartz);
-  E.cyl([-3.2, 2.72, 9.2], .36, .32, MAT.ceramic, {r2:.46, seg:18});
-  E.cyl([-WX+.15, 4.9, 9.2], .7, .03, MAT.mirror, {axis:'x', seg:28});
-  // Toilet
-  E.cyl([-5.35, .9, 7.25], .28, .34, MAT.ceramic, {r2:.34, seg:14});
-  B(-WX+.12, .9, 7.25, -5.35, 1.25, 7.95, MAT.ceramic);
-  // Tub/shower street-left corner
-  B(-WX+.1, 0, 4.35, -4.5, 1.45, 6.7, MAT.bathTile);
-  B(-WX+.1, 1.45, 4.35, -4.5, 1.55, 6.7, MAT.ceramic);
-  E.rect([(-4.5-WX)/2, 3.8, 4.4], [1,0,0],[0,1,0], 1.0, 3.5, MAT.glass);
-  E.cyl([-5.45, 7.15, 5.5], .28, .04, MAT.black, {seg:14});
+  E.rect([bathX1-.26, 4.2, (bathZ0+WZ)/2], [0,0,1],[0,1,0], (WZ-bathZ0)/2, 4.2, MAT.bathTile);
 
-  /* ===== CLOSET — left wall, toward entry from bath ===== */
-  const cX1=-3.5;
+  // Tub/shower — outer street corner (~30″ × ~34″ stall to fit plan depth)
+  const shW=2.5, shD=bathD-0.35;
+  const shX1=-WX+shW;
+  B(-WX+.06, 0, bathZ0+.12, shX1, 1.5, WZ-.06, MAT.bathTile);
+  B(-WX+.06, 1.5, bathZ0+.12, shX1, 1.58, WZ-.06, MAT.ceramic);
+  E.rect([(-WX+shX1)/2, 3.6, bathZ0+.14], [1,0,0],[0,1,0], shW/2-0.1, 3.3, MAT.glass);
+  E.cyl([-WX+shW*0.45, 7.2, bathZ0+shD*0.55], .22, .035, MAT.black, {seg:14});
+
+  // Toilet — between shower and vanity, along street wall
+  const toiX=-WX+shW+0.85; // ~-3.15
+  E.cyl([toiX, .85, WZ-1.55], .26, .32, MAT.ceramic, {r2:.32, seg:14});
+  B(toiX-0.05, .85, WZ-1.55, -WX+shW+0.15, 1.2, WZ-0.85, MAT.ceramic);
+
+  // Vanity — toward living along street wall (~24″)
+  const vanX0=toiX+0.85; // clear toilet
+  const vanX1=bathX1-0.2;
+  B(vanX0, 1.35, WZ-1.35, vanX1, 2.55, WZ-.12, MAT.walnut);
+  B(vanX0-.03, 2.55, WZ-1.4, vanX1+.03, 2.68, WZ-.08, MAT.quartz);
+  E.cyl([(vanX0+vanX1)/2, 2.68, WZ-0.7], .28, .26, MAT.ceramic, {r2:.36, seg:18});
+  E.cyl([bathX1-.2, 4.7, WZ-0.7], .55, .025, MAT.mirror, {axis:'x', seg:28});
+
+  /* ===== CLOSET — plan ~1.75′ deep × ~4′ long, under bath toward entry ===== */
+  const cDepth=1.75, cLen=4.0;
+  const cX1=-WX+cDepth;
   const cZ1=bathZ0;
-  const cZ0= -0.2;
+  const cZ0=bathZ0-cLen;
   B(-WX,0,cZ0, cX1, 8.0, cZ1, MAT.wall);
-  B(cX1-.28,0,cZ0, cX1, 8.0, cZ1, MAT.wall);
-  B(-WX+.1,0,cZ0+.08, cX1-.3, 7.3, cZ1-.08, MAT.oak);
-  B(cX1-.35, 3.0, (cZ0+cZ1)/2-.12, cX1-.28, 3.8, (cZ0+cZ1)/2+.12, MAT.black);
-  B(-WX+.2, 5.7, cZ0+.2, cX1-.45, 5.85, cZ1-.2, MAT.oakH);
-  E.cyl([(-WX+cX1)/2, 5.55, (cZ0+cZ1)/2], .04, Math.abs(cZ1-cZ0)*.7, MAT.black, {axis:'z', seg:8});
+  B(cX1-.22,0,cZ0, cX1, 8.0, cZ1, MAT.wall);
+  B(-WX+.08,0,cZ0+.08, cX1-.24, 7.3, cZ1-.08, MAT.oak);
+  B(cX1-.28, 3.0, (cZ0+cZ1)/2-.1, cX1-.2, 3.7, (cZ0+cZ1)/2+.1, MAT.black);
+  B(-WX+.15, 5.7, cZ0+.15, cX1-.3, 5.82, cZ1-.15, MAT.oakH);
+  E.cyl([(-WX+cX1)/2, 5.55, (cZ0+cZ1)/2], .035, Math.abs(cZ1-cZ0)*.65, MAT.black, {axis:'z', seg:8});
 
   /* open garage center — empty per plan */
   B(-.5,0,-.5,.5,.01,.5,MAT.shadow);
 
   const Ww=[1,.86,.72]; const s=(c,k)=>c.map(v=>v*k);
   E.lights=[
-    {p:[3.5,8.0,2], c:s(Ww,1.15), r:7},
-    {p:[3.5,8.0,-3], c:s(Ww,1.05), r:7},
-    {p:[-2.5,8.0,6], c:s(Ww,.85), r:5.5},
-    {p:[-1.5,8.0,-2], c:s(Ww,.95), r:7},
-    {p:[-4.8,7.2,6.5], c:s(Ww,.7), r:3.5},
+    {p:[3.8,8.0,2], c:s(Ww,1.15), r:7},
+    {p:[3.8,8.0,-3], c:s(Ww,1.05), r:7},
+    {p:[-2.8,8.0,7.5], c:s(Ww,.9), r:4.5},
+    {p:[-1.2,8.0,-2], c:s(Ww,.95), r:7},
+    {p:[-4.5,7.2,8.2], c:s(Ww,.75), r:3.2},
     {p:[-2.5,6.5,-8.2], c:s([.92,.92,1],.65), r:5}
   ];
 }
 
 const LABELS=[
-  {id:'street', t:'Street / former garage door · bathroom + REF end', p:[-1.2, 8.2, 10.2], callout:true},
-  {id:'kitchen', t:'(N) Kitchen · sink right of stove', p:[4.3, 7.0, -1.2]},
-  {id:'bath', t:'(N) Bathroom · left when facing street', p:[-3.8, 7.1, 6.8]},
-  {id:'closet', t:'(N) Closet', p:[-4.5, 7.0, 1.8]},
+  {id:'street', t:'Street / former garage door · bathroom + REF end', p:[-1.0, 8.2, 10.15], callout:true},
+  {id:'kitchen', t:'(N) Kitchen · sink right of stove', p:[5.2, 7.0, -1.0]},
+  {id:'bath', t:'(N) Bathroom · ~5.7′ × 3.4′', p:[-3.5, 7.1, 8.2]},
+  {id:'closet', t:'(N) Closet', p:[-5.4, 7.0, 4.5]},
   {id:'living', t:'(E) Garage · open living', p:[0, 3.5, -1.5]},
   {id:'entry', t:'Entry door · left when facing street', p:[-4.7, 6.9, -8.6]}
 ];
