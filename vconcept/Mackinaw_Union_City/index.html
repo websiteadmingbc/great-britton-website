@@ -206,7 +206,7 @@ footer .fine{max-width:720px;line-height:1.45;color:#7a8792}
     <div class="legend">
       <div><i style="background:#1c2630;border:1px solid #1c2630"></i><span><b>Street side</b>Former garage-door wall — face it: bathroom left, kitchen + REF right.</span></div>
       <div><i style="background:#c5d0da;border:1px solid #1c2630"></i><span><b>(N) Kitchen</b>~1.6′ deep run on your right when facing street; sink to the right of the stove; refrigerator at the street end.</span></div>
-      <div><i style="background:#d9e2ea;border:1px solid #1c2630"></i><span><b>(N) Bathroom</b>~5.7′ × 3.4′; street wall L→R vanity · toilet · tub; door on left in front of vanity + toilet.</span></div>
+      <div><i style="background:#d9e2ea;border:1px solid #1c2630"></i><span><b>(N) Bathroom</b>~5.7′ × 3.4′; street wall: tub (exterior) · toilet · vanity; door in front of vanity + toilet.</span></div>
       <div><i style="background:#c5d0da;border:1px solid #1c2630"></i><span><b>(N) Closet</b>~1.75′ deep storage along the wall below the bath.</span></div>
       <div><i style="background:#f7f5f1;border:1px solid #1c2630"></i><span><b>(E) Garage</b>Existing 13′-0″ × 20′-0″ footprint kept as open living.</span></div>
       <div><i style="background:#fff;border:1px dashed #5f6b75"></i><span><b>Dashed line</b>Upper cabinet / closet rod.</span></div>
@@ -632,68 +632,73 @@ function build(E){
     B(WX-1.02,5.15,z, WX-.02, 8.05, z+.04, MAT.sage);
   }
 
-  /* ===== BATHROOM — CAD diagram (build 2026-11-06c)
-     Street wall L→R: VANITY · TOILET · TUB (tub RIGHT).
-     Living wall: door ONLY on LEFT in front of vanity; solid wall in front of toilet + tub.
-     Door hinged on left, swings in toward vanity. */
+  /* ===== BATHROOM — CAD topology (build 2026-11-06d)
+     Exterior street corner (outer / LEFT when facing street) = TUB
+     Toward living (RIGHT when facing street) = VANITY
+     Middle = TOILET
+     Door on living wall at VANITY+TOILET end (not in front of tub), swings in toward vanity.
+     Matches the plan diagram’s exterior-corner tub + door at vanity end. */
   const bathW=5.7, bathD=3.4;
-  const bathX0=-WX;
-  const bathX1=-WX+bathW;
-  const bathZ0=WZ-bathD;
+  const bathX0=-WX;              // outer wall (exterior)
+  const bathX1=-WX+bathW;        // living-side wall
+  const bathZ0=WZ-bathD;         // living-facing wall
 
-  // Street-wall fixtures L→R
+  // Street-wall fixtures: TUB (outer) · TOILET · VANITY (living)
+  const tubW=2.35;
   const vanW=2.05;
-  const vanX0=bathX0+0.1;
-  const vanX1=vanX0+vanW;
-  const toiX=vanX1+0.72;
-  const tubX0=toiX+0.78;
-  const tubX1=bathX1-0.1;
+  const tubX0=bathX0+0.08;
+  const tubX1=tubX0+tubW;
+  const vanX1=bathX1-0.1;
+  const vanX0=vanX1-vanW;
+  const toiX=(tubX1+vanX0)/2;
 
-  // Door ONLY in front of vanity (left), ~2.5′ — matches diagram
-  const hinge=bathX0+0.28;
-  const doorClear=2.5;
-  const doorR=hinge+doorClear;
+  // Door in front of vanity + toilet only (living end) — NOT in front of tub
+  const doorL=tubX1+0.1;         // start just past tub
+  const doorR=bathX1-0.15;       // to living-side wall
+  const hinge=doorR-0.08;        // hinge near vanity / living side; swings toward vanity
+  const doorClear=hinge-doorL;
 
-  // Living-side wall
+  // Living-side bath wall
   B(bathX1-.25,0,bathZ0, bathX1, 8.5, WZ, MAT.wall);
-  // Living-facing wall: tiny left jamb | door | long wall past toilet & tub
-  B(bathX0,0,bathZ0, hinge, 8.5, bathZ0+.28, MAT.wall);
+  // Living-facing wall: solid in front of TUB | door in front of toilet+vanity
+  B(bathX0,0,bathZ0, doorL, 8.5, bathZ0+.28, MAT.wall);
   B(doorR,0,bathZ0, bathX1, 8.5, bathZ0+.28, MAT.wall);
-  B(hinge,6.7,bathZ0, doorR, 8.5, bathZ0+.28, MAT.wall);
-  // Trim / frame
-  B(hinge-.05,0,bathZ0-.06, hinge+.05, 6.9, bathZ0+.32, MAT.trim);
+  B(doorL,6.7,bathZ0, doorR, 8.5, bathZ0+.28, MAT.wall);
+  // Frame
+  B(doorL-.05,0,bathZ0-.06, doorL+.05, 6.9, bathZ0+.32, MAT.trim);
   B(doorR-.05,0,bathZ0-.06, doorR+.05, 6.9, bathZ0+.32, MAT.trim);
-  B(hinge-.05,6.65,bathZ0-.06, doorR+.05, 6.95, bathZ0+.32, MAT.trim);
-  // Door leaf ~80° open toward vanity (+z), clearly on LEFT
-  B(hinge+.04,0.02, bathZ0+.04, hinge+.18, 6.7, bathZ0+2.15, MAT.door);
-  B(hinge+.08,0.02, bathZ0+2.02, hinge+.2, 6.7, bathZ0+2.15, MAT.trim);
-  B(hinge+.14,3.05, bathZ0+1.85, hinge+.26, 3.25, bathZ0+2.0, MAT.black);
-  E.cyl([hinge+.12,3.15,bathZ0+1.95], .055, .09, MAT.brass, {seg:10});
-  B(hinge,0,bathZ0-.08, doorR, .045, bathZ0+.08, MAT.trim);
+  B(doorL-.05,6.65,bathZ0-.06, doorR+.05, 6.95, bathZ0+.32, MAT.trim);
+  // Door leaf open inward toward vanity (+z). Hinge at vanity end of opening.
+  B(hinge-.18,0.02, bathZ0+.04, hinge-.04, 6.7, bathZ0+2.15, MAT.door);
+  B(hinge-.2,0.02, bathZ0+2.02, hinge-.08, 6.7, bathZ0+2.15, MAT.trim);
+  B(hinge-.26,3.05, bathZ0+1.85, hinge-.14, 3.25, bathZ0+2.0, MAT.black);
+  E.cyl([hinge-.12,3.15,bathZ0+1.95], .055, .09, MAT.brass, {seg:10});
+  B(doorL,0,bathZ0-.08, doorR, .045, bathZ0+.08, MAT.trim);
 
-  // Floor / walls
+  // Finishes
   E.rect([(bathX0+bathX1)/2, .012, (bathZ0+WZ)/2], [1,0,0],[0,0,-1], (bathX1-bathX0)/2, (WZ-bathZ0)/2, MAT.bathTile);
   E.rect([bathX0+.015, 4.2, (bathZ0+WZ)/2], [0,0,-1],[0,1,0], (WZ-bathZ0)/2, 4.2, MAT.bathTile);
   E.rect([bathX1-.26, 4.2, (bathZ0+WZ)/2], [0,0,1],[0,1,0], (WZ-bathZ0)/2, 4.2, MAT.bathTile);
 
-  // VANITY left
-  B(vanX0, 1.35, WZ-1.2, vanX1, 2.55, WZ-.08, MAT.walnut);
-  B(vanX0-.02, 2.55, WZ-1.25, vanX1+.02, 2.68, WZ-.04, MAT.quartz);
-  E.cyl([(vanX0+vanX1)/2, 2.68, WZ-0.6], .3, .28, MAT.ceramic, {r2:.38, seg:18});
-  B(vanX0+0.2, 3.85, WZ-.12, vanX1-0.2, 5.45, WZ-.04, MAT.mirror);
-
-  // TOILET center — tank at street, bowl toward living / door
-  E.cyl([toiX, .85, WZ-1.55], .26, .32, MAT.ceramic, {r2:.32, seg:14});
-  B(toiX-0.3, .85, WZ-1.05, toiX+0.3, 1.22, WZ-0.45, MAT.ceramic);
-
-  // TUB right corner — faucet on right end
+  // TUB — exterior street corner (LEFT when facing street)
   const tubZ0=bathZ0+0.12, tubZ1=WZ-0.06;
   B(tubX0, 0.02, tubZ0, tubX1, 1.48, tubZ1, MAT.bathTile);
   B(tubX0, 1.48, tubZ0, tubX1, 1.58, tubZ1, MAT.ceramic);
   B(tubX0+0.1, 0.08, tubZ0+0.1, tubX1-0.1, 1.38, tubZ1-0.1, MAT.ceramic);
   E.rect([(tubX0+tubX1)/2, 3.55, tubZ0+.03], [1,0,0],[0,1,0], (tubX1-tubX0)/2-0.06, 3.2, MAT.glass);
-  E.cyl([tubX1-0.25, 1.59, (tubZ0+tubZ1)/2], .11, .035, MAT.black, {seg:12});
-  E.cyl([tubX1-0.25, 3.15, (tubZ0+tubZ1)/2], .035, 1.45, MAT.steel, {seg:8});
+  // Faucet on exterior end of tub (outer / left)
+  E.cyl([tubX0+0.25, 1.59, (tubZ0+tubZ1)/2], .11, .035, MAT.black, {seg:12});
+  E.cyl([tubX0+0.25, 3.15, (tubZ0+tubZ1)/2], .035, 1.45, MAT.steel, {seg:8});
+
+  // TOILET — between tub and vanity
+  E.cyl([toiX, .85, WZ-1.55], .26, .32, MAT.ceramic, {r2:.32, seg:14});
+  B(toiX-0.3, .85, WZ-1.05, toiX+0.3, 1.22, WZ-0.45, MAT.ceramic);
+
+  // VANITY — toward living (RIGHT when facing street)
+  B(vanX0, 1.35, WZ-1.2, vanX1, 2.55, WZ-.08, MAT.walnut);
+  B(vanX0-.02, 2.55, WZ-1.25, vanX1+.02, 2.68, WZ-.04, MAT.quartz);
+  E.cyl([(vanX0+vanX1)/2, 2.68, WZ-0.6], .3, .28, MAT.ceramic, {r2:.38, seg:18});
+  B(vanX0+0.2, 3.85, WZ-.12, vanX1-0.2, 5.45, WZ-.04, MAT.mirror);
 
   /* ===== CLOSET — plan ~1.75′ deep × ~4′ long, under bath toward entry ===== */
   const cDepth=1.75, cLen=4.0;
@@ -724,7 +729,7 @@ function build(E){
 const LABELS=[
   {id:'street', t:'Street / former garage door · bathroom + REF end', p:[-1.0, 8.2, 10.15], callout:true},
   {id:'kitchen', t:'(N) Kitchen · sink right of stove', p:[5.2, 7.0, -1.0]},
-  {id:'bath', t:'(N) Bathroom · door left · tub right', p:[-3.5, 7.1, 8.3]},
+  {id:'bath', t:'(N) Bathroom · tub left · door at vanity', p:[-3.5, 7.1, 8.3]},
   {id:'closet', t:'(N) Closet', p:[-5.4, 7.0, 4.5]},
   {id:'living', t:'(E) Garage · open living', p:[0, 3.5, -1.5]},
   {id:'entry', t:'Entry door · left when facing street', p:[-4.7, 6.9, -8.6]}
