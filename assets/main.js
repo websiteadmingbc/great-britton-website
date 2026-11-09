@@ -145,6 +145,12 @@ document.addEventListener('click', (e) => {
 
   const normalize = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
 
+  // Prefill from ?q= for badge / manual verify links
+  try {
+    const qParam = new URLSearchParams(location.search).get('q');
+    if (qParam && input) input.value = qParam;
+  } catch (_) {}
+
   function apply() {
     const q = normalize(input?.value);
     let shown = 0;
@@ -177,9 +183,15 @@ document.addEventListener('click', (e) => {
 
   input?.addEventListener('input', apply);
   form?.addEventListener('submit', (e) => {
+    // Homepage form posts to /crew/?q=… ; directory page filters in place.
+    const path = location.pathname.replace(/index\.html$/, '');
+    const onCrewDir = /(^|\/)crew\/?$/.test(path);
+    if (!onCrewDir) return;
     e.preventDefault();
     apply();
     const first = cards.find((c) => !c.hidden);
     first?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
+
+  apply();
 })();
