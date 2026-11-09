@@ -131,3 +131,55 @@ document.addEventListener('click', (e) => {
     window.gtag('event', 'start_visitor_view', { page_path: location.pathname });
   }
 })();
+
+/* Meet the Crew directory — search + department filters */
+(() => {
+  const grid = document.getElementById('crew-grid');
+  if (!grid) return;
+  const cards = [...grid.querySelectorAll('.crew-card')];
+  const empty = document.getElementById('crew-empty');
+  const form = document.getElementById('crew-search-form');
+  const input = document.getElementById('crew-query');
+  const filters = [...document.querySelectorAll('.crew-filter')];
+  let dept = 'all';
+
+  const normalize = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+  function apply() {
+    const q = normalize(input?.value);
+    let shown = 0;
+    cards.forEach((card) => {
+      const deptOk = dept === 'all' || card.dataset.dept === dept;
+      const hay = normalize(`${card.dataset.name} ${card.dataset.badge}`);
+      const queryOk = !q || hay.includes(q);
+      const match = deptOk && queryOk;
+      card.hidden = !match;
+      card.classList.toggle('is-match', Boolean(match && q));
+      if (match) shown += 1;
+    });
+    if (empty) {
+      empty.hidden = shown !== 0;
+      empty.classList.toggle('is-visible', shown === 0);
+    }
+  }
+
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      dept = btn.dataset.filter || 'all';
+      filters.forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+      apply();
+    });
+  });
+
+  input?.addEventListener('input', apply);
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    apply();
+    const first = cards.find((c) => !c.hidden);
+    first?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+})();

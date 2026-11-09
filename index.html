@@ -58,6 +58,50 @@ a.proof-sub:hover{color:var(--gold)}
 .gbc-live-proof-more a{font-size:12px;font-weight:700;color:#d8ad43;text-decoration:none}
 @media(max-width:850px){.gbc-live-proof-layout{grid-template-columns:1fr}.gbc-live-proof-aside{padding:30px}}
 @media(max-width:550px){.gbc-live-proof-feed{padding:14px}.gbc-live-proof-heading{margin-bottom:26px}.gbc-live-proof-aside{padding:24px}.gbc-live-proof-feed .sk-ww-yelp-reviews{min-height:220px}}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ===== Meet the Crew directory ===== */
+.crew{background:#121415;border-top:1px solid #2c2f2e;border-bottom:1px solid #2c2f2e}
+.crew-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.95fr);gap:48px;align-items:end;margin-bottom:48px}
+.crew-intro h2{font-size:clamp(52px,6.2vw,92px);line-height:.92;margin:18px 0 22px;letter-spacing:-.5px}
+.crew-intro h2 .crew-accent{color:var(--gold)}
+.crew-intro p{margin:0;max-width:520px;color:#c7c9c6;font-size:15px;line-height:1.85}
+.crew-tools{display:flex;flex-direction:column;gap:14px;align-items:stretch}
+.crew-tip{display:flex;align-items:center;gap:10px;align-self:flex-end;background:rgba(216,173,67,.12);border:1px solid rgba(216,173,67,.45);color:#e6c56a;font-size:11px;font-weight:700;letter-spacing:.4px;padding:10px 14px;border-radius:4px}
+.crew-tip svg{flex:none}
+.crew-search{display:flex;gap:10px;align-items:stretch}
+.crew-search-field{position:relative;flex:1;min-width:0}
+.crew-search-field svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--gold);pointer-events:none}
+.crew-search input{width:100%;height:48px;padding:0 14px 0 42px;background:#0e1011;border:1px solid #3a3d3c;color:var(--cream);font:500 14px/1 "DM Sans",sans-serif;outline:none}
+.crew-search input::placeholder{color:#7f8481}
+.crew-search input:focus{border-color:var(--gold)}
+.crew-verify{flex:none;height:48px;padding:0 22px;border:1px solid var(--gold);background:transparent;color:var(--gold);font:800 11px/1 "DM Sans",sans-serif;letter-spacing:1.8px;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s}
+.crew-verify:hover{background:var(--gold);color:#101213}
+.crew-filters{display:flex;flex-wrap:wrap;gap:8px}
+.crew-filter{height:36px;padding:0 14px;border:1px solid #4a4538;background:#16191a;color:#d7d5ce;font:800 10px/1 "DM Sans",sans-serif;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.crew-filter.is-active,.crew-filter[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#101213}
+.crew-filter:hover:not(.is-active):not([aria-pressed="true"]){border-color:var(--gold);color:var(--gold)}
+.crew-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.crew-card{position:relative;background:#191c1d;border:1px solid #383c3b;padding:34px 28px 26px;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:100%;transition:border-color .2s,transform .2s,box-shadow .2s}
+.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.28)}
+.crew-card[hidden]{display:none!important}
+.crew-lead{position:absolute;top:14px;right:14px;background:var(--gold);color:#101213;font:800 9px/1 "DM Sans",sans-serif;letter-spacing:1.4px;text-transform:uppercase;padding:7px 9px}
+.crew-avatar{width:118px;height:118px;border-radius:50%;border:2px solid var(--gold);overflow:hidden;background:#101315;display:grid;place-items:center;margin-bottom:22px}
+.crew-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.crew-avatar-fallback{font:800 34px/1 "Barlow Condensed",Impact,sans-serif;color:var(--gold);letter-spacing:1px}
+.crew-card h3{margin:0;font-size:clamp(28px,2.4vw,36px);line-height:1;letter-spacing:.5px}
+.crew-card h3 .initial{color:var(--gold)}
+.crew-role{margin:10px 0 0;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.4px}
+.crew-meta{margin-top:auto;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:18px;border-top:1px solid #383c3b;margin-top:28px}
+.crew-badge{font:700 12px/1 "DM Sans",sans-serif;letter-spacing:1px;color:#c9c6bd}
+.crew-status{display:inline-flex;align-items:center;gap:7px;color:#6fbf73;font:800 10px/1 "DM Sans",sans-serif;letter-spacing:1.4px;text-transform:uppercase}
+.crew-status:before{content:"";width:7px;height:7px;border-radius:50%;background:#6fbf73;box-shadow:0 0 0 3px rgba(111,191,115,.18)}
+.crew-empty{display:none;grid-column:1/-1;border:1px dashed #4a4538;padding:36px;text-align:center;color:var(--muted);font-size:14px}
+.crew-empty.is-visible{display:block}
+@media(max-width:1100px){.crew-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.crew-top{gap:32px}}
+@media(max-width:850px){.crew-top{grid-template-columns:1fr;align-items:start}.crew-tip{align-self:stretch}}
+@media(max-width:550px){.crew-grid{grid-template-columns:1fr}.crew-search{flex-direction:column}.crew-verify{width:100%}.crew-card{padding:30px 22px 22px}}
 </style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -97,11 +141,71 @@ a.proof-sub:hover{color:var(--gold)}
 </ul></div></div></section>
 <div class="band"><div class="container"><span>Built on quality.</span><span>Driven by integrity.</span><span>Built to last.</span></div></div>
 <section class="section projects" id="projects"><div class="container"><div class="sectionhead"><div><div class="eyebrow">02 / Our work</div><h2>Work worth<br/>showcasing.</h2></div><p>Explore real construction photographs from Great Britton projects across the Bay Area.</p></div><a class="btn" href="projects.html">Explore our projects <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></a></div></section>
-<section class="section about" id="about"><div class="container about-grid"><div aria-label="Great Britton kitchen with cedar ceiling, dark cabinetry and island seating" class="about-image" role="img"></div><div><div class="eyebrow">03 / Our approach</div><h2>Strong<br/>foundations.<br/><span style="color:var(--gold)">Higher standards.</span></h2><p>Great Britton Construction is focused on bringing craftsmanship, clear communication and coordinated execution to residential and commercial construction projects.</p><p>Whether the scope calls for structural work, a new ADU, or a full remodel, the goal is the same: quality that holds up over time.</p><div class="divider"></div><div class="about-list"><span>Residential projects</span><span>Commercial projects</span><span>Structural construction</span><span>Renovations</span></div></div></div></section>
+<section class="section crew" id="crew" aria-labelledby="crew-title">
+<div class="container">
+<div class="crew-top">
+<div class="crew-intro">
+<div class="eyebrow">03 / The people behind the work</div>
+<h2 id="crew-title">Meet the <span class="crew-accent">Crew.</span></h2>
+<p>Every Great Britton team member carries a photo ID. Scan the badge, or search by name or badge number to check that someone is on our crew today.</p>
+</div>
+<div class="crew-tools">
+<div class="crew-tip" role="note">
+<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3 2.5 20h19L12 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 10v5M12 17.5v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+<span>Search by badge # works as a manual check</span>
+</div>
+<form class="crew-search" id="crew-search-form" role="search" action="#" method="get">
+<label class="crew-search-field">
+<span class="sr-only">Search name or badge ID</span>
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+<input id="crew-query" type="search" name="q" placeholder="Search name or badge ID, e.g. GBC-0427" autocomplete="off"/>
+</label>
+<button class="crew-verify" type="submit">Verify</button>
+</form>
+<div class="crew-filters" role="group" aria-label="Filter crew by department">
+<button class="crew-filter is-active" type="button" data-filter="all" aria-pressed="true">All · 4</button>
+<button class="crew-filter" type="button" data-filter="leadership" aria-pressed="false">Leadership</button>
+<button class="crew-filter" type="button" data-filter="field" aria-pressed="false">Field Crew</button>
+<button class="crew-filter" type="button" data-filter="office" aria-pressed="false">Office</button>
+</div>
+</div>
+</div>
+<div class="crew-grid" id="crew-grid">
+<article class="crew-card" data-dept="leadership" data-name="paul a alcantar" data-badge="gbc-0001">
+<span class="crew-lead">Lead</span>
+<div class="crew-avatar"><img src="assets/crew/paul-alcantar.jpg" alt="Paul Alcantar" width="118" height="118" loading="lazy" decoding="async"/></div>
+<h3>Paul <span class="initial">A.</span></h3>
+<p class="crew-role">General Manager</p>
+<div class="crew-meta"><span class="crew-badge">GBC-0001</span><span class="crew-status">Active</span></div>
+</article>
+<article class="crew-card" data-dept="leadership" data-name="eli m" data-badge="gbc-0002">
+<span class="crew-lead">Lead</span>
+<div class="crew-avatar" aria-hidden="true"><span class="crew-avatar-fallback">EM</span></div>
+<h3>Eli <span class="initial">M.</span></h3>
+<p class="crew-role">Operations Manager</p>
+<div class="crew-meta"><span class="crew-badge">GBC-0002</span><span class="crew-status">Active</span></div>
+</article>
+<article class="crew-card" data-dept="office" data-name="dylan s simpson" data-badge="gbc-0104">
+<div class="crew-avatar"><img src="assets/crew/dylan-simpson.jpg" alt="Dylan Simpson" width="118" height="118" loading="lazy" decoding="async"/></div>
+<h3>Dylan <span class="initial">S.</span></h3>
+<p class="crew-role">Sales &amp; Client Relations</p>
+<div class="crew-meta"><span class="crew-badge">GBC-0104</span><span class="crew-status">Active</span></div>
+</article>
+<article class="crew-card" data-dept="field" data-name="massie" data-badge="gbc-0501">
+<div class="crew-avatar" aria-hidden="true"><span class="crew-avatar-fallback">M</span></div>
+<h3>Massie</h3>
+<p class="crew-role">Title TBD</p>
+<div class="crew-meta"><span class="crew-badge">GBC-0501</span><span class="crew-status">Active</span></div>
+</article>
+<p class="crew-empty" id="crew-empty" hidden>No crew members match that search.</p>
+</div>
+</div>
+</section>
+<section class="section about" id="about"><div class="container about-grid"><div aria-label="Great Britton kitchen with cedar ceiling, dark cabinetry and island seating" class="about-image" role="img"></div><div><div class="eyebrow">04 / Our approach</div><h2>Strong<br/>foundations.<br/><span style="color:var(--gold)">Higher standards.</span></h2><p>Great Britton Construction is focused on bringing craftsmanship, clear communication and coordinated execution to residential and commercial construction projects.</p><p>Whether the scope calls for structural work, a new ADU, or a full remodel, the goal is the same: quality that holds up over time.</p><div class="divider"></div><div class="about-list"><span>Residential projects</span><span>Commercial projects</span><span>Structural construction</span><span>Renovations</span></div></div></div></section>
 <section aria-labelledby="gbc-live-proof-title" class="section gbc-live-proof" id="reviews">
 <div class="container">
 <div class="sectionhead gbc-live-proof-heading">
-<div><div class="eyebrow">04 / Customer feedback</div><h2 id="gbc-live-proof-title">What our customers<br/><span style="color:#d8ad43">are saying.</span></h2></div>
+<div><div class="eyebrow">05 / Customer feedback</div><h2 id="gbc-live-proof-title">What our customers<br/><span style="color:#d8ad43">are saying.</span></h2></div>
 <p>Hear from customers on Yelp. Browse recent feedback, explore our reputation, and get in touch when you're ready to start your project.</p>
 </div>
 <div class="gbc-live-proof-layout">
@@ -120,12 +224,12 @@ a.proof-sub:hover{color:var(--gold)}
 </aside>
 </div>
 </div>
-</section><section class="section process" id="process"><div class="container"><div class="sectionhead"><div><div class="eyebrow">04 / How it works</div><h2>Simple process.<br/><span style="color:var(--gold)">No surprises.</span></h2></div><p>From the first conversation to the final walkthrough, you know what happens next and who to call.</p></div><ol class="process-steps">
+</section><section class="section process" id="process"><div class="container"><div class="sectionhead"><div><div class="eyebrow">06 / How it works</div><h2>Simple process.<br/><span style="color:var(--gold)">No surprises.</span></h2></div><p>From the first conversation to the final walkthrough, you know what happens next and who to call.</p></div><ol class="process-steps">
 <li><span class="num">01</span><h3>Free consult</h3><p>We talk through your goals, look at the space and answer your questions — no obligation.</p></li>
 <li><span class="num">02</span><h3>Written estimate</h3><p>You get the scope and price in writing before any work begins.</p></li>
 <li><span class="num">03</span><h3>One point of contact</h3><p>We schedule the work, and one person keeps you updated from start to finish.</p></li>
 <li><span class="num">04</span><h3>Final walkthrough</h3><p>We walk the finished project with you and close out anything that needs attention.</p></li>
-</ol></div></section><section class="contact" id="contact"><div class="container contact-grid"><div><div class="eyebrow">05 / Let's get started</div><h2>Your vision.<br/><span style="color:var(--gold)">Our craft.</span></h2><p>Planning a kitchen or bath remodel, an ADU or an addition? Send a few details and we'll follow up to set up a free consult.</p>
+</ol></div></section><section class="contact" id="contact"><div class="container contact-grid"><div><div class="eyebrow">07 / Let's get started</div><h2>Your vision.<br/><span style="color:var(--gold)">Our craft.</span></h2><p>Planning a kitchen or bath remodel, an ADU or an addition? Send a few details and we'll follow up to set up a free consult.</p>
 <form action="https://formspree.io/f/xljjpyda" class="inquiry-form" id="inquiry-form" method="POST" novalidate="">
 <input name="_subject" type="hidden" value="New inquiry — greatbrittongc.com"/>
 <input name="submission_type" type="hidden" value="main-site-inquiry"/>
