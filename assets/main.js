@@ -132,24 +132,87 @@ document.addEventListener('click', (e) => {
   }
 })();
 
-/* Meet the Crew directory — search + department filters */
+/* Meet the Crew directory — live from Field personnel (published only) */
 (() => {
   const grid = document.getElementById('crew-grid');
   if (!grid) return;
-  const cards = [...grid.querySelectorAll('.crew-card')];
+
   const empty = document.getElementById('crew-empty');
+  const loading = document.getElementById('crew-loading');
   const form = document.getElementById('crew-search-form');
   const input = document.getElementById('crew-query');
   const filters = [...document.querySelectorAll('.crew-filter')];
+  const allBtn = document.getElementById('crew-filter-all') || filters.find((b) => b.dataset.filter === 'all');
+  const cfg = window.GBC_SUPABASE || {};
+  const crewBase = grid.dataset.crewBase ?? 'crew/';
   let dept = 'all';
+  let cards = [];
 
   const normalize = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  const escapeHtml = (s) =>
+    String(s ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
 
-  // Prefill from ?q= for badge / manual verify links
-  try {
-    const qParam = new URLSearchParams(location.search).get('q');
-    if (qParam && input) input.value = qParam;
-  } catch (_) {}
+  function avatarUrl(path) {
+    if (!path) return null;
+    if (/^https?:\/\//i.test(path)) return path;
+    if (!cfg.url) return null;
+    return `${cfg.url}/storage/v1/object/public/personnel-avatars/${path.replace(/^\/+/, '')}`;
+  }
+
+  function displayParts(row) {
+    const preferred = (row.preferred_name || '').trim();
+    const first = preferred || (row.first_name || '').trim() || 'Crew';
+    const middle = (row.middle_name || '').trim();
+    const last = (row.last_name || '').trim();
+    const initialSrc = middle || last;
+    const initial = initialSrc ? `${initialSrc.charAt(0).toUpperCase()}.` : '';
+    const fullSearch = [row.first_name, row.middle_name, row.last_name, preferred]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase();
+    const initials =
+      `${(preferred || row.first_name || '?').charAt(0)}${(last || middle || '').charAt(0) || ''}`.toUpperCase();
+    return { first, initial, fullSearch, initials };
+  }
+
+  function renderCard(row) {
+    const deptKey = row.website_category || '';
+    const { first, initial, fullSearch, initials } = displayParts(row);
+    const badge = row.personnel_code || '';
+    const role = row.job_title || '';
+    const photo = avatarUrl(row.avatar_path);
+    const slug = (row.website_slug || '').trim();
+    const href = slug ? `${crewBase}${slug}/` : '';
+    const isLead = deptKey === 'leadership';
+    const tag = href ? 'a' : 'div';
+    const hrefAttr = href ? ` href="${escapeHtml(href)}"` : '';
+    const avatarHtml = photo
+      ? `<div class="crew-avatar"><img src="${escapeHtml(photo)}" alt="" width="118" height="118" loading="lazy" decoding="async"/></div>`
+      : `<div class="crew-avatar" aria-hidden="true"><span class="crew-avatar-fallback">${escapeHtml(initials)}</span></div>`;
+    const leadHtml = isLead ? '<span class="crew-lead">Lead</span>' : '';
+    const titleHtml = initial
+      ? `${escapeHtml(first)} <span class="initial">${escapeHtml(initial)}</span>`
+      : escapeHtml(first);
+
+    const el = document.createElement(tag);
+    el.className = 'crew-card';
+    if (!href) el.setAttribute('role', 'group');
+    el.dataset.dept = deptKey;
+    el.dataset.name = fullSearch;
+    el.dataset.badge = badge.toLowerCase();
+    if (hrefAttr) el.setAttribute('href', href);
+    el.innerHTML = `${leadHtml}${avatarHtml}<h3>${titleHtml}</h3><p class="crew-role">${escapeHtml(role)}</p><div class="crew-meta"><span class="crew-badge">${escapeHtml(badge)}</span><span class="crew-status">Active</span></div>`;
+    return el;
+  }
+
+  function updateAllCount(total) {
+    if (!allBtn) return;
+    allBtn.textContent = total > 0 ? `All · ${total}` : 'All';
+  }
 
   function apply() {
     const q = normalize(input?.value);
@@ -164,34 +227,97 @@ document.addEventListener('click', (e) => {
       if (match) shown += 1;
     });
     if (empty) {
-      empty.hidden = shown !== 0;
-      empty.classList.toggle('is-visible', shown === 0);
+      const showEmpty = cards.length > 0 && shown === 0;
+      empty.hidden = !showEmpty;
+      empty.classList.toggle('is-visible', showEmpty);
+      empty.textContent = 'No crew members match that search.';
     }
   }
 
-  filters.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      dept = btn.dataset.filter || 'all';
-      filters.forEach((b) => {
-        const on = b === btn;
-        b.classList.toggle('is-active', on);
-        b.setAttribute('aria-pressed', String(on));
+  function bindFilters() {
+    filters.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        dept = btn.dataset.filter || 'all';
+        filters.forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
+        apply();
       });
-      apply();
     });
-  });
 
-  input?.addEventListener('input', apply);
-  form?.addEventListener('submit', (e) => {
-    // Homepage form posts to /crew/?q=… ; directory page filters in place.
-    const path = location.pathname.replace(/index\.html$/, '');
-    const onCrewDir = /(^|\/)crew\/?$/.test(path);
-    if (!onCrewDir) return;
-    e.preventDefault();
-    apply();
-    const first = cards.find((c) => !c.hidden);
-    first?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
+    input?.addEventListener('input', apply);
+    form?.addEventListener('submit', (e) => {
+      const path = location.pathname.replace(/index\.html$/, '');
+      const onCrewDir = /(^|\/)crew\/?$/.test(path);
+      if (!onCrewDir) return;
+      e.preventDefault();
+      apply();
+      const first = cards.find((c) => !c.hidden);
+      first?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
 
-  apply();
+  async function loadCrew() {
+    try {
+      const qParam = new URLSearchParams(location.search).get('q');
+      if (qParam && input) input.value = qParam;
+    } catch (_) {}
+
+    bindFilters();
+
+    if (!cfg.url || !cfg.anonKey) {
+      if (loading) loading.textContent = 'Crew directory unavailable.';
+      grid.setAttribute('aria-busy', 'false');
+      return;
+    }
+
+    const url =
+      `${cfg.url}/rest/v1/personnel_website` +
+      `?select=id,first_name,last_name,preferred_name,middle_name,job_title,personnel_code,website_category,avatar_path,website_slug,website_sort_order` +
+      `&order=website_sort_order.asc,last_name.asc,first_name.asc`;
+
+    try {
+      const res = await fetch(url, {
+        headers: {
+          apikey: cfg.anonKey,
+          Authorization: `Bearer ${cfg.anonKey}`,
+          Accept: 'application/json',
+        },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const rows = await res.json();
+
+      if (loading) loading.remove();
+      grid.querySelectorAll('.crew-card').forEach((n) => n.remove());
+
+      const frag = document.createDocumentFragment();
+      (rows || []).forEach((row) => {
+        if (!row.website_category) return;
+        frag.appendChild(renderCard(row));
+      });
+      grid.insertBefore(frag, empty || null);
+      cards = [...grid.querySelectorAll('.crew-card')];
+      updateAllCount(cards.length);
+      grid.setAttribute('aria-busy', 'false');
+
+      if (cards.length === 0 && empty) {
+        empty.hidden = false;
+        empty.classList.add('is-visible');
+        empty.textContent = 'No published crew members yet.';
+      } else {
+        apply();
+      }
+    } catch (err) {
+      if (loading) {
+        loading.textContent = 'Could not load crew. Please try again later.';
+        loading.classList.add('is-visible');
+      }
+      grid.setAttribute('aria-busy', 'false');
+      console.warn('Crew directory load failed', err);
+    }
+  }
+
+  loadCrew();
 })();

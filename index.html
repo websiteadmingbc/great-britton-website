@@ -163,34 +163,15 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
 <button class="crew-verify" type="submit">Verify</button>
 </form>
 <div class="crew-filters" role="group" aria-label="Filter crew by department">
-<button class="crew-filter is-active" type="button" data-filter="all" aria-pressed="true">All · 3</button>
+<button class="crew-filter is-active" type="button" data-filter="all" aria-pressed="true" id="crew-filter-all">All</button>
 <button class="crew-filter" type="button" data-filter="leadership" aria-pressed="false">Leadership</button>
 <button class="crew-filter" type="button" data-filter="field" aria-pressed="false">Field Crew</button>
 <button class="crew-filter" type="button" data-filter="office" aria-pressed="false">Office</button>
 </div>
 </div>
 </div>
-<div class="crew-grid" id="crew-grid">
-<a class="crew-card" href="crew/paula/" data-dept="leadership" data-name="paul a alcantar" data-badge="gbc-0001">
-<span class="crew-lead">Lead</span>
-<div class="crew-avatar"><img src="assets/crew/paul-alcantar.jpg" alt="" width="118" height="118" loading="lazy" decoding="async"/></div>
-<h3>Paul <span class="initial">A.</span></h3>
-<p class="crew-role">Project Manager</p>
-<div class="crew-meta"><span class="crew-badge">GBC-0001</span><span class="crew-status">Active</span></div>
-</a>
-<a class="crew-card" href="crew/elim/" data-dept="leadership" data-name="eli m" data-badge="gbc-0002">
-<span class="crew-lead">Lead</span>
-<div class="crew-avatar" aria-hidden="true"><span class="crew-avatar-fallback">EM</span></div>
-<h3>Eli <span class="initial">M.</span></h3>
-<p class="crew-role">Operations Manager</p>
-<div class="crew-meta"><span class="crew-badge">GBC-0002</span><span class="crew-status">Active</span></div>
-</a>
-<a class="crew-card" href="crew/dylans/" data-dept="office" data-name="dylan s simpson" data-badge="gbc-0104">
-<div class="crew-avatar"><img src="assets/crew/dylan-simpson.jpg" alt="" width="118" height="118" loading="lazy" decoding="async"/></div>
-<h3>Dylan <span class="initial">S.</span></h3>
-<p class="crew-role">Director of Growth &amp; Client Relations</p>
-<div class="crew-meta"><span class="crew-badge">GBC-0104</span><span class="crew-status">Active</span></div>
-</a>
+<div class="crew-grid" id="crew-grid" data-crew-base="crew/" aria-busy="true">
+<p class="crew-empty is-visible" id="crew-loading">Loading crew…</p>
 <p class="crew-empty" id="crew-empty" hidden>No crew members match that search.</p>
 </div>
 <p style="margin:28px 0 0;text-align:center"><a class="btn outline" href="crew/">Open full crew directory <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></a></p>
@@ -244,5 +225,6 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
 <p aria-live="polite" class="form-status" role="status"></p>
 </form></div><div class="phones"><div class="label">Speak with Great Britton</div><a href="tel:5104328461">(510) 432-8461 <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></a><div class="label">License</div><p><strong style="color:#d8ad43">CSLB #1025488</strong> · General B<br/><a class="cslb-link inline" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank">Verify with CSLB ↗</a></p><div class="label">Website</div><p>greatbrittongc.com</p></div></div></section>
 </main><footer><div class="container foot"><strong>GREAT BRITTON CONSTRUCTION</strong><span>BUILT ON QUALITY · DRIVEN BY INTEGRITY · BUILT TO LAST</span><span><a class="cslb-link" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank"><strong style="color:#d8ad43">CSLB #1025488</strong></a> · General B</span><span class="footer-license">C10 Electrical &amp; C46 Solar classifications coming soon · Work requiring those classifications is subject to appropriate licensing.</span></div></footer>
+<script src="assets/supabase-config.js"></script>
 <script src="assets/main.js"></script><script async="" src="https://www.yelp.com/embed/widgets.js"></script>
 <script defer="True" src="https://widgets.sociablekit.com/yelp-reviews/widget.js"></script></body></html>

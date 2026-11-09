@@ -66,34 +66,15 @@
 <button class="crew-verify" type="submit">Verify</button>
 </form>
 <div class="crew-filters" role="group" aria-label="Filter crew by department">
-<button class="crew-filter is-active" type="button" data-filter="all" aria-pressed="true">All · 3</button>
+<button class="crew-filter is-active" type="button" data-filter="all" aria-pressed="true" id="crew-filter-all">All</button>
 <button class="crew-filter" type="button" data-filter="leadership" aria-pressed="false">Leadership</button>
 <button class="crew-filter" type="button" data-filter="field" aria-pressed="false">Field Crew</button>
 <button class="crew-filter" type="button" data-filter="office" aria-pressed="false">Office</button>
 </div>
 </div>
 </div>
-<div class="crew-grid" id="crew-grid">
-<a class="crew-card" href="paula/" data-dept="leadership" data-name="paul a alcantar" data-badge="gbc-0001">
-<span class="crew-lead">Lead</span>
-<div class="crew-avatar"><img src="../assets/crew/paul-alcantar.jpg" alt="" width="118" height="118" loading="lazy" decoding="async"/></div>
-<h3>Paul <span class="initial">A.</span></h3>
-<p class="crew-role">Project Manager</p>
-<div class="crew-meta"><span class="crew-badge">GBC-0001</span><span class="crew-status">Active</span></div>
-</a>
-<a class="crew-card" href="elim/" data-dept="leadership" data-name="eli m" data-badge="gbc-0002">
-<span class="crew-lead">Lead</span>
-<div class="crew-avatar" aria-hidden="true"><span class="crew-avatar-fallback">EM</span></div>
-<h3>Eli <span class="initial">M.</span></h3>
-<p class="crew-role">Operations Manager</p>
-<div class="crew-meta"><span class="crew-badge">GBC-0002</span><span class="crew-status">Active</span></div>
-</a>
-<a class="crew-card" href="dylans/" data-dept="office" data-name="dylan s simpson" data-badge="gbc-0104">
-<div class="crew-avatar"><img src="../assets/crew/dylan-simpson.jpg" alt="" width="118" height="118" loading="lazy" decoding="async"/></div>
-<h3>Dylan <span class="initial">S.</span></h3>
-<p class="crew-role">Director of Growth &amp; Client Relations</p>
-<div class="crew-meta"><span class="crew-badge">GBC-0104</span><span class="crew-status">Active</span></div>
-</a>
+<div class="crew-grid" id="crew-grid" data-crew-base="" aria-busy="true">
+<p class="crew-empty is-visible" id="crew-loading">Loading crew…</p>
 <p class="crew-empty" id="crew-empty" hidden>No crew members match that search.</p>
 </div>
 </div>
@@ -106,6 +87,7 @@
 <span><a class="cslb-link" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank"><strong style="color:#d8ad43">CSLB #1025488</strong></a> · General B</span>
 </div>
 </footer>
+<script src="../assets/supabase-config.js"></script>
 <script src="../assets/main.js"></script>
 </body>
 </html>
