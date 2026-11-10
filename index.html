@@ -115,6 +115,34 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
  .gbc-live-proof{padding-top:32px;padding-bottom:32px}
  .gbc-live-proof-feed,.gbc-live-proof-aside{padding:16px}
 }
+
+/* ===== Compact homepage customer reviews v2 ===== */
+.gbc-live-proof{padding-block:28px}
+.gbc-live-proof .gbc-live-proof-heading{margin-bottom:16px;align-items:center;gap:18px}
+.gbc-live-proof .gbc-live-proof-heading h2{font-size:clamp(30px,3.5vw,48px);line-height:1.02;margin:7px 0 0}
+.gbc-live-proof .gbc-live-proof-heading p{font-size:13px;line-height:1.5;max-width:390px}
+.gbc-live-proof-layout{grid-template-columns:minmax(0,1fr) minmax(230px,.48fr);gap:14px;align-items:start}
+.gbc-live-proof-feed{padding:14px;overflow:visible}
+.gbc-live-proof-label{margin-bottom:8px;font-size:10px;letter-spacing:1.4px}
+.gbc-live-proof-feed .sk-ww-reviews{min-height:0;height:auto;max-width:100%}
+.gbc-live-proof-fallback{margin-top:8px;font-size:11px}
+.gbc-live-proof-aside{padding:17px;gap:0}
+.gbc-live-proof-aside h3{font-size:clamp(24px,2.4vw,32px);margin:8px 0}
+.gbc-live-proof-aside p{font-size:12px;line-height:1.5;margin:0 0 12px}
+.gbc-live-proof-button{padding:11px 13px;margin-bottom:7px;font-size:11px}
+.gbc-live-proof-more{margin-top:8px;gap:8px}
+.gbc-live-proof-more a{font-size:11px}
+@media(max-width:850px){
+ .gbc-live-proof-layout{grid-template-columns:1fr;gap:12px}
+ .gbc-live-proof-aside{padding:15px}
+}
+@media(max-width:550px){
+ .gbc-live-proof{padding-block:22px}
+ .gbc-live-proof .gbc-live-proof-heading{margin-bottom:12px}
+ .gbc-live-proof .gbc-live-proof-heading h2{font-size:34px}
+ .gbc-live-proof-feed{padding:12px}
+ .gbc-live-proof-aside{padding:14px}
+}
 </style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
