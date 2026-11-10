@@ -321,3 +321,32 @@ document.addEventListener('click', (e) => {
 
   loadCrew();
 })();
+
+/* Projects portfolio — filter, category-card hooks, live counts and modal viewer */
+(() => {
+ const grid=document.getElementById('pf-grid');if(!grid)return;
+ const section=document.getElementById('portfolio'),toolbar=document.getElementById('pf-toolbar'),heading=document.getElementById('pf-heading'),count=document.getElementById('pf-count');
+ const tiles=[...grid.querySelectorAll('.pf-tile')],chips=[...document.querySelectorAll('.pf-filter')],cards=[...document.querySelectorAll('.gb-project-card')];
+ const dialog=document.getElementById('pf-lightbox'),photo=document.getElementById('pf-lb-img'),caption=document.getElementById('pf-lb-cap');
+ const labels={all:'All Work',kitchens:'Kitchen Remodeling',bathrooms:'Bathroom Remodeling',roofing:'Roofing',framing:'Framing & Structural Work',exteriors:'Exterior Construction',interiors:'Interior Remodeling & Flooring',commercial:'Commercial Construction'};
+ let visible=tiles,current=0,opener=null;
+ function setFilter(key,{scroll=false,hash=false}={}){
+  if(!Object.hasOwn(labels,key))key='all';
+  chips.forEach(b=>{const on=b.dataset.filter===key;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',String(on))});
+  cards.forEach(c=>c.classList.toggle('is-active',c.dataset.category===key));
+  tiles.forEach(t=>{const on=key==='all'||t.dataset.category===key;t.classList.toggle('is-hidden',!on);if(on){t.classList.remove('is-entering');void t.offsetWidth;t.classList.add('is-entering')}});
+  visible=tiles.filter(t=>!t.classList.contains('is-hidden'));count.textContent=String(visible.length);heading.textContent=labels[key];
+  if(hash)history.replaceState(null,'','#portfolio/'+key);
+  if(scroll)section.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+ }
+ chips.forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter,{hash:true})));
+ cards.forEach(c=>c.addEventListener('click',e=>{e.preventDefault();setFilter(c.dataset.category,{scroll:true,hash:true})}));
+ const open=(tile)=>{opener=tile;current=visible.indexOf(tile);show(current);dialog.showModal();dialog.querySelector('.pf-lb-close').focus()};
+ function show(i){if(!visible.length)return;current=(i+visible.length)%visible.length;const tile=visible[current];photo.src=tile.dataset.src;photo.alt=tile.querySelector('img').alt;const name=labels[tile.dataset.category];const number=visible.slice(0,current+1).filter(t=>t.dataset.category===tile.dataset.category).length;const total=visible.filter(t=>t.dataset.category===tile.dataset.category).length;caption.textContent=name+' · '+String(number).padStart(2,'0')+' / '+String(total).padStart(2,'0')}
+ tiles.forEach(t=>t.addEventListener('click',()=>open(t)));
+ dialog.querySelector('.pf-lb-prev').addEventListener('click',()=>show(current-1));dialog.querySelector('.pf-lb-next').addEventListener('click',()=>show(current+1));dialog.querySelector('.pf-lb-close').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});dialog.addEventListener('close',()=>{photo.removeAttribute('src');opener?.focus()});
+ dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();show(current-1)}if(e.key==='ArrowRight'){e.preventDefault();show(current+1)}});
+ if('IntersectionObserver' in window){const sentinel=document.createElement('div');sentinel.style.height='1px';section.querySelector('.container').insertBefore(sentinel,toolbar);new IntersectionObserver(([entry])=>toolbar.classList.toggle('is-stuck',!entry.isIntersecting),{threshold:0}).observe(sentinel)}
+ const applyHash=()=>{const m=location.hash.match(/^#portfolio\/([a-z]+)$/);if(m)setFilter(m[1],{scroll:true})};applyHash();window.addEventListener('hashchange',applyHash);
+})();
