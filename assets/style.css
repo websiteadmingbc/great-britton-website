@@ -269,3 +269,4 @@ a.service-link{display:block;color:inherit;text-decoration:none;position:relativ
 @media(max-width:950px){.supporting-list li:last-child{grid-column:span 2}}
 @media(max-width:650px){.supporting-list li:last-child{grid-column:1/-1}}
 .phones a.contact-email{font:600 clamp(16px,1.6vw,20px) "DM Sans",sans-serif;margin:10px 0 30px;word-break:break-all}
+.phones a.contact-address{font:600 15px "DM Sans",sans-serif;margin:10px 0 30px;line-height:1.7;display:inline-block;letter-spacing:0;text-transform:none}
