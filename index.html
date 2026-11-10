@@ -102,6 +102,19 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
 @media(max-width:1100px){.crew-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.crew-top{gap:32px}}
 @media(max-width:850px){.crew-top{grid-template-columns:1fr;align-items:start}.crew-tip{align-self:stretch}}
 @media(max-width:550px){.crew-grid{grid-template-columns:1fr}.crew-search{flex-direction:column}.crew-verify{width:100%}.crew-card{padding:30px 22px 22px}}
+
+/* Compact homepage review section; review count is set in SociableKIT widget 25728763. */
+.gbc-live-proof{padding-top:48px;padding-bottom:48px}
+.gbc-live-proof-heading{margin-bottom:20px}
+.gbc-live-proof-layout{align-items:start}
+.gbc-live-proof-feed{padding:18px;overflow:visible}
+.gbc-live-proof-label{margin-bottom:12px}
+.gbc-live-proof-feed .sk-ww-reviews{min-height:0;height:auto;max-width:100%}
+.gbc-live-proof-aside{padding:24px}
+@media(max-width:550px){
+ .gbc-live-proof{padding-top:32px;padding-bottom:32px}
+ .gbc-live-proof-feed,.gbc-live-proof-aside{padding:16px}
+}
 </style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -187,7 +200,7 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
 <div class="gbc-live-proof-layout">
 <div class="gbc-live-proof-feed">
 <div class="gbc-live-proof-label">Yelp customer reviews <span aria-hidden="true">↗</span></div>
-<div class="sk-ww-yelp-reviews" data-embed-id="25727406"></div>
+<div class="sk-ww-reviews" data-embed-id="25728763"></div>
 <p class="gbc-live-proof-fallback">Reviews not loading? <a href="https://www.yelp.com/biz/great-britton-construction-san-jose" rel="noopener noreferrer" target="_blank">Read them directly on Yelp.</a></p>
 </div>
 <aside class="gbc-live-proof-aside">
@@ -227,4 +240,4 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
 </main><footer><div class="container foot"><strong>GREAT BRITTON CONSTRUCTION</strong><span>BUILT ON QUALITY · DRIVEN BY INTEGRITY · BUILT TO LAST</span><span><a class="cslb-link" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank"><strong style="color:#d8ad43">CSLB #1025488</strong></a> · General B</span><span class="footer-license">C10 Electrical &amp; C46 Solar classifications coming soon · Work requiring those classifications is subject to appropriate licensing.</span></div></footer>
 <script src="assets/supabase-config.js"></script>
 <script src="assets/main.js"></script><script async="" src="https://www.yelp.com/embed/widgets.js"></script>
-<script defer="True" src="https://widgets.sociablekit.com/yelp-reviews/widget.js"></script></body></html>
+<script defer="True" src="https://widgets.sociablekit.com/reviews/widget.js"></script></body></html>
