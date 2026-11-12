@@ -22,13 +22,13 @@ h2{font-size:clamp(32px,4.6vw,58px)}
 .lede{color:var(--mute);font-size:clamp(17px,1.5vw,20px);max-width:640px}
 
 /* top bar */
-.bar{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 28px;background:linear-gradient(rgba(13,17,20,.85),rgba(13,17,20,0));pointer-events:none}
+.bar{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;background:rgba(13,17,20,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 6px 24px rgba(0,0,0,.35);pointer-events:none}
 .brand{display:flex;align-items:center;gap:12px;pointer-events:auto}
 .mark{width:34px;height:34px;border:1.5px solid var(--brass);display:grid;place-items:center;font-family:var(--serif);color:var(--brass2);font-size:15px;letter-spacing:.04em}
 .brand b{font-family:var(--serif);font-weight:500;font-size:16px;letter-spacing:.06em}
-.brand small{display:block;font-size:10px;letter-spacing:.24em;color:var(--mute);text-transform:uppercase}
+.brand small{display:block;font-size:10px;letter-spacing:.24em;color:#bdb5aa;text-transform:uppercase}
 .bar nav{display:flex;gap:22px;pointer-events:auto}
-.bar nav a{color:var(--mute);text-decoration:none;font-size:13px;letter-spacing:.06em}
+.bar nav a{color:#d9d2c7;text-decoration:none;font-size:13px;letter-spacing:.06em}
 .bar nav a:hover{color:var(--text)}
 @media(max-width:760px){.bar nav{display:none}}
 
