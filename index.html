@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/favicon.png" rel="icon" sizes="256x256" type="image/png"/><link href="assets/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/><link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/><meta content="#0a0c0d" name="theme-color"/><link href="assets/style.css" rel="stylesheet"/>
+<link href="assets/favicon.png" rel="icon" sizes="256x256" type="image/png"/><link href="assets/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/><link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/><meta content="#0a0c0d" name="theme-color"/><link href="assets/style.css?v=pf-heading-2line" rel="stylesheet"/>
 <style>
 /* ===== Social proof section ===== */
 .proof[hidden]{display:none!important}
@@ -44,20 +44,15 @@ a.proof-sub:hover{color:var(--gold)}
 /* ===== Homepage live Yelp social proof ===== */
 .gbc-live-proof{background:#0e1011;border-top:1px solid #343735;border-bottom:1px solid #343735}
 .gbc-live-proof-heading{margin-bottom:36px}
-.gbc-live-proof-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,.8fr);gap:24px;align-items:stretch}
+.gbc-live-proof-layout{display:block}
 .gbc-live-proof-feed{background:#171b1b;border:1px solid #383c3b;padding:26px;min-width:0;overflow:hidden}
 .gbc-live-proof-label{font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:#d8ad43;margin-bottom:23px;display:flex;justify-content:space-between}
 .gbc-live-proof-feed .sk-ww-yelp-reviews{min-height:280px;max-width:100%}
+.sk-ww-yelp-reviews .sk-yelp-summary-badge{display:none!important}
+#pf-heading .pf-heading-line{display:block!important}
 .gbc-live-proof-fallback{font-size:12px;line-height:1.6;color:#b7b9b7;margin:20px 0 0}
 .gbc-live-proof-fallback a{color:#d8ad43}
-.gbc-live-proof-aside{background:#24221b;border:1px solid #514630;padding:34px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.gbc-live-proof-aside h3{font:800 clamp(32px,3.3vw,46px)/1.04 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;margin:18px 0}
-.gbc-live-proof-aside p{font-size:14px;line-height:1.8;color:#c7c8c3;margin:0 0 27px}
-.gbc-live-proof-button{width:100%;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left}
-.gbc-live-proof-more{display:flex;flex-direction:column;gap:14px;margin-top:20px}
-.gbc-live-proof-more a{font-size:12px;font-weight:700;color:#d8ad43;text-decoration:none}
-@media(max-width:850px){.gbc-live-proof-layout{grid-template-columns:1fr}.gbc-live-proof-aside{padding:30px}}
-@media(max-width:550px){.gbc-live-proof-feed{padding:14px}.gbc-live-proof-heading{margin-bottom:26px}.gbc-live-proof-aside{padding:24px}.gbc-live-proof-feed .sk-ww-yelp-reviews{min-height:220px}}
+@media(max-width:550px){.gbc-live-proof-feed{padding:14px}.gbc-live-proof-heading{margin-bottom:26px}.gbc-live-proof-feed .sk-ww-yelp-reviews{min-height:220px}}
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
@@ -159,29 +154,924 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
   gtag('js', new Date());
   gtag('config', 'G-SYZH6MG8EP');
 </script>
-</head><body>
-<header><div class="container nav"><a aria-label="Great Britton Construction home" class="nav-brand" href="index.html"><img alt="Great Britton Construction" class="header-logo" src="assets/great-britton-logo.png"/></a><button aria-controls="site-menu" aria-expanded="false" aria-label="Open navigation menu" class="mobile-toggle" type="button"><span aria-hidden="true" class="hamburger-lines"><i></i><i></i><i></i></span></button><nav aria-label="Main navigation" id="site-menu"><a href="index.html#services">Services</a><a href="projects.html">Projects</a><a href="reviews.html">Reviews</a><a href="crew/">Crew</a><a href="index.html#about">Our Company</a><a href="index.html#contact">Contact</a></nav><a class="nav-phone" href="tel:5104328461"><small>LET’S BUILD SOMETHING GREAT</small><strong>(510) 432-8461 <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></strong></a></div></header>
+</head><body class="has-topbar has-mobile-callbar">
+<div class="site-topbar"><div class="container"><span>South Bay &amp; East Bay</span><span>Main office · San Jose · <a href="tel:5104328461">(510) 432-8461</a></span></div></div>
+<header><div class="container nav"><a aria-label="Great Britton Construction home" class="nav-brand" href="index.html"><img alt="Great Britton Construction" class="header-logo" src="assets/great-britton-logo.png"/></a><button aria-controls="site-menu" aria-expanded="false" aria-label="Open navigation menu" class="mobile-toggle" type="button"><span aria-hidden="true" class="hamburger-lines"><i></i><i></i><i></i></span></button><nav aria-label="Main navigation" id="site-menu"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#how-we-work">How we work</a><a href="#reviews">Reviews</a><a href="#crew">Crew</a><a href="#about">About</a><a href="#contact">Contact</a></nav><a class="nav-cta" href="#contact">Request a Free Consultation</a></div></header>
 <main id="top">
-<section class="hero"><div class="container hero-inner"><div class="eyebrow">Bay Area Construction &amp; General Contracting</div><h1>Built<br/>with <em>purpose.</em><br/>Made to last.</h1><p class="hero-desc">Kitchen and bathroom remodels, ADUs and additions across the Bay Area — backed by structural experience and a commitment to quality.</p><div class="actions"><a class="btn" href="tel:5104328461">Discuss your project <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></a><a class="btn outline" href="#services">Explore our expertise ↓</a></div></div><div class="hero-bottom"><div class="container hero-stats"><div class="stat"><strong>CSLB #1025488</strong><span>Contractor license · <a class="cslb-link" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank">Verify with CSLB ↗</a></span></div><div class="stat"><strong>FREE CONSULT</strong><span>Written estimate before work begins</span></div><div class="stat"><strong>GENERAL B</strong><span>General building contractor</span></div></div></div></section>
+<section class="hero hero-redesign">
+<div class="container hero-stage">
+<div class="hero-copy">
+<div class="eyebrow">Licensed Bay Area GC</div>
+<h1>One call.<br/><em>Crews across</em><br/>the Bay.</h1>
+<p class="hero-desc">Remodels, ADUs and additions from the South Bay to the East Bay. One San Jose main office handles every estimate, contract and schedule.</p>
+<div class="actions">
+<a class="btn" href="tel:5104328461">Call main office</a>
+<a class="btn outline" href="#contact">Request a Free Consultation</a>
+</div>
+</div>
+<div class="area-check" id="area-check">
+<p class="area-check-label">Do we build in your area?</p>
+<form class="area-check-row" id="area-check-form" action="#contact" method="get">
+<input aria-label="City or ZIP" autocomplete="address-level2" id="area-query" name="area" placeholder="City or ZIP" type="text"/>
+<button class="btn" type="submit">Check</button>
+</form>
+<div class="area-check-chips" aria-label="Areas we service">
+<span class="area-check-chips-label">We serve</span>
+<div class="area-check-chips-list">
+<button type="button" data-area="San Francisco">San Francisco</button>
+<button type="button" data-area="San Mateo County, Bay side">Peninsula</button>
+<button type="button" data-area="San Mateo County, coast">Coastside</button>
+<button type="button" data-area="Santa Clara County">Santa Clara</button>
+<button type="button" data-area="Santa Cruz County">Santa Cruz</button>
+</div>
+</div>
+<div aria-live="polite" class="area-check-result" id="area-check-result" hidden></div>
+</div>
+</div>
+</section>
+<div class="trust-strip" aria-label="Company highlights">
+<div class="container trust-strip-grid">
+<div class="trust-item"><strong>CSLB #1025488</strong><span>Licensed · <a class="cslb-link" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank">Verify ↗</a></span></div>
+<div class="trust-item"><strong>1 point of contact</strong><span>San Jose runs every project</span></div>
+<div class="trust-item"><strong>2 locations</strong><span>San Jose · Alameda / East Bay</span></div>
+<div class="trust-item"><strong>Free consultation</strong><span>Written estimate up front</span></div>
+</div>
+</div>
 <!-- ===== Social proof (What clients say) =====
      HIDDEN until real reviews are in. To show it: delete the word `hidden` from the <section> tag below.
      Fill every [bracketed] value with real data only. -->
 
+<section class="section how-work" id="how-we-work"><div class="container"><div class="sectionhead"><div><div class="eyebrow">How we work</div><h2>One point of contact.<br/><span style="color:var(--gold)">Two Bay Area locations.</span></h2></div><p>Every project — South Bay or East Bay — is run from our main office in San Jose. Our East Bay office in Alameda is home base for the crews building there.</p></div>
+<div class="office-grid">
+<article class="office-card is-main"><div class="office-kicker">Main office · your point of contact</div><h3>San Jose</h3><div class="office-tags"><span>Estimates</span><span>Meetings</span><span>Contracts</span><span>Scheduling</span><span>Billing</span><span>Project updates</span></div><a class="office-phone" href="tel:5104328461">(510) 432-8461</a><p class="office-meta">205 E Alma, Unit B4<br/>San Jose, CA 95112</p></article>
+<article class="office-card"><div class="office-kicker">East Bay office · crews &amp; projects</div><h3>Alameda</h3><p class="office-meta">Home base for our East Bay crews, equipment and active projects — so the people building your project are local.</p><div class="office-note">Building in the East Bay? Contact our <a href="#contact">main office in San Jose</a> — they handle your estimate, contract and schedule.</div></article>
+</div>
+</div></section>
 <section class="section services" id="services"><div class="container"><div class="sectionhead"><div><div class="eyebrow">01 / Our capabilities</div><h2>Built for the<br/>complex work.</h2></div><p>We focus on the projects homeowners plan most — kitchens, bathrooms and ADUs — with framing, foundation and engineering experience behind every job.</p></div><div class="services-grid">
-<a aria-label="Explore kitchen remodel projects" class="service service-link" href="projects.html#kitchens"><div class="service"><span class="num">01 / REMODELING</span><span class="symbol">✦</span><h3>Kitchen Remodels</h3><p>Layout changes, cabinetry, counters, flooring and full kitchen renovations.</p></div><span class="service-cta">VIEW KITCHENS <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></span></a>
-<a aria-label="Explore bathroom remodel projects" class="service service-link" href="projects.html#bathrooms"><div class="service"><span class="num">02 / REMODELING</span><span class="symbol">◇</span><h3>Bathroom Remodels</h3><p>Showers, tile, vanities and complete primary and guest bath renovations.</p></div><span class="service-cta">VIEW BATHROOMS <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></span></a>
-<a aria-label="Explore ADU and addition projects" class="service service-link" href="projects.html#additions"><div class="service"><span class="num">03 / NEW SPACE</span><span class="symbol">⌂</span><h3>ADUs &amp; Additions</h3><p>Accessory dwelling units, garage conversions and home additions, from site coordination to finish.</p></div><span class="service-cta">VIEW RELATED WORK <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></span></a>
+<a aria-label="Explore kitchen remodel projects" class="service service-link" href="#portfolio" data-pf-jump="kitchens"><div class="service"><span class="num">01 / REMODELING</span><span class="symbol">✦</span><h3>Kitchen Remodels</h3><p>Layout changes, cabinetry, counters, flooring and full kitchen renovations.</p></div><span class="service-cta">VIEW KITCHENS <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></span></a>
+<a aria-label="Explore bathroom remodel projects" class="service service-link" href="#portfolio" data-pf-jump="bathrooms"><div class="service"><span class="num">02 / REMODELING</span><span class="symbol">◇</span><h3>Bathroom Remodels</h3><p>Showers, tile, vanities and complete primary and guest bath renovations.</p></div><span class="service-cta">VIEW BATHROOMS <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></span></a>
+<a aria-label="Explore ADU and addition projects" class="service service-link" href="#portfolio" data-pf-jump="interiors"><div class="service"><span class="num">03 / NEW SPACE</span><span class="symbol">⌂</span><h3>ADUs &amp; Additions</h3><p>Accessory dwelling units, garage conversions and home additions, from site coordination to finish.</p></div><span class="service-cta">VIEW RELATED WORK <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></span></a>
 <a aria-label="Request an estimate" class="service service-link" href="#contact"><div class="service"><span class="num">YOUR NEXT PROJECT</span><span aria-hidden="true" class="symbol service-next-icon"><svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></span><h3>Let's Build.</h3><p>Tell us about your project and get a free consult and written estimate.</p></div><span class="service-cta">REQUEST AN ESTIMATE <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></span></a>
 </div>
 <div class="supporting"><div class="supporting-label">Supporting work</div><ul class="supporting-list">
-<li><a href="projects.html#framing"><strong>Framing</strong><span>Structural wood and metal framing</span></a></li>
+<li><a href="#portfolio" data-pf-jump="framing"><strong>Framing</strong><span>Structural wood and metal framing</span></a></li>
 <li><strong>Foundations</strong><span>Concrete and structural groundwork</span></li>
 <li><strong>Engineering</strong><span>Engineering coordination and project planning</span></li>
 <li><strong>Electrical</strong><span>Installations, upgrades and improvements</span></li>
 <li><strong>Solar</strong><span>Solar installation and electrical integration</span></li>
 </ul></div></div></section>
 <div class="band"><div class="container"><span>Built on quality.</span><span>Driven by integrity.</span><span>Built to last.</span></div></div>
-<section class="section projects" id="projects"><div class="container"><div class="sectionhead"><div><div class="eyebrow">02 / Our work</div><h2>Work worth<br/>showcasing.</h2></div><p>Explore real construction photographs from Great Britton projects across the Bay Area.</p></div><a class="btn" href="projects.html">Explore our projects <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></a></div></section>
+<section class="projects-embed" id="projects" aria-label="Project portfolio">
+<section class="pf-portfolio" id="portfolio">
+    <div class="container">
+      <div class="pf-toolbar" id="pf-toolbar">
+        <div class="pf-toolbar-copy">
+          <div class="eyebrow">02 / Portfolio</div>
+          <h2 id="pf-heading">Kitchen Remodeling</h2>
+          <p class="pf-note">Photos are grouped by visible work type. Images in a category are not necessarily from the same job.</p>
+        </div>
+        <div class="pf-filters" role="toolbar" aria-label="Filter portfolio by category">
+          <button type="button" class="pf-filter is-active" data-filter="kitchens" aria-pressed="true">Kitchens <span>17</span></button><button type="button" class="pf-filter" data-filter="bathrooms" aria-pressed="false">Bathrooms <span>21</span></button><button type="button" class="pf-filter" data-filter="roofing" aria-pressed="false">Roofing <span>14</span></button><button type="button" class="pf-filter" data-filter="framing" aria-pressed="false">Framing <span>23</span></button><button type="button" class="pf-filter" data-filter="exteriors" aria-pressed="false">Exteriors <span>9</span></button><button type="button" class="pf-filter" data-filter="interiors" aria-pressed="false">Interiors <span>19</span></button><button type="button" class="pf-filter" data-filter="commercial" aria-pressed="false">Commercial <span>14</span></button>
+        </div>
+      </div>
+
+      <div class="pf-status" aria-live="polite"><span id="pf-count">17</span> photos</div>
+
+      <div class="pf-grid" id="pf-grid">
+        
+        <button type="button" class="pf-tile is-wide" data-category="kitchens" data-index="0" data-src="assets/original-gbc/gbc-001.jpg" aria-label="Kitchen Remodeling photo 1 of 17">
+          <img src="assets/original-gbc/gbc-001.jpg" alt="Kitchen Remodeling — portfolio photograph 1" loading="eager" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>01 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="3" data-src="assets/original-gbc/gbc-031.jpg" aria-label="Kitchen Remodeling photo 2 of 17">
+          <img src="assets/original-gbc/gbc-031.jpg" alt="Kitchen Remodeling — portfolio photograph 2" loading="eager" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>02 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="kitchens" data-index="5" data-src="assets/original-gbc/gbc-068.jpg" aria-label="Kitchen Remodeling photo 3 of 17">
+          <img src="assets/original-gbc/gbc-068.jpg" alt="Kitchen Remodeling — portfolio photograph 3" loading="eager" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>03 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="6" data-src="assets/original-gbc/gbc-069.jpg" aria-label="Kitchen Remodeling photo 4 of 17">
+          <img src="assets/original-gbc/gbc-069.jpg" alt="Kitchen Remodeling — portfolio photograph 4" loading="eager" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>04 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="7" data-src="assets/original-gbc/gbc-078.jpg" aria-label="Kitchen Remodeling photo 5 of 17">
+          <img src="assets/original-gbc/gbc-078.jpg" alt="Kitchen Remodeling — portfolio photograph 5" loading="eager" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>05 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="9" data-src="assets/original-gbc/gbc-080.jpg" aria-label="Kitchen Remodeling photo 6 of 17">
+          <img src="assets/original-gbc/gbc-080.jpg" alt="Kitchen Remodeling — portfolio photograph 6" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>06 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="kitchens" data-index="10" data-src="assets/original-gbc/gbc-081.jpg" aria-label="Kitchen Remodeling photo 7 of 17">
+          <img src="assets/original-gbc/gbc-081.jpg" alt="Kitchen Remodeling — portfolio photograph 7" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>07 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="11" data-src="assets/original-gbc/gbc-097.jpg" aria-label="Kitchen Remodeling photo 8 of 17">
+          <img src="assets/original-gbc/gbc-097.jpg" alt="Kitchen Remodeling — portfolio photograph 8" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>08 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="12" data-src="assets/original-gbc/gbc-131.jpg" aria-label="Kitchen Remodeling photo 9 of 17">
+          <img src="assets/original-gbc/gbc-131.jpg" alt="Kitchen Remodeling — portfolio photograph 9" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>09 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="13" data-src="assets/original-gbc/gbc-132.jpg" aria-label="Kitchen Remodeling photo 10 of 17">
+          <img src="assets/original-gbc/gbc-132.jpg" alt="Kitchen Remodeling — portfolio photograph 10" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>10 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="14" data-src="assets/original-gbc/gbc-133.jpg" aria-label="Kitchen Remodeling photo 11 of 17">
+          <img src="assets/original-gbc/gbc-133.jpg" alt="Kitchen Remodeling — portfolio photograph 11" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>11 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="16" data-src="assets/original-gbc/gbc-135.jpg" aria-label="Kitchen Remodeling photo 12 of 17">
+          <img src="assets/original-gbc/gbc-135.jpg" alt="Kitchen Remodeling — portfolio photograph 12" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>12 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="17" data-src="assets/original-gbc/gbc-136.jpg" aria-label="Kitchen Remodeling photo 13 of 17">
+          <img src="assets/original-gbc/gbc-136.jpg" alt="Kitchen Remodeling — portfolio photograph 13" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>13 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="18" data-src="assets/original-gbc/gbc-137.jpg" aria-label="Kitchen Remodeling photo 14 of 17">
+          <img src="assets/original-gbc/gbc-137.jpg" alt="Kitchen Remodeling — portfolio photograph 14" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>14 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="19" data-src="assets/original-gbc/gbc-138.jpg" aria-label="Kitchen Remodeling photo 15 of 17">
+          <img src="assets/original-gbc/gbc-138.jpg" alt="Kitchen Remodeling — portfolio photograph 15" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>15 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="21" data-src="assets/original-gbc/gbc-140.jpg" aria-label="Kitchen Remodeling photo 16 of 17">
+          <img src="assets/original-gbc/gbc-140.jpg" alt="Kitchen Remodeling — portfolio photograph 16" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>16 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="kitchens" data-index="32" data-src="assets/projects/project-photo-24.jpg" aria-label="Kitchen Remodeling photo 17 of 17">
+          <img src="assets/projects/project-photo-24.jpg" alt="Kitchen Remodeling — portfolio photograph 17" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Kitchen Remodeling</small>
+            <b>17 / 17</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="39" data-src="assets/original-gbc/gbc-028.jpg" aria-label="Bathroom Remodeling photo 1 of 21">
+          <img src="assets/original-gbc/gbc-028.jpg" alt="Bathroom Remodeling — portfolio photograph 1" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>01 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="42" data-src="assets/original-gbc/gbc-036.jpg" aria-label="Bathroom Remodeling photo 2 of 21">
+          <img src="assets/original-gbc/gbc-036.jpg" alt="Bathroom Remodeling — portfolio photograph 2" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>02 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="51" data-src="assets/original-gbc/gbc-059.jpg" aria-label="Bathroom Remodeling photo 3 of 21">
+          <img src="assets/original-gbc/gbc-059.jpg" alt="Bathroom Remodeling — portfolio photograph 3" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>03 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="52" data-src="assets/original-gbc/gbc-060.jpg" aria-label="Bathroom Remodeling photo 4 of 21">
+          <img src="assets/original-gbc/gbc-060.jpg" alt="Bathroom Remodeling — portfolio photograph 4" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>04 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="53" data-src="assets/original-gbc/gbc-107.jpg" aria-label="Bathroom Remodeling photo 5 of 21">
+          <img src="assets/original-gbc/gbc-107.jpg" alt="Bathroom Remodeling — portfolio photograph 5" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>05 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="54" data-src="assets/original-gbc/gbc-108.jpg" aria-label="Bathroom Remodeling photo 6 of 21">
+          <img src="assets/original-gbc/gbc-108.jpg" alt="Bathroom Remodeling — portfolio photograph 6" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>06 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="72" data-src="assets/original-gbc/gbc-126.jpg" aria-label="Bathroom Remodeling photo 7 of 21">
+          <img src="assets/original-gbc/gbc-126.jpg" alt="Bathroom Remodeling — portfolio photograph 7" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>07 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="73" data-src="assets/original-gbc/gbc-127.jpg" aria-label="Bathroom Remodeling photo 8 of 21">
+          <img src="assets/original-gbc/gbc-127.jpg" alt="Bathroom Remodeling — portfolio photograph 8" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>08 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="74" data-src="assets/original-gbc/gbc-128.jpg" aria-label="Bathroom Remodeling photo 9 of 21">
+          <img src="assets/original-gbc/gbc-128.jpg" alt="Bathroom Remodeling — portfolio photograph 9" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>09 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="bathrooms" data-index="80" data-src="assets/original-gbc/gbc-157.jpg" aria-label="Bathroom Remodeling photo 10 of 21">
+          <img src="assets/original-gbc/gbc-157.jpg" alt="Bathroom Remodeling — portfolio photograph 10" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>10 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="81" data-src="assets/original-gbc/gbc-158.jpg" aria-label="Bathroom Remodeling photo 11 of 21">
+          <img src="assets/original-gbc/gbc-158.jpg" alt="Bathroom Remodeling — portfolio photograph 11" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>11 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="82" data-src="assets/projects/project-photo-01.jpg" aria-label="Bathroom Remodeling photo 12 of 21">
+          <img src="assets/projects/project-photo-01.jpg" alt="Bathroom Remodeling — portfolio photograph 12" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>12 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="83" data-src="assets/projects/project-photo-06.jpg" aria-label="Bathroom Remodeling photo 13 of 21">
+          <img src="assets/projects/project-photo-06.jpg" alt="Bathroom Remodeling — portfolio photograph 13" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>13 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="bathrooms" data-index="85" data-src="assets/projects/project-photo-15.jpg" aria-label="Bathroom Remodeling photo 14 of 21">
+          <img src="assets/projects/project-photo-15.jpg" alt="Bathroom Remodeling — portfolio photograph 14" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>14 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="86" data-src="assets/projects/project-photo-18.jpg" aria-label="Bathroom Remodeling photo 15 of 21">
+          <img src="assets/projects/project-photo-18.jpg" alt="Bathroom Remodeling — portfolio photograph 15" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>15 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="87" data-src="assets/projects/project-photo-19.jpg" aria-label="Bathroom Remodeling photo 16 of 21">
+          <img src="assets/projects/project-photo-19.jpg" alt="Bathroom Remodeling — portfolio photograph 16" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>16 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="89" data-src="assets/projects/project-photo-21.jpg" aria-label="Bathroom Remodeling photo 17 of 21">
+          <img src="assets/projects/project-photo-21.jpg" alt="Bathroom Remodeling — portfolio photograph 17" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>17 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="bathrooms" data-index="90" data-src="assets/projects/project-photo-22.jpg" aria-label="Bathroom Remodeling photo 18 of 21">
+          <img src="assets/projects/project-photo-22.jpg" alt="Bathroom Remodeling — portfolio photograph 18" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>18 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="92" data-src="assets/projects/project-photo-27.jpg" aria-label="Bathroom Remodeling photo 19 of 21">
+          <img src="assets/projects/project-photo-27.jpg" alt="Bathroom Remodeling — portfolio photograph 19" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>19 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="93" data-src="assets/projects/project-photo-32.jpg" aria-label="Bathroom Remodeling photo 20 of 21">
+          <img src="assets/projects/project-photo-32.jpg" alt="Bathroom Remodeling — portfolio photograph 20" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>20 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="bathrooms" data-index="94" data-src="assets/projects/project-photo-33.jpg" aria-label="Bathroom Remodeling photo 21 of 21">
+          <img src="assets/projects/project-photo-33.jpg" alt="Bathroom Remodeling — portfolio photograph 21" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Bathroom Remodeling</small>
+            <b>21 / 21</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="roofing" data-index="97" data-src="assets/original-gbc/gbc-082.jpg" aria-label="Roofing photo 1 of 14">
+          <img src="assets/original-gbc/gbc-082.jpg" alt="Roofing — portfolio photograph 1" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>01 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="98" data-src="assets/original-gbc/gbc-083.jpg" aria-label="Roofing photo 2 of 14">
+          <img src="assets/original-gbc/gbc-083.jpg" alt="Roofing — portfolio photograph 2" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>02 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="99" data-src="assets/original-gbc/gbc-084.jpg" aria-label="Roofing photo 3 of 14">
+          <img src="assets/original-gbc/gbc-084.jpg" alt="Roofing — portfolio photograph 3" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>03 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="roofing" data-index="100" data-src="assets/original-gbc/gbc-085.jpg" aria-label="Roofing photo 4 of 14">
+          <img src="assets/original-gbc/gbc-085.jpg" alt="Roofing — portfolio photograph 4" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>04 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="101" data-src="assets/original-gbc/gbc-086.jpg" aria-label="Roofing photo 5 of 14">
+          <img src="assets/original-gbc/gbc-086.jpg" alt="Roofing — portfolio photograph 5" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>05 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="102" data-src="assets/original-gbc/gbc-094.jpg" aria-label="Roofing photo 6 of 14">
+          <img src="assets/original-gbc/gbc-094.jpg" alt="Roofing — portfolio photograph 6" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>06 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="103" data-src="assets/original-gbc/gbc-095.jpg" aria-label="Roofing photo 7 of 14">
+          <img src="assets/original-gbc/gbc-095.jpg" alt="Roofing — portfolio photograph 7" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>07 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="104" data-src="assets/original-gbc/gbc-096.jpg" aria-label="Roofing photo 8 of 14">
+          <img src="assets/original-gbc/gbc-096.jpg" alt="Roofing — portfolio photograph 8" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>08 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="roofing" data-index="105" data-src="assets/original-gbc/gbc-099.jpg" aria-label="Roofing photo 9 of 14">
+          <img src="assets/original-gbc/gbc-099.jpg" alt="Roofing — portfolio photograph 9" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>09 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="106" data-src="assets/original-gbc/gbc-100.jpg" aria-label="Roofing photo 10 of 14">
+          <img src="assets/original-gbc/gbc-100.jpg" alt="Roofing — portfolio photograph 10" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>10 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="107" data-src="assets/original-gbc/gbc-101.jpg" aria-label="Roofing photo 11 of 14">
+          <img src="assets/original-gbc/gbc-101.jpg" alt="Roofing — portfolio photograph 11" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>11 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="108" data-src="assets/original-gbc/gbc-143.jpg" aria-label="Roofing photo 12 of 14">
+          <img src="assets/original-gbc/gbc-143.jpg" alt="Roofing — portfolio photograph 12" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>12 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="roofing" data-index="109" data-src="assets/original-gbc/gbc-146.jpg" aria-label="Roofing photo 13 of 14">
+          <img src="assets/original-gbc/gbc-146.jpg" alt="Roofing — portfolio photograph 13" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>13 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="roofing" data-index="110" data-src="assets/projects/project-photo-36.jpg" aria-label="Roofing photo 14 of 14">
+          <img src="assets/projects/project-photo-36.jpg" alt="Roofing — portfolio photograph 14" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Roofing</small>
+            <b>14 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="framing" data-index="111" data-src="assets/original-gbc/gbc-071.jpg" aria-label="Framing &amp; Structural Work photo 1 of 23">
+          <img src="assets/original-gbc/gbc-071.jpg" alt="Framing &amp; Structural Work — portfolio photograph 1" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>01 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="112" data-src="assets/original-gbc/gbc-072.jpg" aria-label="Framing &amp; Structural Work photo 2 of 23">
+          <img src="assets/original-gbc/gbc-072.jpg" alt="Framing &amp; Structural Work — portfolio photograph 2" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>02 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="113" data-src="assets/original-gbc/gbc-073.jpg" aria-label="Framing &amp; Structural Work photo 3 of 23">
+          <img src="assets/original-gbc/gbc-073.jpg" alt="Framing &amp; Structural Work — portfolio photograph 3" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>03 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="114" data-src="assets/original-gbc/gbc-074.jpg" aria-label="Framing &amp; Structural Work photo 4 of 23">
+          <img src="assets/original-gbc/gbc-074.jpg" alt="Framing &amp; Structural Work — portfolio photograph 4" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>04 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="framing" data-index="115" data-src="assets/original-gbc/gbc-075.jpg" aria-label="Framing &amp; Structural Work photo 5 of 23">
+          <img src="assets/original-gbc/gbc-075.jpg" alt="Framing &amp; Structural Work — portfolio photograph 5" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>05 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="116" data-src="assets/original-gbc/gbc-076.jpg" aria-label="Framing &amp; Structural Work photo 6 of 23">
+          <img src="assets/original-gbc/gbc-076.jpg" alt="Framing &amp; Structural Work — portfolio photograph 6" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>06 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="117" data-src="assets/original-gbc/gbc-077.jpg" aria-label="Framing &amp; Structural Work photo 7 of 23">
+          <img src="assets/original-gbc/gbc-077.jpg" alt="Framing &amp; Structural Work — portfolio photograph 7" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>07 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="118" data-src="assets/original-gbc/gbc-089.jpg" aria-label="Framing &amp; Structural Work photo 8 of 23">
+          <img src="assets/original-gbc/gbc-089.jpg" alt="Framing &amp; Structural Work — portfolio photograph 8" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>08 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="119" data-src="assets/original-gbc/gbc-090.jpg" aria-label="Framing &amp; Structural Work photo 9 of 23">
+          <img src="assets/original-gbc/gbc-090.jpg" alt="Framing &amp; Structural Work — portfolio photograph 9" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>09 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="framing" data-index="120" data-src="assets/original-gbc/gbc-091.jpg" aria-label="Framing &amp; Structural Work photo 10 of 23">
+          <img src="assets/original-gbc/gbc-091.jpg" alt="Framing &amp; Structural Work — portfolio photograph 10" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>10 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="121" data-src="assets/original-gbc/gbc-092.jpg" aria-label="Framing &amp; Structural Work photo 11 of 23">
+          <img src="assets/original-gbc/gbc-092.jpg" alt="Framing &amp; Structural Work — portfolio photograph 11" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>11 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="122" data-src="assets/original-gbc/gbc-093.jpg" aria-label="Framing &amp; Structural Work photo 12 of 23">
+          <img src="assets/original-gbc/gbc-093.jpg" alt="Framing &amp; Structural Work — portfolio photograph 12" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>12 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="123" data-src="assets/original-gbc/gbc-103.jpg" aria-label="Framing &amp; Structural Work photo 13 of 23">
+          <img src="assets/original-gbc/gbc-103.jpg" alt="Framing &amp; Structural Work — portfolio photograph 13" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>13 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="124" data-src="assets/original-gbc/gbc-104.jpg" aria-label="Framing &amp; Structural Work photo 14 of 23">
+          <img src="assets/original-gbc/gbc-104.jpg" alt="Framing &amp; Structural Work — portfolio photograph 14" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>14 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="framing" data-index="125" data-src="assets/original-gbc/gbc-147.jpg" aria-label="Framing &amp; Structural Work photo 15 of 23">
+          <img src="assets/original-gbc/gbc-147.jpg" alt="Framing &amp; Structural Work — portfolio photograph 15" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>15 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="126" data-src="assets/original-gbc/gbc-148.jpg" aria-label="Framing &amp; Structural Work photo 16 of 23">
+          <img src="assets/original-gbc/gbc-148.jpg" alt="Framing &amp; Structural Work — portfolio photograph 16" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>16 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="127" data-src="assets/original-gbc/gbc-149.jpg" aria-label="Framing &amp; Structural Work photo 17 of 23">
+          <img src="assets/original-gbc/gbc-149.jpg" alt="Framing &amp; Structural Work — portfolio photograph 17" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>17 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="128" data-src="assets/original-gbc/gbc-150.jpg" aria-label="Framing &amp; Structural Work photo 18 of 23">
+          <img src="assets/original-gbc/gbc-150.jpg" alt="Framing &amp; Structural Work — portfolio photograph 18" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>18 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="129" data-src="assets/original-gbc/gbc-151.jpg" aria-label="Framing &amp; Structural Work photo 19 of 23">
+          <img src="assets/original-gbc/gbc-151.jpg" alt="Framing &amp; Structural Work — portfolio photograph 19" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>19 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="framing" data-index="130" data-src="assets/original-gbc/gbc-152.jpg" aria-label="Framing &amp; Structural Work photo 20 of 23">
+          <img src="assets/original-gbc/gbc-152.jpg" alt="Framing &amp; Structural Work — portfolio photograph 20" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>20 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="131" data-src="assets/original-gbc/gbc-153.jpg" aria-label="Framing &amp; Structural Work photo 21 of 23">
+          <img src="assets/original-gbc/gbc-153.jpg" alt="Framing &amp; Structural Work — portfolio photograph 21" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>21 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="132" data-src="assets/original-gbc/gbc-154.jpg" aria-label="Framing &amp; Structural Work photo 22 of 23">
+          <img src="assets/original-gbc/gbc-154.jpg" alt="Framing &amp; Structural Work — portfolio photograph 22" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>22 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="framing" data-index="133" data-src="assets/projects/project-photo-12.jpg" aria-label="Framing &amp; Structural Work photo 23 of 23">
+          <img src="assets/projects/project-photo-12.jpg" alt="Framing &amp; Structural Work — portfolio photograph 23" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Framing &amp; Structural Work</small>
+            <b>23 / 23</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="exteriors" data-index="134" data-src="assets/original-gbc/gbc-087.jpg" aria-label="Exterior Construction photo 1 of 9">
+          <img src="assets/original-gbc/gbc-087.jpg" alt="Exterior Construction — portfolio photograph 1" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Exterior Construction</small>
+            <b>01 / 09</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="exteriors" data-index="135" data-src="assets/original-gbc/gbc-088.jpg" aria-label="Exterior Construction photo 2 of 9">
+          <img src="assets/original-gbc/gbc-088.jpg" alt="Exterior Construction — portfolio photograph 2" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Exterior Construction</small>
+            <b>02 / 09</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="exteriors" data-index="136" data-src="assets/original-gbc/gbc-105.jpg" aria-label="Exterior Construction photo 3 of 9">
+          <img src="assets/original-gbc/gbc-105.jpg" alt="Exterior Construction — portfolio photograph 3" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Exterior Construction</small>
+            <b>03 / 09</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="exteriors" data-index="137" data-src="assets/original-gbc/gbc-106.jpg" aria-label="Exterior Construction photo 4 of 9">
+          <img src="assets/original-gbc/gbc-106.jpg" alt="Exterior Construction — portfolio photograph 4" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Exterior Construction</small>
+            <b>04 / 09</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="exteriors" data-index="138" data-src="assets/projects/project-photo-05.jpg" aria-label="Exterior Construction photo 5 of 9">
+          <img src="assets/projects/project-photo-05.jpg" alt="Exterior Construction — portfolio photograph 5" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Exterior Construction</small>
+            <b>05 / 09</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="exteriors" data-index="139" data-src="assets/projects/project-photo-07.jpg" aria-label="Exterior Construction photo 6 of 9">
+          <img src="assets/projects/project-photo-07.jpg" alt="Exterior Construction — portfolio photograph 6" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Exterior Construction</small>
+            <b>06 / 09</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="exteriors" data-index="140" data-src="assets/projects/project-photo-16.jpg" aria-label="Exterior Construction photo 7 of 9">
+          <img src="assets/projects/project-photo-16.jpg" alt="Exterior Construction — portfolio photograph 7" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Exterior Construction</small>
+            <b>07 / 09</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="exteriors" data-index="141" data-src="assets/projects/project-photo-17.jpg" aria-label="Exterior Construction photo 8 of 9">
+          <img src="assets/projects/project-photo-17.jpg" alt="Exterior Construction — portfolio photograph 8" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Exterior Construction</small>
+            <b>08 / 09</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="exteriors" data-index="142" data-src="assets/projects/project-photo-25.jpg" aria-label="Exterior Construction photo 9 of 9">
+          <img src="assets/projects/project-photo-25.jpg" alt="Exterior Construction — portfolio photograph 9" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Exterior Construction</small>
+            <b>09 / 09</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="156" data-src="assets/original-gbc/gbc-024.jpg" aria-label="Interior Remodeling &amp; Flooring photo 1 of 19">
+          <img src="assets/original-gbc/gbc-024.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 1" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>01 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="157" data-src="assets/original-gbc/gbc-025.jpg" aria-label="Interior Remodeling &amp; Flooring photo 2 of 19">
+          <img src="assets/original-gbc/gbc-025.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 2" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>02 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="158" data-src="assets/original-gbc/gbc-026.jpg" aria-label="Interior Remodeling &amp; Flooring photo 3 of 19">
+          <img src="assets/original-gbc/gbc-026.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 3" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>03 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="159" data-src="assets/original-gbc/gbc-033.jpg" aria-label="Interior Remodeling &amp; Flooring photo 4 of 19">
+          <img src="assets/original-gbc/gbc-033.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 4" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>04 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="interiors" data-index="160" data-src="assets/original-gbc/gbc-034.jpg" aria-label="Interior Remodeling &amp; Flooring photo 5 of 19">
+          <img src="assets/original-gbc/gbc-034.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 5" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>05 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="161" data-src="assets/original-gbc/gbc-035.jpg" aria-label="Interior Remodeling &amp; Flooring photo 6 of 19">
+          <img src="assets/original-gbc/gbc-035.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 6" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>06 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="162" data-src="assets/original-gbc/gbc-070.jpg" aria-label="Interior Remodeling &amp; Flooring photo 7 of 19">
+          <img src="assets/original-gbc/gbc-070.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 7" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>07 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="163" data-src="assets/original-gbc/gbc-102.jpg" aria-label="Interior Remodeling &amp; Flooring photo 8 of 19">
+          <img src="assets/original-gbc/gbc-102.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 8" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>08 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="164" data-src="assets/original-gbc/gbc-144.jpg" aria-label="Interior Remodeling &amp; Flooring photo 9 of 19">
+          <img src="assets/original-gbc/gbc-144.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 9" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>09 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="interiors" data-index="165" data-src="assets/original-gbc/gbc-145.jpg" aria-label="Interior Remodeling &amp; Flooring photo 10 of 19">
+          <img src="assets/original-gbc/gbc-145.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 10" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>10 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="166" data-src="assets/projects/project-photo-02.jpg" aria-label="Interior Remodeling &amp; Flooring photo 11 of 19">
+          <img src="assets/projects/project-photo-02.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 11" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>11 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="167" data-src="assets/projects/project-photo-03.jpg" aria-label="Interior Remodeling &amp; Flooring photo 12 of 19">
+          <img src="assets/projects/project-photo-03.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 12" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>12 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="168" data-src="assets/projects/project-photo-04.jpg" aria-label="Interior Remodeling &amp; Flooring photo 13 of 19">
+          <img src="assets/projects/project-photo-04.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 13" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>13 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="169" data-src="assets/projects/project-photo-08.jpg" aria-label="Interior Remodeling &amp; Flooring photo 14 of 19">
+          <img src="assets/projects/project-photo-08.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 14" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>14 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="interiors" data-index="170" data-src="assets/projects/project-photo-11.jpg" aria-label="Interior Remodeling &amp; Flooring photo 15 of 19">
+          <img src="assets/projects/project-photo-11.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 15" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>15 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="171" data-src="assets/projects/project-photo-13.jpg" aria-label="Interior Remodeling &amp; Flooring photo 16 of 19">
+          <img src="assets/projects/project-photo-13.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 16" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>16 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="172" data-src="assets/projects/project-photo-28.jpg" aria-label="Interior Remodeling &amp; Flooring photo 17 of 19">
+          <img src="assets/projects/project-photo-28.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 17" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>17 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="173" data-src="assets/projects/project-photo-35.jpg" aria-label="Interior Remodeling &amp; Flooring photo 18 of 19">
+          <img src="assets/projects/project-photo-35.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 18" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>18 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="interiors" data-index="174" data-src="assets/projects/project-photo-37.jpg" aria-label="Interior Remodeling &amp; Flooring photo 19 of 19">
+          <img src="assets/projects/project-photo-37.jpg" alt="Interior Remodeling &amp; Flooring — portfolio photograph 19" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Interior Remodeling &amp; Flooring</small>
+            <b>19 / 19</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="commercial" data-index="175" data-src="assets/original-gbc/gbc-037.jpg" aria-label="Commercial Construction photo 1 of 14">
+          <img src="assets/original-gbc/gbc-037.jpg" alt="Commercial Construction — portfolio photograph 1" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>01 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="176" data-src="assets/original-gbc/gbc-038.jpg" aria-label="Commercial Construction photo 2 of 14">
+          <img src="assets/original-gbc/gbc-038.jpg" alt="Commercial Construction — portfolio photograph 2" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>02 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="177" data-src="assets/original-gbc/gbc-039.jpg" aria-label="Commercial Construction photo 3 of 14">
+          <img src="assets/original-gbc/gbc-039.jpg" alt="Commercial Construction — portfolio photograph 3" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>03 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="178" data-src="assets/original-gbc/gbc-040.jpg" aria-label="Commercial Construction photo 4 of 14">
+          <img src="assets/original-gbc/gbc-040.jpg" alt="Commercial Construction — portfolio photograph 4" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>04 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="179" data-src="assets/original-gbc/gbc-041.jpg" aria-label="Commercial Construction photo 5 of 14">
+          <img src="assets/original-gbc/gbc-041.jpg" alt="Commercial Construction — portfolio photograph 5" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>05 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="commercial" data-index="180" data-src="assets/original-gbc/gbc-042.jpg" aria-label="Commercial Construction photo 6 of 14">
+          <img src="assets/original-gbc/gbc-042.jpg" alt="Commercial Construction — portfolio photograph 6" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>06 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="181" data-src="assets/original-gbc/gbc-043.jpg" aria-label="Commercial Construction photo 7 of 14">
+          <img src="assets/original-gbc/gbc-043.jpg" alt="Commercial Construction — portfolio photograph 7" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>07 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="182" data-src="assets/original-gbc/gbc-044.jpg" aria-label="Commercial Construction photo 8 of 14">
+          <img src="assets/original-gbc/gbc-044.jpg" alt="Commercial Construction — portfolio photograph 8" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>08 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="183" data-src="assets/original-gbc/gbc-045.jpg" aria-label="Commercial Construction photo 9 of 14">
+          <img src="assets/original-gbc/gbc-045.jpg" alt="Commercial Construction — portfolio photograph 9" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>09 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="184" data-src="assets/original-gbc/gbc-046.jpg" aria-label="Commercial Construction photo 10 of 14">
+          <img src="assets/original-gbc/gbc-046.jpg" alt="Commercial Construction — portfolio photograph 10" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>10 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile is-wide" data-category="commercial" data-index="185" data-src="assets/original-gbc/gbc-047.jpg" aria-label="Commercial Construction photo 11 of 14">
+          <img src="assets/original-gbc/gbc-047.jpg" alt="Commercial Construction — portfolio photograph 11" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>11 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="186" data-src="assets/original-gbc/gbc-048.jpg" aria-label="Commercial Construction photo 12 of 14">
+          <img src="assets/original-gbc/gbc-048.jpg" alt="Commercial Construction — portfolio photograph 12" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>12 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="187" data-src="assets/original-gbc/gbc-049.jpg" aria-label="Commercial Construction photo 13 of 14">
+          <img src="assets/original-gbc/gbc-049.jpg" alt="Commercial Construction — portfolio photograph 13" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>13 / 14</b>
+          </span>
+        </button>
+        <button type="button" class="pf-tile " data-category="commercial" data-index="188" data-src="assets/original-gbc/gbc-050.jpg" aria-label="Commercial Construction photo 14 of 14">
+          <img src="assets/original-gbc/gbc-050.jpg" alt="Commercial Construction — portfolio photograph 14" loading="lazy" decoding="async"/>
+          <span class="pf-tile-meta">
+            <small>Commercial Construction</small>
+            <b>14 / 14</b>
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+</section>
+<dialog class="pf-lightbox" id="pf-lightbox" aria-label="Enlarged project photograph">
+  <button type="button" class="pf-lb-close" aria-label="Close">×</button>
+  <button type="button" class="pf-lb-prev" aria-label="Previous photo">‹</button>
+  <figure class="pf-lb-stage">
+    <img id="pf-lb-img" alt=""/>
+    <figcaption id="pf-lb-cap"></figcaption>
+  </figure>
+  <button type="button" class="pf-lb-next" aria-label="Next photo">›</button>
+</dialog>
+
 <section class="section crew" id="crew" aria-labelledby="crew-title">
 <div class="container">
 <div class="crew-top">
@@ -195,7 +1085,7 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
 <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3 2.5 20h19L12 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 10v5M12 17.5v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
 <span>Search by badge # works as a manual check</span>
 </div>
-<form class="crew-search" id="crew-search-form" role="search" action="crew/" method="get">
+<form class="crew-search" id="crew-search-form" role="search" action="#crew" method="get">
 <label class="crew-search-field">
 <span class="sr-only">Search name or badge ID</span>
 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -215,14 +1105,13 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
 <p class="crew-empty is-visible" id="crew-loading">Loading crew…</p>
 <p class="crew-empty" id="crew-empty" hidden>No crew members match that search.</p>
 </div>
-<p style="margin:28px 0 0;text-align:center"><a class="btn outline" href="crew/">Open full crew directory <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></a></p>
 </div>
 </section>
 <section class="section about" id="about"><div class="container about-grid"><div aria-label="Great Britton kitchen with cedar ceiling, dark cabinetry and island seating" class="about-image" role="img"></div><div><div class="eyebrow">04 / Our approach</div><h2>Strong<br/>foundations.<br/><span style="color:var(--gold)">Higher standards.</span></h2><p>Great Britton Construction is focused on bringing craftsmanship, clear communication and coordinated execution to residential and commercial construction projects.</p><p>Whether the scope calls for structural work, a new ADU, or a full remodel, the goal is the same: quality that holds up over time.</p><div class="divider"></div><div class="about-list"><span>Residential projects</span><span>Commercial projects</span><span>Structural construction</span><span>Renovations</span></div></div></div></section>
 <section aria-labelledby="gbc-live-proof-title" class="section gbc-live-proof" id="reviews">
 <div class="container">
 <div class="sectionhead gbc-live-proof-heading">
-<div><div class="eyebrow">05 / Customer feedback</div><h2 id="gbc-live-proof-title">What our customers<br/><span style="color:#d8ad43">are saying.</span></h2></div>
+<div><div class="eyebrow">04 / Customer feedback</div><h2 id="gbc-live-proof-title">What our customers<br/><span style="color:#d8ad43">are saying.</span></h2></div>
 <p>Hear from customers on Yelp. Browse recent feedback, explore our reputation, and get in touch when you're ready to start your project.</p>
 </div>
 <div class="gbc-live-proof-layout">
@@ -231,22 +1120,11 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
 <div class="sk-ww-reviews" data-embed-id="25728763"></div>
 <p class="gbc-live-proof-fallback">Reviews not loading? <a href="https://www.yelp.com/biz/great-britton-construction-san-jose" rel="noopener noreferrer" target="_blank">Read them directly on Yelp.</a></p>
 </div>
-<aside class="gbc-live-proof-aside">
-<div class="eyebrow">Your project starts here</div>
-<h3>Great work begins with a conversation.</h3>
-<p>From kitchen and bathroom renovations to ADUs and additions, we're ready to discuss your next project. Get a free consultation and a written estimate.</p>
-<a class="btn gbc-live-proof-button" href="#contact">Request a free estimate <span aria-hidden="true">↗</span></a>
-<a class="btn outline gbc-live-proof-button" href="tel:5104328461">Call (510) 432-8461 <span aria-hidden="true">↗</span></a>
-<div class="gbc-live-proof-more"><a href="reviews.html">View all customer feedback ↗</a><a href="https://www.facebook.com/profile.php?id=61588670561972" rel="noopener noreferrer" target="_blank">Find us on Facebook ↗</a></div>
-</aside>
 </div>
 </div>
-</section><section class="section process" id="process"><div class="container"><div class="sectionhead"><div><div class="eyebrow">06 / How it works</div><h2>Simple process.<br/><span style="color:var(--gold)">No surprises.</span></h2></div><p>From the first conversation to the final walkthrough, you know what happens next and who to call.</p></div><ol class="process-steps">
-<li><span class="num">01</span><h3>Free consult</h3><p>We talk through your goals, look at the space and answer your questions — no obligation.</p></li>
-<li><span class="num">02</span><h3>Written estimate</h3><p>You get the scope and price in writing before any work begins.</p></li>
-<li><span class="num">03</span><h3>One point of contact</h3><p>We schedule the work, and one person keeps you updated from start to finish.</p></li>
-<li><span class="num">04</span><h3>Final walkthrough</h3><p>We walk the finished project with you and close out anything that needs attention.</p></li>
-</ol></div></section><section class="contact" id="contact"><div class="container contact-grid"><div><div class="eyebrow">07 / Let's get started</div><h2>Your vision.<br/><span style="color:var(--gold)">Our craft.</span></h2><p>Planning a kitchen or bath remodel, an ADU or an addition? Send a few details and we'll follow up to set up a free consult.</p>
+</section>
+<section class="project-flow" id="process"><div class="container"><h2>How your project runs</h2><div class="project-flow-grid"><div class="project-flow-step"><span class="num">01</span><h3>Contact the main office</h3><p>One number, one form for every project — South Bay or East Bay.</p></div><div class="project-flow-step"><span class="num">02</span><h3>Meet, estimate, sign</h3><p>Our San Jose main office handles the estimate, meeting, contract and scheduling.</p></div><div class="project-flow-step"><span class="num">03</span><h3>Your local crew builds</h3><p>South Bay or East Bay crew on site; the main office keeps you updated.</p></div></div></div></section>
+<section class="contact" id="contact"><div class="container contact-grid"><div><div class="eyebrow">05 / Contact</div><h2>Tell us about<br/><span style="color:var(--gold)">your project.</span></h2><p class="contact-promise">Every request goes to our main office in San Jose, which handles estimates, meetings, contracts and scheduling for all our projects — South Bay and East Bay.</p>
 <form action="https://formspree.io/f/xljjpyda" class="inquiry-form" id="inquiry-form" method="POST" novalidate="">
 <input name="_subject" type="hidden" value="New inquiry — greatbrittongc.com"/>
 <input name="submission_type" type="hidden" value="main-site-inquiry"/>
@@ -262,10 +1140,12 @@ a.crew-card:hover,.crew-card.is-match{border-color:var(--gold);transform:transla
 <label>Phone<input autocomplete="tel" name="phone" placeholder="Phone or email required" type="tel"/></label>
 <label class="span-2">Email<input autocomplete="email" name="email" type="email"/></label>
 </div>
-<div class="form-actions"><button class="btn" type="submit">Request a free consult <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></button><a class="form-call" href="tel:5104328461">or call (510) 432-8461</a></div>
+<div class="form-actions"><button class="btn" type="submit">Request a Free Consultation <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></button><a class="form-call" href="tel:5104328461">or call (510) 432-8461</a></div>
 <p aria-live="polite" class="form-status" role="status"></p>
-</form></div><div class="phones"><div class="label">Speak with Great Britton</div><a href="tel:5104328461">(510) 432-8461 <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></a><div class="label">Address</div><p><a class="contact-address" href="https://maps.google.com/?q=205+E+Alma+Unit+B4,+San+Jose,+CA+95112" rel="noopener" target="_blank">205 E Alma, Unit B4<br/>San Jose, CA 95112</a></p><div class="label">License</div><p><strong style="color:#d8ad43">CSLB #1025488</strong> · General B<br/><a class="cslb-link inline" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank">Verify with CSLB ↗</a></p><div class="label">Website</div><p>greatbrittongc.com</p></div></div></section>
-</main><footer><div class="container foot"><strong>GREAT BRITTON CONSTRUCTION</strong><span>BUILT ON QUALITY · DRIVEN BY INTEGRITY · BUILT TO LAST</span><span><a class="cslb-link" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank"><strong style="color:#d8ad43">CSLB #1025488</strong></a> · General B</span><span class="footer-license">C10 Electrical &amp; C46 Solar classifications coming soon · Work requiring those classifications is subject to appropriate licensing.</span></div></footer>
+</form></div><div class="phones"><div class="label">Main office · all projects</div><a href="tel:5104328461">(510) 432-8461 <svg aria-hidden="true" class="gb-arrow" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M5 19 19 5M8 5h11v11"></path></svg></a><div class="label">Address</div><p><a class="contact-address" href="https://maps.google.com/?q=205+E+Alma+Unit+B4,+San+Jose,+CA+95112" rel="noopener" target="_blank">205 E Alma, Unit B4<br/>San Jose, CA 95112</a></p><div class="label">License</div><p><strong style="color:#d8ad43">CSLB #1025488</strong> · General B<br/><a class="cslb-link inline" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank">Verify with CSLB ↗</a></p><div class="eastbay-note"><strong>East Bay office · Alameda</strong>Home base for our East Bay crews. East Bay projects are quoted, contracted and scheduled through the main office above.</div></div></div></section>
+</main>
+<nav aria-label="Mobile call actions" class="mobile-callbar"><a class="call" href="tel:5104328461">Call main office</a><a class="estimate" href="#contact">Free estimate</a></nav>
+<footer><div class="container foot"><strong>GREAT BRITTON CONSTRUCTION</strong><span>BUILT ON QUALITY · DRIVEN BY INTEGRITY · BUILT TO LAST</span><span><a class="cslb-link" href="https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488" rel="noopener" target="_blank"><strong style="color:#d8ad43">CSLB #1025488</strong></a> · General B</span><span class="footer-license">C10 Electrical &amp; C46 Solar classifications coming soon · Work requiring those classifications is subject to appropriate licensing.</span></div></footer>
 <script src="assets/supabase-config.js"></script>
 <script src="assets/main.js"></script><script async="" src="https://www.yelp.com/embed/widgets.js"></script>
 <script defer="True" src="https://widgets.sociablekit.com/reviews/widget.js"></script></body></html>

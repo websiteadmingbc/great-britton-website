@@ -90,9 +90,11 @@ document.addEventListener('click', (e) => {
   if (!fromStart) return;
   window.GB_CONTACT = START;
 
-  // Phone links: swap number and visible text (keeps icons intact)
-  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
-    a.setAttribute('href', START.phoneTel);
+  // Phone / SMS links: swap number and visible text (keeps icons intact)
+  document.querySelectorAll('a[href^="tel:"], a[href^="sms:"]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('sms:')) a.setAttribute('href', 'sms:4084553800');
+    else a.setAttribute('href', START.phoneTel);
     const walker = document.createTreeWalker(a, NodeFilter.SHOW_TEXT);
     let n;
     while ((n = walker.nextNode())) {
@@ -322,31 +324,275 @@ document.addEventListener('click', (e) => {
   loadCrew();
 })();
 
-/* Projects portfolio — filter, category-card hooks, live counts and modal viewer */
+/* Area checker — ZIP/city match shows the service city; routes to San Jose main office */
 (() => {
- const grid=document.getElementById('pf-grid');if(!grid)return;
- const section=document.getElementById('portfolio'),toolbar=document.getElementById('pf-toolbar'),heading=document.getElementById('pf-heading'),count=document.getElementById('pf-count');
- const tiles=[...grid.querySelectorAll('.pf-tile')],chips=[...document.querySelectorAll('.pf-filter')],cards=[...document.querySelectorAll('.gb-project-card')];
- const dialog=document.getElementById('pf-lightbox'),photo=document.getElementById('pf-lb-img'),caption=document.getElementById('pf-lb-cap');
- const labels={all:'All Work',kitchens:'Kitchen Remodeling',bathrooms:'Bathroom Remodeling',roofing:'Roofing',framing:'Framing & Structural Work',exteriors:'Exterior Construction',interiors:'Interior Remodeling & Flooring',commercial:'Commercial Construction'};
- let visible=tiles,current=0,opener=null;
- function setFilter(key,{scroll=false,hash=false}={}){
-  if(!Object.prototype.hasOwnProperty.call(labels,key))key='all';
-  chips.forEach(b=>{const on=b.dataset.filter===key;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',String(on))});
-  cards.forEach(c=>{const on=c.dataset.category===key;c.classList.toggle('is-active',on);if(c.hasAttribute('aria-current'))c.removeAttribute('aria-current');if(on)c.setAttribute('aria-current','true')});
-  tiles.forEach(t=>{const on=key==='all'||t.dataset.category===key;t.classList.toggle('is-hidden',!on);if(on){t.classList.remove('is-entering');void t.offsetWidth;t.classList.add('is-entering')}});
-  visible=tiles.filter(t=>!t.classList.contains('is-hidden'));count.textContent=String(visible.length);heading.textContent=labels[key];
-  if(hash)history.replaceState(null,'','#portfolio/'+key);
-  if(scroll)section.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
- }
- chips.forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter,{hash:true})));
- cards.forEach(c=>c.addEventListener('click',e=>{e.preventDefault();setFilter(c.dataset.category,{scroll:true,hash:true})}));
- const open=(tile)=>{opener=tile;current=visible.indexOf(tile);show(current);dialog.showModal();dialog.querySelector('.pf-lb-close').focus()};
- function show(i){if(!visible.length)return;current=(i+visible.length)%visible.length;const tile=visible[current];photo.src=tile.dataset.src;photo.alt=tile.querySelector('img').alt;const name=labels[tile.dataset.category];const number=visible.slice(0,current+1).filter(t=>t.dataset.category===tile.dataset.category).length;const total=visible.filter(t=>t.dataset.category===tile.dataset.category).length;caption.textContent=name+' · '+String(number).padStart(2,'0')+' / '+String(total).padStart(2,'0')}
- tiles.forEach(t=>t.addEventListener('click',()=>open(t)));
- dialog.querySelector('.pf-lb-prev').addEventListener('click',()=>show(current-1));dialog.querySelector('.pf-lb-next').addEventListener('click',()=>show(current+1));dialog.querySelector('.pf-lb-close').addEventListener('click',()=>dialog.close());
- dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});dialog.addEventListener('close',()=>{photo.removeAttribute('src');photo.alt='';opener?.focus()});
- dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();show(current-1)}if(e.key==='ArrowRight'){e.preventDefault();show(current+1)}});
- if('IntersectionObserver' in window){const sentinel=document.createElement('div');sentinel.style.height='1px';section.querySelector('.container').insertBefore(sentinel,toolbar);new IntersectionObserver(([entry])=>toolbar.classList.toggle('is-stuck',!entry.isIntersecting),{threshold:0}).observe(sentinel)}
- const applyHash=()=>{const m=location.hash.match(/^#portfolio\/([a-z]+)$/);if(m)setFilter(m[1],{scroll:true})};applyHash();window.addEventListener('hashchange',applyHash);
+  const form = document.getElementById('area-check-form');
+  const input = document.getElementById('area-query');
+  const result = document.getElementById('area-check-result');
+  if (!form || !input || !result) return;
+
+  const AREAS = [
+    {
+      city: 'San Francisco',
+      zips: ['94102','94103','94104','94105','94107','94108','94109','94110','94111','94112','94114','94115','94116','94117','94118','94121','94122','94123','94124','94127','94129','94130','94131','94132','94133','94134','94158'],
+      aliases: ['san francisco','sf']
+    },
+    {
+      city: 'San Mateo County, Bay side',
+      detail: 'Daly City to Menlo Park',
+      zips: ['94005','94014','94015','94080','94066','94030','94010','94401','94402','94403','94404','94002','94070','94061','94062','94063','94065','94025','94027','94028'],
+      aliases: ['san mateo','san mateo county bay side','peninsula','daly city','colma','south san francisco','san bruno','millbrae','burlingame','foster city','belmont','san carlos','redwood city','atherton','menlo park','hillsborough']
+    },
+    {
+      city: 'San Mateo County, coast',
+      detail: 'Pacifica to Pescadero',
+      zips: ['94044','94037','94038','94018','94019','94020','94021','94060','94074'],
+      aliases: ['san mateo county coast','coastside','pacifica','montara','moss beach','el granada','half moon bay','la honda','pescadero','san gregorio']
+    },
+    {
+      city: 'Santa Clara County',
+      detail: 'Palo Alto to San Jose and Los Gatos',
+      zips: ['94301','94303','94304','94305','94306','94040','94041','94043','94022','94024','94085','94086','94087','94089','95014','95050','95051','95054','95008','95070','95030','95032','95033','95110','95111','95112','95113','95116','95117','95118','95119','95120','95121','95122','95123','95124','95125','95126','95127','95128','95129','95130','95131','95132','95133','95134','95135','95136','95138','95139','95148'],
+      aliases: ['santa clara','santa clara county','south bay','palo alto','mountain view','los altos','sunnyvale','cupertino','campbell','saratoga','los gatos','san jose','milpitas']
+    },
+    {
+      city: 'Santa Cruz County',
+      detail: 'Santa Cruz, the San Lorenzo Valley, Capitola and Aptos',
+      zips: ['95060','95062','95064','95065','95066','95018','95005','95006','95007','95010','95073','95003','95017'],
+      aliases: ['santa cruz','santa cruz county','scotts valley','felton','ben lomond','boulder creek','brookdale','capitola','aptos','soquel','davenport']
+    }
+  ];
+
+  const ZIP = {};
+  const CITY = {};
+  const chips = [...document.querySelectorAll('.area-check-chips-list [data-area]')];
+  AREAS.forEach(area => {
+    area.zips.forEach(z => { ZIP[z] = area; });
+    area.aliases.forEach(a => { CITY[a] = area; });
+    CITY[area.city.toLowerCase()] = area;
+  });
+
+  const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  const title = (s) => s.replace(/\b\w/g, c => c.toUpperCase());
+  const phoneHref = () => (window.GB_CONTACT && window.GB_CONTACT.phoneTel) || 'tel:5104328461';
+  const phoneText = () => (window.GB_CONTACT && window.GB_CONTACT.phoneText) || '(510) 432-8461';
+
+  function lookup(raw) {
+    const q = norm(raw);
+    if (!q) return null;
+    if (/^\d{5}$/.test(q)) {
+      const area = ZIP[q];
+      if (!area) return { hit: false, query: q };
+      return { hit: true, city: area.city, detail: area.detail || '', zip: q };
+    }
+    const exact = CITY[q];
+    if (exact) return { hit: true, city: exact.city, detail: exact.detail || '', zip: '' };
+    const soft = Object.keys(CITY).find(c => q.includes(c) || c.includes(q));
+    if (soft) {
+      const area = CITY[soft];
+      return { hit: true, city: area.city, detail: area.detail || '', zip: '' };
+    }
+    return { hit: false, query: title(q) };
+  }
+
+  function setChipActive(city) {
+    chips.forEach(btn => btn.classList.toggle('is-active', btn.getAttribute('data-area') === city));
+  }
+
+  function render(info) {
+    result.hidden = false;
+    result.classList.add('is-visible');
+    if (!info) {
+      result.className = 'area-check-result is-visible is-miss';
+      result.innerHTML = '<strong>Enter a city or ZIP</strong><p>Tell us where you\'re building and we\'ll confirm coverage.</p>';
+      setChipActive('');
+      return;
+    }
+    if (!info.hit) {
+      result.className = 'area-check-result is-visible is-miss';
+      result.innerHTML = `<strong>Not sure about ${info.query} yet</strong><p>Call the main office and we\'ll confirm coverage — <a href="${phoneHref()}">${phoneText()}</a>.</p>`;
+      setChipActive('');
+      return;
+    }
+    result.className = 'area-check-result is-visible';
+    const detail = info.detail ? `<span class="area-check-city-detail">${info.detail}</span>` : '';
+    const zipNote = info.zip ? `<p class="area-check-zip-note">ZIP ${info.zip}</p>` : '';
+    result.innerHTML = `<strong>Yes — we build here</strong><p class="area-check-city">${info.city}</p>${detail}${zipNote}<p>Our San Jose main office handles your estimate, contract and scheduling.</p><p><a href="${phoneHref()}">Call the main office — ${phoneText()}</a></p>`;
+    setChipActive(info.city);
+    const city = document.querySelector('#inquiry-form [name="city"]');
+    if (city) city.value = info.city;
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    render(lookup(input.value));
+  });
+
+  chips.forEach(btn => {
+    btn.addEventListener('click', () => {
+      input.value = btn.getAttribute('data-area') || '';
+      render(lookup(input.value));
+    });
+  });
+})();
+
+/* Projects portfolio: filters, category jump, lightbox */
+(() => {
+  const grid = document.getElementById('pf-grid');
+  if (!grid) return;
+
+  const tiles = [...grid.querySelectorAll('.pf-tile')];
+  const filters = [...document.querySelectorAll('.pf-filter')];
+  const countEl = document.getElementById('pf-count');
+  const heading = document.getElementById('pf-heading');
+  const lightbox = document.getElementById('pf-lightbox');
+  const lbImg = document.getElementById('pf-lb-img');
+  const lbCap = document.getElementById('pf-lb-cap');
+  const labels = {
+    kitchens: 'Kitchen Remodeling',
+    bathrooms: 'Bathroom Remodeling',
+    roofing: 'Roofing',
+    framing: 'Framing & Structural Work',
+    exteriors: 'Exterior Construction',
+    interiors: '<span class="pf-heading-line">Interior Remodeling</span><span class="pf-heading-line">&amp; Flooring</span>',
+    commercial: 'Commercial Construction'
+  };
+
+  let active = 'kitchens';
+  let visible = tiles;
+  let idx = 0;
+  let lastFocus = null;
+
+  function setFilter(key, {scroll = false} = {}) {
+    active = key;
+    filters.forEach(btn => {
+      const on = btn.dataset.filter === key;
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-pressed', String(on));
+    });
+    visible = [];
+    tiles.forEach(tile => {
+      const show = tile.dataset.category === key;
+      tile.classList.toggle('is-hidden', !show);
+      if (show) {
+        tile.classList.remove('is-entering');
+        void tile.offsetWidth;
+        tile.classList.add('is-entering');
+        visible.push(tile);
+      }
+    });
+    if (countEl) countEl.textContent = String(visible.length);
+    if (heading) heading.innerHTML = labels[key] || 'Portfolio';
+    if (scroll) {
+      document.getElementById('portfolio')?.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  }
+
+  filters.forEach(btn => btn.addEventListener('click', () => setFilter(btn.dataset.filter)));
+  setFilter('kitchens');
+
+  function openAt(i) {
+    if (!visible.length || !lightbox) return;
+    idx = (i + visible.length) % visible.length;
+    const tile = visible[idx];
+    lbImg.src = tile.dataset.src;
+    lbImg.alt = tile.querySelector('img')?.alt || '';
+    lbCap.textContent = tile.querySelector('.pf-tile-meta small')?.textContent + ' · ' + (tile.querySelector('.pf-tile-meta b')?.textContent || '');
+    if (!lightbox.open) lightbox.showModal();
+  }
+
+  function closeLb() {
+    if (!lightbox?.open) return;
+    lightbox.close();
+    lbImg.removeAttribute('src');
+    lastFocus?.focus();
+  }
+
+  tiles.forEach(tile => tile.addEventListener('click', () => {
+    lastFocus = tile;
+    const list = visible.length ? visible : tiles.filter(t => !t.classList.contains('is-hidden'));
+    visible = list;
+    openAt(visible.indexOf(tile));
+  }));
+
+  lightbox?.querySelector('.pf-lb-close')?.addEventListener('click', closeLb);
+  lightbox?.querySelector('.pf-lb-prev')?.addEventListener('click', () => openAt(idx - 1));
+  lightbox?.querySelector('.pf-lb-next')?.addEventListener('click', () => openAt(idx + 1));
+  lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox?.open) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') openAt(idx - 1);
+    if (e.key === 'ArrowRight') openAt(idx + 1);
+  });
+
+  // Sticky filter shadow when pinned
+  const toolbar = document.getElementById('pf-toolbar');
+  if (toolbar && 'IntersectionObserver' in window) {
+    const sentinel = document.createElement('div');
+    sentinel.style.height = '1px';
+    toolbar.parentNode.insertBefore(sentinel, toolbar);
+    const io = new IntersectionObserver(([entry]) => {
+      toolbar.classList.toggle('is-stuck', !entry.isIntersecting);
+    });
+    io.observe(sentinel);
+  }
+})();
+
+
+/* Homepage service cards can jump into a portfolio filter */
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('[data-pf-jump]');
+  if (!a) return;
+  const key = a.getAttribute('data-pf-jump');
+  const btn = document.querySelector(`.pf-filter[data-filter="${key}"]`);
+  if (btn) {
+    e.preventDefault();
+    btn.click();
+    document.getElementById('portfolio')?.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+});
+
+/* Hide specific SociableKIT Yelp reviews by author */
+(() => {
+  const HIDE = [/^\s*ajay\s*v\.?\s*$/i, /^\s*diana\s*a\.?\s*$/i];
+  const roots = () => [...document.querySelectorAll('.sk-ww-yelp-reviews')];
+
+  function authorName(item) {
+    const link = item.querySelector('.sk-post-username a');
+    if (link) return (link.textContent || '').replace(/\s+/g, ' ').trim();
+    const block = item.querySelector('.sk-post-username');
+    if (!block) return '';
+    return (block.textContent || '').split(/\breviewed\b/i)[0].replace(/\s+/g, ' ').trim();
+  }
+
+  function hideMatching(root) {
+    root.querySelectorAll('.sk-yelp-summary-badge').forEach(item => {
+      item.style.display = 'none';
+    });
+    root.querySelectorAll('.sk-post-item').forEach(item => {
+      const name = authorName(item);
+      if (HIDE.some(re => re.test(name))) item.style.display = 'none';
+    });
+  }
+
+  function scan() {
+    roots().forEach(hideMatching);
+  }
+
+  const mo = new MutationObserver(() => {
+    mo.disconnect();
+    scan();
+    roots().forEach(root => mo.observe(root, { childList: true, subtree: true }));
+  });
+
+  scan();
+  roots().forEach(root => mo.observe(root, { childList: true, subtree: true }));
+  // Widget may inject after first paint
+  let tries = 0;
+  const poll = setInterval(() => {
+    scan();
+    roots().forEach(root => mo.observe(root, { childList: true, subtree: true }));
+    if (++tries > 40 || document.querySelectorAll('.sk-post-item').length) clearInterval(poll);
+  }, 250);
 })();
