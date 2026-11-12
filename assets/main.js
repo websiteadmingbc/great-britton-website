@@ -553,9 +553,14 @@ document.addEventListener('click', (e) => {
   }
 });
 
-/* Hide specific SociableKIT Yelp reviews by author */
+/* Hide specific SociableKIT Yelp reviews by author or body text */
 (() => {
-  const HIDE = [/^\s*ajay\s*v\.?\s*$/i, /^\s*diana\s*a\.?\s*$/i];
+  const HIDE_AUTHORS = [/^\s*ajay\s*v\.?\s*$/i, /^\s*diana\s*a\.?\s*$/i];
+  const HIDE_TEXT = [
+    /Had a great experience working with Eli\. Great communication, paid extra attention/i,
+    /They chage what is fair/i,
+    /no upselling\. They chage/i
+  ];
   const roots = () => [...document.querySelectorAll('.sk-ww-yelp-reviews')];
 
   function authorName(item) {
@@ -572,7 +577,10 @@ document.addEventListener('click', (e) => {
     });
     root.querySelectorAll('.sk-post-item').forEach(item => {
       const name = authorName(item);
-      if (HIDE.some(re => re.test(name))) item.style.display = 'none';
+      const body = (item.textContent || '').replace(/\s+/g, ' ');
+      if (HIDE_AUTHORS.some(re => re.test(name)) || HIDE_TEXT.some(re => re.test(body))) {
+        item.style.display = 'none';
+      }
     });
   }
 
