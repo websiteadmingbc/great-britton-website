@@ -284,8 +284,8 @@ body.has-topbar{padding-bottom:0}
 .hero-redesign:after{opacity:.35}
 .hero-stage{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.7fr);gap:56px;align-items:center;padding:88px 0 64px}
 .hero-copy{max-width:620px}
-.hero-redesign h1{font-size:clamp(52px,6.6vw,96px);max-width:none;margin:16px 0 16px;line-height:.9}
-.hero-redesign h1 .hero-line{display:block;white-space:nowrap}
+.hero-redesign h1,.hero-redesign h1.hero-title{font-size:clamp(52px,6.6vw,96px);max-width:none;margin:16px 0 16px;line-height:.9}
+.hero-redesign h1 .hero-line,.hero-redesign h1.hero-title .hero-line{display:block;white-space:nowrap}
 .hero-redesign .hero-desc{max-width:440px;margin:0 0 26px;font-size:15px;line-height:1.75;color:#d8d9d7}
 .hero-redesign .actions{margin:0;gap:12px}
 .area-check{background:rgba(10,12,13,.88);border:1px solid #514630;padding:24px 22px 20px;backdrop-filter:blur(10px);width:100%;max-width:360px;justify-self:end}

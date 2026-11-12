@@ -564,9 +564,11 @@ document.addEventListener('click', (e) => {
     /connecting us with two outstanding professionals/i,
     /Thanks to Eli, we've found two definite keepers/i
   ];
-  const roots = () => [...document.querySelectorAll('.sk-ww-yelp-reviews')];
+  const roots = () => [...document.querySelectorAll('.sk-ww-reviews, .sk-ww-yelp-reviews')];
 
   function authorName(item) {
+    const modern = item.querySelector('.post__user-name .post__user-link, .post__user-name');
+    if (modern) return (modern.textContent || '').replace(/\s+/g, ' ').trim();
     const link = item.querySelector('.sk-post-username a');
     if (link) return (link.textContent || '').replace(/\s+/g, ' ').trim();
     const block = item.querySelector('.sk-post-username');
@@ -574,16 +576,25 @@ document.addEventListener('click', (e) => {
     return (block.textContent || '').split(/\breviewed\b/i)[0].replace(/\s+/g, ' ').trim();
   }
 
+  function shouldHide(item) {
+    const name = authorName(item);
+    const body = (item.textContent || '').replace(/\s+/g, ' ');
+    return HIDE_AUTHORS.some(re => re.test(name)) || HIDE_TEXT.some(re => re.test(body));
+  }
+
+  function hideCard(item) {
+    const shell = item.closest('.masonry-item, .js-masonry-item, .sk-post-item') || item;
+    shell.style.display = 'none';
+    shell.setAttribute('hidden', '');
+    shell.setAttribute('aria-hidden', 'true');
+  }
+
   function hideMatching(root) {
-    root.querySelectorAll('.sk-yelp-summary-badge').forEach(item => {
+    root.querySelectorAll('.sk-yelp-summary-badge, .sk-badge--ai-summary').forEach(item => {
       item.style.display = 'none';
     });
-    root.querySelectorAll('.sk-post-item').forEach(item => {
-      const name = authorName(item);
-      const body = (item.textContent || '').replace(/\s+/g, ' ');
-      if (HIDE_AUTHORS.some(re => re.test(name)) || HIDE_TEXT.some(re => re.test(body))) {
-        item.style.display = 'none';
-      }
+    root.querySelectorAll('.post, .sk-post-item').forEach(item => {
+      if (shouldHide(item)) hideCard(item);
     });
   }
 
@@ -597,13 +608,16 @@ document.addEventListener('click', (e) => {
     roots().forEach(root => mo.observe(root, { childList: true, subtree: true }));
   });
 
-  scan();
-  roots().forEach(root => mo.observe(root, { childList: true, subtree: true }));
-  // Widget may inject after first paint
-  let tries = 0;
-  const poll = setInterval(() => {
+  function watch() {
     scan();
     roots().forEach(root => mo.observe(root, { childList: true, subtree: true }));
-    if (++tries > 40 || document.querySelectorAll('.sk-post-item').length) clearInterval(poll);
+  }
+
+  watch();
+  let tries = 0;
+  const poll = setInterval(() => {
+    watch();
+    const ready = document.querySelectorAll('.sk-ww-reviews .post, .sk-post-item').length > 0;
+    if (++tries > 80 || ready) clearInterval(poll);
   }, 250);
 })();
