@@ -559,7 +559,10 @@ document.addEventListener('click', (e) => {
   const HIDE_TEXT = [
     /Had a great experience working with Eli\. Great communication, paid extra attention/i,
     /They chage what is fair/i,
-    /no upselling\. They chage/i
+    /no upselling\. They chage/i,
+    /Eli Velora of Great Britton Construction deserves special recognition/i,
+    /connecting us with two outstanding professionals/i,
+    /Thanks to Eli, we've found two definite keepers/i
   ];
   const roots = () => [...document.querySelectorAll('.sk-ww-yelp-reviews')];
 
