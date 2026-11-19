@@ -521,3 +521,15 @@ body.has-topbar{padding-bottom:0}
 .gb-global-callbar{display:none}
 @media(max-width:1100px){.gb-why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.project-flow-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:650px){.gb-why{padding:62px 0}.gb-why-heading{display:block}.gb-why-grid,.project-flow-grid{grid-template-columns:1fr}.gb-why-actions .btn{flex:1 1 100%;text-align:center}.gb-global-callbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:100;gap:10px;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(8,10,11,.97);border-top:1px solid #3b3c38}.gb-global-callbar a{flex:1;min-width:0;min-height:48px;display:flex;align-items:center;justify-content:center;text-align:center;font:800 12px/1.2 "DM Sans",sans-serif;letter-spacing:.7px;text-transform:uppercase}.gb-global-call{background:#d8ad43;color:#101213}.gb-global-estimate{border:2px solid #d8ad43;color:#fff}body:has(.gb-global-callbar){padding-bottom:78px}}
+
+/* Five-step process integrated into Why Choose Great Britton */
+.gb-why-process{margin-top:44px;padding:38px 30px;background:#20211d;border:1px solid #5b4b2b;color:var(--cream)}
+.gb-why-process .eyebrow{color:var(--gold)}
+.gb-why-process h2{color:var(--cream);margin:14px 0}
+.gb-why-process .gb-process-intro{color:#c2c5c1}
+.gb-why-process .project-flow-step{border-top:2px solid var(--gold)}
+.gb-why-process .project-flow-step .num{color:var(--gold)}
+.gb-why-process .project-flow-step h3{color:var(--cream)}
+.gb-why-process .project-flow-step p{color:#c2c5c1}
+.gb-why-process .gb-process-actions{display:none}
+@media(max-width:650px){.gb-why-process{padding:28px 20px;margin-top:30px}}
