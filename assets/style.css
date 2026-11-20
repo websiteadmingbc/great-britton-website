@@ -533,3 +533,34 @@ body.has-topbar{padding-bottom:0}
 .gb-why-process .project-flow-step p{color:#c2c5c1}
 .gb-why-process .gb-process-actions{display:none}
 @media(max-width:650px){.gb-why-process{padding:28px 20px;margin-top:30px}}
+
+/* GBC 2026 Phase 1: screenshot-matched six-step process */
+.gbc-process{background:#20221f;color:#eeeae1;border-top:1px solid #3d3a2f;border-bottom:1px solid #3d3a2f}
+.gbc-process h2,.gbc-process h3,.gbc-process h4{font-family:"Barlow Condensed",Impact,sans-serif;text-transform:uppercase}
+.gbc-process h2{font-size:clamp(48px,6.6vw,90px);line-height:.98;letter-spacing:-.02em;margin:30px 0 18px}
+.gbc-process-intro{max-width:780px;color:#e3dfd5;font-size:clamp(16px,1.65vw,21px);line-height:1.55;margin:0 0 55px}
+.gbc-process-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.gbc-process-steps article{border-top:3px solid #d8ad43;padding:23px 0 20px;position:relative;min-width:0}
+.gbc-process-steps article.optional{background:#292824;border-top-style:dashed;padding-left:16px;padding-right:16px}
+.gbc-process-steps b{display:block;font-size:18px;color:#d8ad43;letter-spacing:3px}
+.gbc-process-steps h3{font-size:clamp(23px,2vw,32px);line-height:1.02;margin:18px 0 14px}
+.gbc-process-steps p{font-size:14px;line-height:1.7;color:#d0cec7;margin:0}
+.gbc-process-steps .optional-label{position:absolute;right:10px;top:20px;background:#d8ad43;color:#151515;padding:5px 7px;font-size:9px;font-weight:800;letter-spacing:1px}
+.gbc-process-paths-heading{display:flex;align-items:center;justify-content:space-between;gap:25px;border-top:1px solid #554b32;padding-top:45px;margin-top:62px}
+.gbc-process-paths-heading h3{font-size:clamp(31px,3vw,41px);margin:0}.gbc-process-paths-heading p{font-size:14px;color:#d0cec7}
+.gbc-process-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:25px}
+.gbc-process-paths article{border:1px solid #594f35;padding:27px;min-width:0;display:flex;flex-direction:column}
+.gbc-process-paths article:first-child{border-color:#d8ad43;background:#292824}
+.gbc-process-paths small{color:#d8ad43;letter-spacing:2px;font-size:11px;font-weight:800}
+.gbc-process-paths h4{font-size:30px;margin:18px 0 11px;line-height:1}
+.gbc-process-paths p{color:#d0cec7;font-size:14px;line-height:1.75;flex:1;margin:0 0 24px}
+.gbc-process-paths .path-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+.gbc-process-paths .path-steps span{display:grid;place-items:center;background:#d8ad43;color:#181818;min-height:32px;font-size:12px;font-weight:800}
+.gbc-process-paths .path-steps .outline-step{background:transparent;color:#d8ad43;border:1px dashed #d8ad43}
+.gbc-process-paths .path-steps .skip-step{background:#292824;color:#aaa;text-decoration:line-through;border:1px solid #615a4c}
+.gbc-process-cta{display:flex;gap:18px;flex-wrap:wrap;margin-top:44px}.gbc-process-cta .btn{min-width:260px;text-align:center}
+.gbc-business-credentials{border-top:1px solid #594f35;padding-top:20px;margin-top:28px;color:#c9c9c1;line-height:1.8;font-size:13px}
+.gbc-business-credentials a{color:#d8ad43;text-decoration:underline}
+@media(max-width:1100px){.gbc-process-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:750px){.gbc-process-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.gbc-process-paths{grid-template-columns:1fr}.gbc-process-paths-heading{display:block}.gbc-process-cta .btn{flex:1}}
+@media(max-width:480px){.gbc-process-steps{grid-template-columns:1fr}.gbc-process-intro{margin-bottom:30px}.gbc-process-steps article{padding-bottom:14px}.gbc-process-paths-heading{margin-top:36px}.gbc-process-cta .btn{width:100%;min-width:0}.hero-redesign h1.hero-title .hero-line{white-space:normal!important}}
