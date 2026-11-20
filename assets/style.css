@@ -564,3 +564,22 @@ body.has-topbar{padding-bottom:0}
 @media(max-width:1100px){.gbc-process-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:750px){.gbc-process-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.gbc-process-paths{grid-template-columns:1fr}.gbc-process-paths-heading{display:block}.gbc-process-cta .btn{flex:1}}
 @media(max-width:480px){.gbc-process-steps{grid-template-columns:1fr}.gbc-process-intro{margin-bottom:30px}.gbc-process-steps article{padding-bottom:14px}.gbc-process-paths-heading{margin-top:36px}.gbc-process-cta .btn{width:100%;min-width:0}.hero-redesign h1.hero-title .hero-line{white-space:normal!important}}
+
+
+/* GBC Nov 2026 — supporting work complete row and aligned process CTA */
+.supporting-list{grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch}
+.supporting-list>li{min-width:0;display:flex!important;flex-direction:column}
+.supporting-list>li>a,.supporting-list>li:not(:has(a)){height:100%;width:100%;padding:14px 16px}
+.supporting-list .supporting-pending{background:#22221d}
+.supporting-list .supporting-pending>a{display:flex;flex-direction:column;justify-content:flex-start;gap:4px;transition:background .2s ease}
+.supporting-list .supporting-pending>a:hover{background:#302b1f}
+.supporting-list .pending-code{font:800 10px/1.2 "DM Sans",sans-serif;letter-spacing:1px;color:#d8ad43;white-space:nowrap}
+.supporting-list .supporting-pending small{font:600 10px/1.5 "DM Sans",sans-serif;color:#d8ad43;letter-spacing:.15px;margin-top:4px}
+.supporting-disclaimer{grid-column:2;color:#aeb0aa;font-size:11px;line-height:1.65;margin:8px 0 0;max-width:1000px}
+/* Match the horizontal alignment of the process heading, cards and site grid. */
+.gbc-process-v2>.container{width:min(1320px,calc(100% - 88px));margin-inline:auto}
+.gbc-process-cta{display:flex;align-items:stretch;justify-content:flex-start;gap:16px;flex-wrap:wrap;margin:32px 0 0;padding:0;width:100%;max-width:100%;box-sizing:border-box}
+.gbc-process-cta .btn{min-width:0;min-height:58px;display:inline-flex;align-items:center;justify-content:center;padding:18px 28px;box-sizing:border-box;white-space:normal;text-align:center}
+@media(max-width:950px){.supporting-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.gbc-process-v2>.container{width:calc(100% - 34px)}.supporting{grid-template-columns:1fr}.supporting-disclaimer{grid-column:1}.supporting-list{grid-template-columns:repeat(2,minmax(0,1fr))}.gbc-process-cta .btn{flex:1 1 220px}}
+@media(max-width:420px){.supporting-list{grid-template-columns:1fr}.gbc-process-cta{flex-direction:column}.gbc-process-cta .btn{width:100%}}
