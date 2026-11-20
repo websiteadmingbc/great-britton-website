@@ -583,3 +583,18 @@ body.has-topbar{padding-bottom:0}
 @media(max-width:950px){.supporting-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){.gbc-process-v2>.container{width:calc(100% - 34px)}.supporting{grid-template-columns:1fr}.supporting-disclaimer{grid-column:1}.supporting-list{grid-template-columns:repeat(2,minmax(0,1fr))}.gbc-process-cta .btn{flex:1 1 220px}}
 @media(max-width:420px){.supporting-list{grid-template-columns:1fr}.gbc-process-cta{flex-direction:column}.gbc-process-cta .btn{width:100%}}
+
+/* 2026-11-20: align Why Choose section buttons with the section content grid.
+   These are .gb-why-actions (NOT the separate .gbc-process-cta). */
+.gb-why > .gb-why-actions {
+  width:min(1320px,calc(100% - 88px));
+  max-width:1320px;
+  margin:28px auto 0;
+  padding:0;
+  box-sizing:border-box;
+  justify-content:flex-start;
+  align-items:center;
+}
+.gb-why > .gb-why-actions .btn {min-height:49px;box-sizing:border-box;}
+@media(max-width:950px){.gb-why > .gb-why-actions{width:min(100% - 42px,1320px)}}
+@media(max-width:650px){.gb-why > .gb-why-actions{width:calc(100% - 34px);gap:12px}.gb-why > .gb-why-actions .btn{flex:1 1 100%}}
