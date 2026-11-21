@@ -495,7 +495,7 @@ document.addEventListener('click', (e) => {
     if (!visible.length || !lightbox) return;
     idx = (i + visible.length) % visible.length;
     const tile = visible[idx];
-    lbImg.src = tile.dataset.src;
+    lbImg.src = tile.dataset.webp || tile.dataset.src;
     lbImg.alt = tile.querySelector('img')?.alt || '';
     lbCap.textContent = tile.querySelector('.pf-tile-meta small')?.textContent + ' · ' + (tile.querySelector('.pf-tile-meta b')?.textContent || '');
     if (!lightbox.open) lightbox.showModal();
