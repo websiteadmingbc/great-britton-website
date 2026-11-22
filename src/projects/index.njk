@@ -1,0 +1,119 @@
+---
+layout: base.njk
+permalink: /projects/
+title: "Bay Area Remodeling Projects | Great Britton"
+description: Browse Great Britton Construction remodeling projects across the Bay Area — kitchens, bathrooms, ADUs, exteriors and commercial. Call (510) 432-8461.
+ogImage: /assets/portfolio/kitchen-remodel-bay-area-01.jpg
+breadcrumbSchema:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Home"
+      item: "https://greatbrittongc.com/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Projects"
+      item: "https://greatbrittongc.com/projects/"
+---
+
+<section class="inner-hero">
+  <div class="container">
+    <div class="eyebrow">Projects</div>
+    <h1>Remodeling Projects in the Bay Area</h1>
+    <p>Photos from kitchen, bathroom, ADU, exterior and commercial work. Filter by category, then open any image for a closer look.</p>
+    <div class="actions">
+      <a class="btn" href="/contact/">Free Estimate</a>
+      <a class="btn outline" href="tel:{{ site.phoneTel }}">{{ site.phoneDisplay }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section pf-portfolio" id="portfolio" data-portfolio-src="/data/portfolio.json">
+  <div class="container">
+    <div class="pf-toolbar" id="pf-toolbar">
+      <div class="pf-toolbar-copy">
+        <div class="eyebrow">Gallery</div>
+        <h2 id="pf-heading">{{ portfolio.categories[0] }}</h2>
+      </div>
+      <div class="pf-filters" role="toolbar" aria-label="Filter portfolio by category">
+        {% for cat in portfolio.categories %}
+        <button
+          type="button"
+          class="pf-filter{% if loop.first %} is-active{% endif %}"
+          data-filter="{{ cat | slugifyCategory }}"
+          data-label="{{ cat }}"
+          aria-pressed="{{ 'true' if loop.first else 'false' }}"
+        >{{ cat }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if portfolio.projects and portfolio.projects.length %}
+    <div class="project-cards" id="project-cards">
+      {% for project in portfolio.projects %}
+      <article class="project-card" id="project-{{ project.slug }}" data-category="{{ project.category | slugifyCategory }}">
+        <button type="button" class="project-card-open" data-project="{{ project.slug }}">
+          <img src="/assets/portfolio/{{ project.hero }}" alt="{{ project.title }} in {{ project.city }}" loading="lazy" decoding="async"/>
+          <div class="project-card-meta">
+            <small>{{ project.city }} · {{ project.category }}</small>
+            <h3>{{ project.title }}</h3>
+          </div>
+        </button>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="pf-status" aria-live="polite"><span id="pf-count">0</span> photos</div>
+    <div class="pf-grid" id="pf-grid">
+      {# Server-rendered loose photos so Google sees them; JS enhances filters / show-more #}
+      {% for cat in portfolio.categories %}
+        {% set items = portfolio | looseByCategory(cat) %}
+        {% for photo in items %}
+        <button
+          type="button"
+          class="pf-tile{% if loop.index > 9 %} is-overflow{% endif %}"
+          data-category="{{ cat | slugifyCategory }}"
+          data-src="/assets/portfolio/{{ photo.jpg or photo.file }}"
+          data-webp="/assets/portfolio/{{ photo.file }}"
+          data-featured="{{ 'true' if photo.featured else 'false' }}"
+          {% if loop.index > 9 %}hidden{% endif %}
+          aria-label="{{ photo.alt }}"
+        >
+          <picture>
+            <source type="image/webp" srcset="/assets/portfolio/{{ photo.file }}"/>
+            <img
+              src="/assets/portfolio/{{ photo.jpg or photo.file }}"
+              alt="{{ photo.alt }}"
+              {% if photo.width %}width="{{ photo.width }}"{% endif %}
+              {% if photo.height %}height="{{ photo.height }}"{% endif %}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <span class="pf-tile-meta">
+            <small>{{ cat }}</small>
+          </span>
+        </button>
+        {% endfor %}
+      {% endfor %}
+    </div>
+    <p class="pf-show-more-wrap">
+      <button type="button" class="btn outline" id="pf-show-more" hidden>Show more</button>
+    </p>
+  </div>
+</section>
+
+<dialog class="pf-lightbox" id="pf-lightbox" aria-label="Enlarged project photograph">
+  <button class="pf-lb-close" type="button" aria-label="Close">×</button>
+  <button class="pf-lb-prev" type="button" aria-label="Previous">‹</button>
+  <figure class="pf-lb-stage">
+    <img alt="" id="pf-lb-img"/>
+    <figcaption id="pf-lb-cap"></figcaption>
+  </figure>
+  <button class="pf-lb-next" type="button" aria-label="Next">›</button>
+</dialog>
+
+{% include "cta-band.njk" %}

@@ -1,0 +1,32 @@
+<header>
+  <div class="container nav">
+    <a class="nav-brand" href="/" aria-label="{{ site.name }} home">
+      <img
+        class="header-logo"
+        src="/assets/great-britton-logo.png"
+        alt="{{ site.name }}"
+        width="630"
+        height="210"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+    <button class="mobile-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open navigation menu">
+      <span class="hamburger-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+    <nav id="site-menu" aria-label="Main navigation">
+      <div class="nav-item has-dropdown{% if navSection == 'services' %} is-active{% endif %}">
+        <button class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Services</button>
+        <div class="nav-dropdown" role="menu">
+          <a href="/kitchen-remodeling/" role="menuitem"{% if page.url == '/kitchen-remodeling/' %} aria-current="page"{% endif %}>Kitchen Remodeling</a>
+          <a href="/bathroom-remodeling/" role="menuitem"{% if page.url == '/bathroom-remodeling/' %} aria-current="page"{% endif %}>Bathroom Remodeling</a>
+          <a href="/adus-additions/" role="menuitem"{% if page.url == '/adus-additions/' %} aria-current="page"{% endif %}>ADUs &amp; Additions</a>
+        </div>
+      </div>
+      <a href="/projects/"{% if page.url == '/projects/' %} aria-current="page" class="is-active"{% endif %}>Projects</a>
+      <a href="/about/"{% if page.url == '/about/' %} aria-current="page" class="is-active"{% endif %}>About</a>
+      <a class="nav-cta nav-cta-in-menu" href="/contact/">Free Estimate</a>
+    </nav>
+    <a class="nav-cta nav-cta-bar" href="/contact/">Free Estimate</a>
+  </div>
+</header>

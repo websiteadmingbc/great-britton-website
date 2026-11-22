@@ -1,0 +1,63 @@
+---
+layout: base.njk
+permalink: /contact/
+title: "Free Remodel Estimate in San Jose | Great Britton"
+description: Request a free remodeling estimate in San Jose. Great Britton Construction — kitchens, baths, ADUs. Call (510) 432-8461. Main office at 205 E Alma.
+breadcrumbSchema:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Home"
+      item: "https://greatbrittongc.com/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Free Estimate"
+      item: "https://greatbrittongc.com/contact/"
+---
+
+<section class="inner-hero">
+  <div class="container">
+    <div class="eyebrow">Contact</div>
+    <h1>Free Remodeling Estimate in San Jose</h1>
+    <p>Every request goes to our main office in San Jose, which handles estimates, meetings, contracts and scheduling for South Bay and East Bay projects.</p>
+    <div class="actions">
+      <a class="btn outline" href="tel:{{ site.phoneTel }}">Call {{ site.phoneDisplay }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Request a consult</div>
+      <h2>Tell us about<br/><span style="color:var(--gold)">your project.</span></h2>
+      <p class="contact-promise">Share a few details and we’ll follow up from the San Jose main office.</p>
+      {% include "contact-form.njk" %}
+    </div>
+    {% include "contact-aside.njk" %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">Visit / map</div>
+        <h2>Main office</h2>
+      </div>
+      <p>{{ site.address.street }}, {{ site.address.city }}, {{ site.address.region }} {{ site.address.postal }}</p>
+    </div>
+    <div class="map-embed">
+      <iframe
+        title="Map of Great Britton Construction San Jose office"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=205%20E%20Alma%20Unit%20B4%2C%20San%20Jose%2C%20CA%2095112&z=15&output=embed"
+      ></iframe>
+    </div>
+    <p class="hours-note"><strong>TODO: hours</strong> — Add public office hours when GBC confirms them.</p>
+    <p>Looking for <a href="/kitchen-remodeling/">kitchen remodeling</a>, <a href="/bathroom-remodeling/">bathroom remodeling</a>, or an <a href="/adus-additions/">ADU builder in San Jose</a>? Start with a free estimate.</p>
+  </div>
+</section>

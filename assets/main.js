@@ -440,6 +440,8 @@ document.addEventListener('click', (e) => {
 (() => {
   const grid = document.getElementById('pf-grid');
   if (!grid) return;
+  // New multipage Projects gallery is handled by multipage.js
+  if (document.getElementById('portfolio')?.hasAttribute('data-portfolio-src')) return;
 
   const tiles = [...grid.querySelectorAll('.pf-tile')];
   const filters = [...document.querySelectorAll('.pf-filter')];

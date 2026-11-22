@@ -1,0 +1,54 @@
+{# Renders Service + FAQ + Breadcrumb JSON-LD for service pages #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ serviceH1 | json | safe }},
+  "description": {{ serviceIntro | json | safe }},
+  "provider": {
+    "@type": "GeneralContractor",
+    "name": {{ site.name | json | safe }},
+    "telephone": {{ site.phoneE164 | json | safe }},
+    "url": "{{ site.domain }}/"
+  },
+  "areaServed": "San Jose, CA"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in faqs %}
+    {
+      "@type": "Question",
+      "name": {{ item.q | json | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.a | striptags | json | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.domain }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ serviceH1 | json | safe }},
+      "item": "{{ site.domain }}{{ page.url }}"
+    }
+  ]
+}
+</script>

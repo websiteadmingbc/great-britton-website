@@ -1,0 +1,1193 @@
+{
+  "_comment": "/*\n  portfolio.json \u2014 edit this file to change the gallery without touching templates.\n\n  categories: ordered list of filter labels. Renaming/reordering/adding here updates\n  Projects page filters and which photos service pages pull (by matching category string).\n\n  featured: optional boolean on any loose photo or project photo. Featured items sort\n  first within their category on Projects and are preferred on service pages.\n\n  projects[].hero: filename of the card image for that project. Change the filename\n  string to swap the card image (file must exist under assets/portfolio/).\n\n  Part 1: all current photos live in \"loose\"; \"projects\" stays empty until the photo log.\n*/",
+  "categories": [
+    "Kitchens",
+    "Bathrooms",
+    "ADUs & Additions",
+    "Exteriors & Roofing",
+    "Commercial"
+  ],
+  "projects": [],
+  "loose": [
+    {
+      "file": "bathroom-remodel-bay-area-01.webp",
+      "jpg": "bathroom-remodel-bay-area-01.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 800,
+      "height": 1066
+    },
+    {
+      "file": "bathroom-remodel-bay-area-02.webp",
+      "jpg": "bathroom-remodel-bay-area-02.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1066,
+      "height": 800
+    },
+    {
+      "file": "bathroom-remodel-bay-area-03.webp",
+      "jpg": "bathroom-remodel-bay-area-03.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "bathroom-remodel-bay-area-04.webp",
+      "jpg": "bathroom-remodel-bay-area-04.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 618,
+      "height": 1100
+    },
+    {
+      "file": "bathroom-remodel-bay-area-05.webp",
+      "jpg": "bathroom-remodel-bay-area-05.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "bathroom-remodel-bay-area-06.webp",
+      "jpg": "bathroom-remodel-bay-area-06.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "bathroom-remodel-bay-area-07.webp",
+      "jpg": "bathroom-remodel-bay-area-07.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "bathroom-remodel-bay-area-08.webp",
+      "jpg": "bathroom-remodel-bay-area-08.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "bathroom-remodel-bay-area-09.webp",
+      "jpg": "bathroom-remodel-bay-area-09.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "bathroom-remodel-bay-area-10.webp",
+      "jpg": "bathroom-remodel-bay-area-10.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 600,
+      "height": 800
+    },
+    {
+      "file": "bathroom-remodel-bay-area-11.webp",
+      "jpg": "bathroom-remodel-bay-area-11.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 600,
+      "height": 800
+    },
+    {
+      "file": "bathroom-remodel-bay-area-12.webp",
+      "jpg": "bathroom-remodel-bay-area-12.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "bathroom-remodel-bay-area-13.webp",
+      "jpg": "bathroom-remodel-bay-area-13.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "bathroom-remodel-bay-area-14.webp",
+      "jpg": "bathroom-remodel-bay-area-14.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "bathroom-remodel-bay-area-15.webp",
+      "jpg": "bathroom-remodel-bay-area-15.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "bathroom-remodel-bay-area-16.webp",
+      "jpg": "bathroom-remodel-bay-area-16.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "bathroom-remodel-bay-area-17.webp",
+      "jpg": "bathroom-remodel-bay-area-17.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "bathroom-remodel-bay-area-18.webp",
+      "jpg": "bathroom-remodel-bay-area-18.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "bathroom-remodel-bay-area-19.webp",
+      "jpg": "bathroom-remodel-bay-area-19.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "file": "bathroom-remodel-bay-area-20.webp",
+      "jpg": "bathroom-remodel-bay-area-20.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "bathroom-remodel-bay-area-21.webp",
+      "jpg": "bathroom-remodel-bay-area-21.jpg",
+      "category": "Bathrooms",
+      "alt": "Bathroom remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1280,
+      "height": 853
+    },
+    {
+      "file": "commercial-construction-bay-area-01.webp",
+      "jpg": "commercial-construction-bay-area-01.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "commercial-construction-bay-area-02.webp",
+      "jpg": "commercial-construction-bay-area-02.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 450,
+      "height": 800
+    },
+    {
+      "file": "commercial-construction-bay-area-03.webp",
+      "jpg": "commercial-construction-bay-area-03.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "commercial-construction-bay-area-04.webp",
+      "jpg": "commercial-construction-bay-area-04.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 450,
+      "height": 800
+    },
+    {
+      "file": "commercial-construction-bay-area-05.webp",
+      "jpg": "commercial-construction-bay-area-05.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "commercial-construction-bay-area-06.webp",
+      "jpg": "commercial-construction-bay-area-06.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 450,
+      "height": 800
+    },
+    {
+      "file": "commercial-construction-bay-area-07.webp",
+      "jpg": "commercial-construction-bay-area-07.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "commercial-construction-bay-area-08.webp",
+      "jpg": "commercial-construction-bay-area-08.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 450,
+      "height": 800
+    },
+    {
+      "file": "commercial-construction-bay-area-09.webp",
+      "jpg": "commercial-construction-bay-area-09.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "commercial-construction-bay-area-10.webp",
+      "jpg": "commercial-construction-bay-area-10.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "commercial-construction-bay-area-11.webp",
+      "jpg": "commercial-construction-bay-area-11.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "commercial-construction-bay-area-12.webp",
+      "jpg": "commercial-construction-bay-area-12.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 450,
+      "height": 800
+    },
+    {
+      "file": "commercial-construction-bay-area-13.webp",
+      "jpg": "commercial-construction-bay-area-13.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "commercial-construction-bay-area-14.webp",
+      "jpg": "commercial-construction-bay-area-14.jpg",
+      "category": "Commercial",
+      "alt": "Commercial construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 450,
+      "height": 800
+    },
+    {
+      "file": "exterior-construction-bay-area-01.webp",
+      "jpg": "exterior-construction-bay-area-01.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "exterior-construction-bay-area-02.webp",
+      "jpg": "exterior-construction-bay-area-02.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "exterior-construction-bay-area-03.webp",
+      "jpg": "exterior-construction-bay-area-03.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "exterior-construction-bay-area-04.webp",
+      "jpg": "exterior-construction-bay-area-04.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "exterior-construction-bay-area-05.webp",
+      "jpg": "exterior-construction-bay-area-05.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 825,
+      "height": 1100
+    },
+    {
+      "file": "exterior-construction-bay-area-06.webp",
+      "jpg": "exterior-construction-bay-area-06.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "file": "exterior-construction-bay-area-07.webp",
+      "jpg": "exterior-construction-bay-area-07.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 640,
+      "height": 896
+    },
+    {
+      "file": "exterior-construction-bay-area-08.webp",
+      "jpg": "exterior-construction-bay-area-08.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 825,
+      "height": 1100
+    },
+    {
+      "file": "exterior-construction-bay-area-09.webp",
+      "jpg": "exterior-construction-bay-area-09.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 640,
+      "height": 896
+    },
+    {
+      "file": "framing-structural-bay-area-01.webp",
+      "jpg": "framing-structural-bay-area-01.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "framing-structural-bay-area-02.webp",
+      "jpg": "framing-structural-bay-area-02.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "framing-structural-bay-area-03.webp",
+      "jpg": "framing-structural-bay-area-03.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "framing-structural-bay-area-04.webp",
+      "jpg": "framing-structural-bay-area-04.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 450,
+      "height": 800
+    },
+    {
+      "file": "framing-structural-bay-area-05.webp",
+      "jpg": "framing-structural-bay-area-05.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "framing-structural-bay-area-06.webp",
+      "jpg": "framing-structural-bay-area-06.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "framing-structural-bay-area-07.webp",
+      "jpg": "framing-structural-bay-area-07.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "framing-structural-bay-area-08.webp",
+      "jpg": "framing-structural-bay-area-08.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "framing-structural-bay-area-09.webp",
+      "jpg": "framing-structural-bay-area-09.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "framing-structural-bay-area-10.webp",
+      "jpg": "framing-structural-bay-area-10.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "framing-structural-bay-area-11.webp",
+      "jpg": "framing-structural-bay-area-11.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "framing-structural-bay-area-12.webp",
+      "jpg": "framing-structural-bay-area-12.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "framing-structural-bay-area-13.webp",
+      "jpg": "framing-structural-bay-area-13.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "framing-structural-bay-area-14.webp",
+      "jpg": "framing-structural-bay-area-14.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "framing-structural-bay-area-15.webp",
+      "jpg": "framing-structural-bay-area-15.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 600,
+      "height": 800
+    },
+    {
+      "file": "framing-structural-bay-area-16.webp",
+      "jpg": "framing-structural-bay-area-16.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 600,
+      "height": 800
+    },
+    {
+      "file": "framing-structural-bay-area-17.webp",
+      "jpg": "framing-structural-bay-area-17.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 600,
+      "height": 800
+    },
+    {
+      "file": "framing-structural-bay-area-18.webp",
+      "jpg": "framing-structural-bay-area-18.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1067,
+      "height": 800
+    },
+    {
+      "file": "framing-structural-bay-area-19.webp",
+      "jpg": "framing-structural-bay-area-19.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1067,
+      "height": 800
+    },
+    {
+      "file": "framing-structural-bay-area-20.webp",
+      "jpg": "framing-structural-bay-area-20.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1067,
+      "height": 800
+    },
+    {
+      "file": "framing-structural-bay-area-21.webp",
+      "jpg": "framing-structural-bay-area-21.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1067,
+      "height": 800
+    },
+    {
+      "file": "framing-structural-bay-area-22.webp",
+      "jpg": "framing-structural-bay-area-22.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1067,
+      "height": 800
+    },
+    {
+      "file": "framing-structural-bay-area-23.webp",
+      "jpg": "framing-structural-bay-area-23.jpg",
+      "category": "ADUs & Additions",
+      "alt": "Framing and ADU-related construction by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "file": "interior-remodel-bay-area-01.webp",
+      "jpg": "interior-remodel-bay-area-01.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1066,
+      "height": 800
+    },
+    {
+      "file": "interior-remodel-bay-area-02.webp",
+      "jpg": "interior-remodel-bay-area-02.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 800,
+      "height": 1066
+    },
+    {
+      "file": "interior-remodel-bay-area-03.webp",
+      "jpg": "interior-remodel-bay-area-03.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1066,
+      "height": 800
+    },
+    {
+      "file": "interior-remodel-bay-area-04.webp",
+      "jpg": "interior-remodel-bay-area-04.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1066,
+      "height": 800
+    },
+    {
+      "file": "interior-remodel-bay-area-05.webp",
+      "jpg": "interior-remodel-bay-area-05.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1066,
+      "height": 800
+    },
+    {
+      "file": "interior-remodel-bay-area-06.webp",
+      "jpg": "interior-remodel-bay-area-06.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1066,
+      "height": 800
+    },
+    {
+      "file": "interior-remodel-bay-area-07.webp",
+      "jpg": "interior-remodel-bay-area-07.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 450,
+      "height": 800
+    },
+    {
+      "file": "interior-remodel-bay-area-08.webp",
+      "jpg": "interior-remodel-bay-area-08.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "interior-remodel-bay-area-09.webp",
+      "jpg": "interior-remodel-bay-area-09.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 450,
+      "height": 800
+    },
+    {
+      "file": "interior-remodel-bay-area-10.webp",
+      "jpg": "interior-remodel-bay-area-10.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "interior-remodel-bay-area-11.webp",
+      "jpg": "interior-remodel-bay-area-11.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "interior-remodel-bay-area-12.webp",
+      "jpg": "interior-remodel-bay-area-12.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "interior-remodel-bay-area-13.webp",
+      "jpg": "interior-remodel-bay-area-13.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1200,
+      "height": 1600
+    },
+    {
+      "file": "interior-remodel-bay-area-14.webp",
+      "jpg": "interior-remodel-bay-area-14.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "interior-remodel-bay-area-15.webp",
+      "jpg": "interior-remodel-bay-area-15.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "interior-remodel-bay-area-16.webp",
+      "jpg": "interior-remodel-bay-area-16.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "interior-remodel-bay-area-17.webp",
+      "jpg": "interior-remodel-bay-area-17.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "interior-remodel-bay-area-18.webp",
+      "jpg": "interior-remodel-bay-area-18.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "interior-remodel-bay-area-19.webp",
+      "jpg": "interior-remodel-bay-area-19.jpg",
+      "category": "unsorted",
+      "alt": "Construction project photo by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "kitchen-interior-bay-area-about.webp",
+      "jpg": "kitchen-interior-bay-area-about.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 960,
+      "height": 1280
+    },
+    {
+      "file": "kitchen-remodel-bay-area-01.webp",
+      "jpg": "kitchen-remodel-bay-area-01.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 512,
+      "height": 288
+    },
+    {
+      "file": "kitchen-remodel-bay-area-02.webp",
+      "jpg": "kitchen-remodel-bay-area-02.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1066,
+      "height": 800
+    },
+    {
+      "file": "kitchen-remodel-bay-area-03.webp",
+      "jpg": "kitchen-remodel-bay-area-03.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "kitchen-remodel-bay-area-04.webp",
+      "jpg": "kitchen-remodel-bay-area-04.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 618
+    },
+    {
+      "file": "kitchen-remodel-bay-area-05.webp",
+      "jpg": "kitchen-remodel-bay-area-05.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "kitchen-remodel-bay-area-06.webp",
+      "jpg": "kitchen-remodel-bay-area-06.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 619,
+      "height": 1100
+    },
+    {
+      "file": "kitchen-remodel-bay-area-07.webp",
+      "jpg": "kitchen-remodel-bay-area-07.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "kitchen-remodel-bay-area-08.webp",
+      "jpg": "kitchen-remodel-bay-area-08.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "kitchen-remodel-bay-area-09.webp",
+      "jpg": "kitchen-remodel-bay-area-09.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 640,
+      "height": 480
+    },
+    {
+      "file": "kitchen-remodel-bay-area-10.webp",
+      "jpg": "kitchen-remodel-bay-area-10.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 320,
+      "height": 240
+    },
+    {
+      "file": "kitchen-remodel-bay-area-11.webp",
+      "jpg": "kitchen-remodel-bay-area-11.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 640,
+      "height": 480
+    },
+    {
+      "file": "kitchen-remodel-bay-area-12.webp",
+      "jpg": "kitchen-remodel-bay-area-12.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 640,
+      "height": 480
+    },
+    {
+      "file": "kitchen-remodel-bay-area-13.webp",
+      "jpg": "kitchen-remodel-bay-area-13.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 640,
+      "height": 480
+    },
+    {
+      "file": "kitchen-remodel-bay-area-14.webp",
+      "jpg": "kitchen-remodel-bay-area-14.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 800,
+      "height": 600
+    },
+    {
+      "file": "kitchen-remodel-bay-area-15.webp",
+      "jpg": "kitchen-remodel-bay-area-15.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 480,
+      "height": 360
+    },
+    {
+      "file": "kitchen-remodel-bay-area-16.webp",
+      "jpg": "kitchen-remodel-bay-area-16.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 640,
+      "height": 480
+    },
+    {
+      "file": "kitchen-remodel-bay-area-17.webp",
+      "jpg": "kitchen-remodel-bay-area-17.jpg",
+      "category": "Kitchens",
+      "alt": "Kitchen remodel by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 950,
+      "height": 533
+    },
+    {
+      "file": "roofing-project-bay-area-01.webp",
+      "jpg": "roofing-project-bay-area-01.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-02.webp",
+      "jpg": "roofing-project-bay-area-02.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-03.webp",
+      "jpg": "roofing-project-bay-area-03.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-04.webp",
+      "jpg": "roofing-project-bay-area-04.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-05.webp",
+      "jpg": "roofing-project-bay-area-05.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-06.webp",
+      "jpg": "roofing-project-bay-area-06.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-07.webp",
+      "jpg": "roofing-project-bay-area-07.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-08.webp",
+      "jpg": "roofing-project-bay-area-08.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-09.webp",
+      "jpg": "roofing-project-bay-area-09.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-10.webp",
+      "jpg": "roofing-project-bay-area-10.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-11.webp",
+      "jpg": "roofing-project-bay-area-11.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-12.webp",
+      "jpg": "roofing-project-bay-area-12.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-13.webp",
+      "jpg": "roofing-project-bay-area-13.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 1100,
+      "height": 619
+    },
+    {
+      "file": "roofing-project-bay-area-14.webp",
+      "jpg": "roofing-project-bay-area-14.jpg",
+      "category": "Exteriors & Roofing",
+      "alt": "Exterior and roofing work by Great Britton Construction",
+      "stage": "after",
+      "featured": false,
+      "width": 825,
+      "height": 1100
+    }
+  ]
+}

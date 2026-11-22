@@ -1,0 +1,183 @@
+---
+layout: base.njk
+title: "Kitchen & Bath Remodels in San Jose | Great Britton"
+description: "Kitchen and bath remodeling in San Jose and across the Bay Area. Licensed General B contractor CSLB #1025488. Free estimates: (510) 432-8461."
+permalink: /
+includeReviewsWidget: true
+navSection: home
+---
+
+<section class="hero hero-redesign" id="hero">
+  <div class="container hero-stage">
+    <div class="hero-copy">
+      <div class="eyebrow">Licensed Bay Area GC</div>
+      <h1 class="hero-title">
+        <span class="hero-line">Kitchen &amp; Bath</span>
+        <span class="hero-line"><em>Remodeling in</em></span>
+        <span class="hero-line">San Jose.</span>
+      </h1>
+      <p class="hero-desc">Remodels, ADUs and additions from the South Bay to the East Bay. One San Jose main office handles every estimate, contract and schedule.</p>
+      <div class="actions">
+        <a class="btn outline" href="tel:{{ site.phoneTel }}">Call {{ site.phoneDisplay }}</a>
+        <a class="btn" href="/contact/">Request a Free Estimate</a>
+      </div>
+    </div>
+    <div class="area-check" id="area-check">
+      <p class="area-check-label">Do we build in your area?</p>
+      <form action="/contact/" class="area-check-row" id="area-check-form" method="get">
+        <input aria-label="City or ZIP" autocomplete="address-level2" id="area-query" name="area" placeholder="City or ZIP" type="text"/>
+        <button class="btn" type="submit">Check</button>
+      </form>
+      <div aria-label="Areas we service" class="area-check-chips">
+        <span class="area-check-chips-label">We serve</span>
+        <div class="area-check-chips-list">
+          <button data-area="San Francisco" type="button">San Francisco</button>
+          <button data-area="San Mateo County, Bay side" type="button">Peninsula</button>
+          <button data-area="San Mateo County, coast" type="button">Coastside</button>
+          <button data-area="Santa Clara County" type="button">Santa Clara</button>
+          <button data-area="Santa Cruz County" type="button">Santa Cruz</button>
+        </div>
+      </div>
+      <div aria-live="polite" class="area-check-result" hidden id="area-check-result"></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip" aria-label="Company highlights">
+  <div class="container trust-strip-grid">
+    <div class="trust-item"><strong>{{ site.license }}</strong><span>Licensed · <a class="cslb-link" href="{{ site.licenseUrl }}" rel="noopener" target="_blank">Verify ↗</a></span></div>
+    <div class="trust-item"><strong>1 point of contact</strong><span>San Jose runs every project</span></div>
+    <div class="trust-item"><strong>2 locations</strong><span>San Jose · Alameda / East Bay</span></div>
+    <div class="trust-item"><strong>Free consultation</strong><span>Written estimate up front</span></div>
+  </div>
+</div>
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">Our capabilities</div>
+        <h2>Built for the<br/>complex work.</h2>
+      </div>
+      <p>We focus on the projects homeowners plan most — kitchens, bathrooms and ADUs — with framing, foundation and engineering experience behind every job.</p>
+    </div>
+    <div class="services-grid home-services">
+      <a class="service service-link" href="/kitchen-remodeling/">
+        <div class="service">
+          <span class="num">REMODELING</span><span class="symbol">✦</span>
+          <h3>Kitchen Remodels</h3>
+          <p>Layout changes, cabinetry, counters, flooring and full kitchen renovations.</p>
+        </div>
+        <span class="service-cta">Learn more about kitchens</span>
+      </a>
+      <a class="service service-link" href="/bathroom-remodeling/">
+        <div class="service">
+          <span class="num">REMODELING</span><span class="symbol">◇</span>
+          <h3>Bathroom Remodels</h3>
+          <p>Showers, tile, vanities and complete primary and guest bath renovations.</p>
+        </div>
+        <span class="service-cta">Learn more about bathrooms</span>
+      </a>
+      <a class="service service-link" href="/adus-additions/">
+        <div class="service">
+          <span class="num">NEW SPACE</span><span class="symbol">⌂</span>
+          <h3>ADUs &amp; Additions</h3>
+          <p>Accessory dwelling units, garage conversions and home additions, from site coordination to finish.</p>
+        </div>
+        <span class="service-cta">Learn more about ADUs</span>
+      </a>
+      <a class="service service-link" href="/contact/">
+        <div class="service">
+          <span class="num">YOUR NEXT PROJECT</span>
+          <h3>Let's Build.</h3>
+          <p>Tell us about your project and get a free consult and written estimate.</p>
+        </div>
+        <span class="service-cta">Request an estimate</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section home-teaser" id="projects">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">Projects</div>
+        <h2>Work across the Bay Area.</h2>
+      </div>
+      <p>Browse kitchen, bathroom, ADU, exterior and commercial photos from our portfolio.</p>
+    </div>
+    {% set teaserPhotos = portfolio | photosForCategory('Kitchens', 3) %}
+    {% include "photo-grid.njk" %}
+    <p class="home-teaser-link"><a href="/projects/">See all remodeling projects</a></p>
+  </div>
+</section>
+
+<section class="section home-teaser" id="about">
+  <div class="container about-grid">
+    <div class="about-image" role="img" aria-label="Great Britton kitchen remodel interior"></div>
+    <div>
+      <div class="eyebrow">About</div>
+      <h2>Strong foundations.<br/><span style="color:var(--gold)">Higher standards.</span></h2>
+      <p>Great Britton Construction brings craftsmanship, clear communication and coordinated execution to residential and commercial projects — from the South Bay to the East Bay.</p>
+      <p><a href="/about/">Learn how we work and why homeowners choose GBC</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section home-teaser" id="why-great-britton">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">Why Great Britton</div>
+        <h2>Licensed. Coordinated. Local.</h2>
+      </div>
+      <p>{{ site.license }} · one San Jose point of contact · East Bay crews in Alameda. <a href="/about/#why-great-britton">Why choose GBC</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section home-teaser" id="our-process">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">How we work</div>
+        <h2>From idea to completion.</h2>
+      </div>
+      <p>Consultation, estimate, build and walkthrough — with three ways to start. <a href="/about/#our-process">See our process</a> · <a href="/about/#how-we-work">Two locations</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section home-teaser" id="how-we-work" hidden>
+  <div class="container"><p><a href="/about/#how-we-work">How we work — San Jose and Alameda</a></p></div>
+</section>
+
+<section class="section gbc-live-proof" id="reviews" aria-labelledby="gbc-live-proof-title">
+  <div class="container">
+    <div class="gbc-live-proof-heading sectionhead">
+      <div>
+        <div class="eyebrow">Customer feedback</div>
+        <h2 id="gbc-live-proof-title">What our customers<br/><span style="color:#d8ad43">are saying.</span></h2>
+      </div>
+      <p>Hear from customers on Yelp. Browse recent feedback and get in touch when you're ready to start.</p>
+    </div>
+    <div class="gbc-live-proof-feed">
+      <div class="gbc-live-proof-label">Yelp customer reviews <span aria-hidden="true">↗</span></div>
+      <div class="sk-ww-reviews" data-embed-id="{{ site.reviewsEmbedId }}"></div>
+      <p class="gbc-live-proof-fallback">Reviews not loading? <a href="{{ site.yelpUrl }}" rel="noopener noreferrer" target="_blank">Read them directly on Yelp.</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2>Tell us about<br/><span style="color:var(--gold)">your project.</span></h2>
+      <p class="contact-promise">Every request goes to our main office in San Jose, which handles estimates, meetings, contracts and scheduling for all our projects — South Bay and East Bay.</p>
+      {% include "contact-form.njk" %}
+    </div>
+    {% include "contact-aside.njk" %}
+  </div>
+</section>

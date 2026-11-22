@@ -1,0 +1,23 @@
+{# Expects: photos (array), optional heading #}
+{% if photos and photos.length %}
+<div class="service-photo-grid">
+  {% for photo in photos %}
+  <figure class="service-photo">
+    <picture>
+      <source type="image/webp" srcset="/assets/portfolio/{{ photo.file }}"/>
+      <img
+        src="/assets/portfolio/{{ photo.jpg or photo.file }}"
+        alt="{{ photo.alt }}"
+        {% if photo.width %}width="{{ photo.width }}"{% endif %}
+        {% if photo.height %}height="{{ photo.height }}"{% endif %}
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+    {% if photo.projectSlug %}
+    <figcaption><a href="/projects/#project-{{ photo.projectSlug }}">{{ photo.projectTitle or 'View project' }}</a></figcaption>
+    {% endif %}
+  </figure>
+  {% endfor %}
+</div>
+{% endif %}

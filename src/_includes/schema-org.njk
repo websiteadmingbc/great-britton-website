@@ -1,0 +1,35 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "{{ site.name }}",
+  "url": "{{ site.domain }}/",
+  "telephone": "{{ site.phoneE164 }}",
+  "image": "{{ site.domain }}{{ site.ogImage }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ site.address.street }}",
+    "addressLocality": "{{ site.address.city }}",
+    "addressRegion": "{{ site.address.region }}",
+    "postalCode": "{{ site.address.postal }}",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {% for city in site.southBayCities %}
+    { "@type": "City", "name": "{{ city }}" }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ],
+  "description": "Kitchen and bath remodeling, ADUs, additions and general contracting in the Bay Area.",
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "identifier": "{{ site.license }}"
+  },
+  "sameAs": [
+    "{{ site.yelpUrl }}"
+    {% if site.sameAs.googleBusiness and site.sameAs.googleBusiness != "TODO" %}, "{{ site.sameAs.googleBusiness }}"{% endif %}
+    {% if site.sameAs.houzz and site.sameAs.houzz != "TODO" %}, "{{ site.sameAs.houzz }}"{% endif %}
+    {% if site.sameAs.nextdoor and site.sameAs.nextdoor != "TODO" %}, "{{ site.sameAs.nextdoor }}"{% endif %}
+  ]
+}
+</script>
+{# TODO: sameAs Google Business Profile, Houzz, and Nextdoor URLs when provided #}

@@ -1,0 +1,40 @@
+{
+  "name": "Great Britton Construction",
+  "domain": "https://greatbrittongc.com",
+  "phoneDisplay": "(510) 432-8461",
+  "phoneTel": "5104328461",
+  "phoneE164": "+1-510-432-8461",
+  "email": null,
+  "address": {
+    "street": "205 E Alma, Unit B4",
+    "city": "San Jose",
+    "region": "CA",
+    "postal": "95112"
+  },
+  "license": "CSLB #1025488",
+  "licenseUrl": "https://www.cslb.ca.gov/onlineservices/checklicenseII/LicenseDetail.aspx?LicNum=1025488",
+  "formAction": "https://formspree.io/f/xljjpyda",
+  "ga4": "G-SYZH6MG8EP",
+  "clarity": "z6wr6sxnf8",
+  "reviewsEmbedId": "25728763",
+  "yelpUrl": "https://www.yelp.com/biz/great-britton-construction-san-jose",
+  "ogImage": "/assets/portfolio/kitchen-remodel-bay-area-01.jpg",
+  "sameAs": {
+    "yelp": "https://www.yelp.com/biz/great-britton-construction-san-jose",
+    "googleBusiness": "TODO",
+    "houzz": "TODO",
+    "nextdoor": "TODO"
+  },
+  "southBayCities": [
+    "San Jose",
+    "Santa Clara",
+    "Sunnyvale",
+    "Cupertino",
+    "Mountain View",
+    "Los Altos",
+    "Campbell",
+    "Saratoga",
+    "Los Gatos",
+    "Milpitas"
+  ]
+}

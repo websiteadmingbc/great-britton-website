@@ -1,0 +1,19 @@
+<div class="phones">
+  <div class="label">Main office · all projects</div>
+  <a href="tel:{{ site.phoneTel }}">{{ site.phoneDisplay }}</a>
+  <div class="label">Address</div>
+  <p>
+    <a class="contact-address" href="https://maps.google.com/?q=205+E+Alma+Unit+B4,+San+Jose,+CA+95112" rel="noopener" target="_blank">
+      {{ site.address.street }}<br/>{{ site.address.city }}, {{ site.address.region }} {{ site.address.postal }}
+    </a>
+  </p>
+  <div class="label">License</div>
+  <p>
+    <strong style="color:#d8ad43">{{ site.license }}</strong> · General B<br/>
+    <a class="cslb-link inline" href="{{ site.licenseUrl }}" rel="noopener" target="_blank">Verify with CSLB ↗</a>
+  </p>
+  <div class="eastbay-note">
+    <strong>East Bay office · Alameda</strong>
+    Home base for our East Bay crews. East Bay projects are quoted, contracted and scheduled through the main office above.
+  </div>
+</div>

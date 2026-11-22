@@ -1,0 +1,142 @@
+{# Shared service page body. Expects service* front matter vars. #}
+<section class="inner-hero service-hero">
+  <div class="container">
+    <div class="eyebrow">{{ serviceEyebrow }}</div>
+    <h1>{{ serviceH1 }}</h1>
+    <p>{{ serviceIntro }}</p>
+    <div class="actions">
+      <a class="btn" href="/contact/">Free Estimate</a>
+      <a class="btn outline" href="tel:{{ site.phoneTel }}">{{ site.phoneDisplay }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">What's included</div>
+        <h2>{{ includedHeading }}</h2>
+      </div>
+      <p>{{ includedIntro }}</p>
+    </div>
+    <ul class="included-list">
+      {% for item in includedItems %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section services" style="background:#111415">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">Recent work</div>
+        <h2>{{ photosHeading }}</h2>
+      </div>
+      <p><a href="/projects/">Browse the full projects gallery</a></p>
+    </div>
+    {% set photos = portfolio | photosForCategory(photoCategory, 6) %}
+    {% include "photo-grid.njk" %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">Our process</div>
+        <h2>From idea to completion.</h2>
+      </div>
+      <p>Design with us, bring your own designer, or come with plans ready. <a href="/about/#our-process">See the full process on About</a>.</p>
+    </div>
+    <div class="process-summary-grid">
+      <article><b>01</b><h3>Free consultation</h3><p>Tell us about your goals, location, scope and timing.</p></article>
+      <article><b>02</b><h3>Written estimate</h3><p>We review scope, materials and scheduling, then prepare a written estimate.</p></article>
+      <article><b>03</b><h3>Build &amp; walkthrough</h3><p>Our crew completes the work; we wrap up with a final walkthrough.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#181b1b">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">Investment</div>
+        <h2>Typical cost range</h2>
+      </div>
+    </div>
+    <p class="todo-callout"><strong>TODO: cost range</strong> — Add typical kitchen/bath/ADU cost ranges once GBC provides numbers. Do not invent pricing.</p>
+  </div>
+</section>
+
+<section class="gb-why section" id="why-great-britton">
+  <div class="container">
+    <div class="gb-why-heading">
+      <div>
+        <div class="eyebrow">Why Choose Great Britton</div>
+        <h2>Built on quality.<br/><span>Driven by integrity.</span></h2>
+      </div>
+      <p>Licensed General B contractor {{ site.license }}. One San Jose main office coordinates every estimate, schedule and update.</p>
+    </div>
+    <div class="gb-why-grid">
+      <article class="gb-why-card">
+        <span class="gb-why-icon" aria-hidden="true">✓</span>
+        <h3>Licensed General Contractor</h3>
+        <p>General B · {{ site.license }}. <a href="{{ site.licenseUrl }}" rel="noopener noreferrer" target="_blank">Verify our license</a>.</p>
+      </article>
+      <article class="gb-why-card">
+        <span class="gb-why-icon" aria-hidden="true">↗</span>
+        <h3>One point of contact</h3>
+        <p>Our main office helps coordinate estimates, schedules, communication and project progress from start to finish.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section review-section">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">Reviews</div>
+        <h2>{{ reviewsHeading }}</h2>
+      </div>
+      <p><a href="{{ site.yelpUrl }}" rel="noopener noreferrer" target="_blank">Read more on Yelp</a></p>
+    </div>
+    <p class="todo-callout"><strong>TODO: service-specific reviews</strong> — Quote 2–3 existing Yelp reviews that mention {{ serviceShort }} once you provide exact text. Site currently embeds live reviews via SociableKIT; no static quotes are stored in the repo.</p>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container">
+    <div class="sectionhead">
+      <div>
+        <div class="eyebrow">FAQ</div>
+        <h2>Common questions</h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      {% for item in faqs %}
+      <details class="faq-item">
+        <summary>{{ item.q }}</summary>
+        <div class="faq-a">{{ item.a | safe }}</div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "cta-band.njk" %}
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Free estimate</div>
+      <h2>Start your {{ serviceShort }} project.</h2>
+      <p class="contact-promise">Every request goes to our San Jose main office.</p>
+      {% include "contact-form.njk" %}
+    </div>
+    {% include "contact-aside.njk" %}
+  </div>
+</section>
